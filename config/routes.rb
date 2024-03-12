@@ -16,7 +16,6 @@ Rails.application.routes.draw do
 
   # routes for pages
   resources :pages
-
   # Defined routes for the restaurants
   resources :restaurants do
     # Nested routes - foods belonging to restaurant
