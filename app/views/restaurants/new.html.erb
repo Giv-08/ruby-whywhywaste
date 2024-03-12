@@ -8,11 +8,12 @@
     <%= simple_form_for(@restaurant) do |f| %>
       <%= f.input :name%>
       <%= f.input :cuisine %>
-      <%= f.input :location %>
+      <%= f.input :address %>
       <%= f.input :phone_no %>
       <%= f.input :email %>
       <%= f.input :rating %>
-      <%= f.input :pickup_time %>
+      <%= f.input :pickup_start %>
+      <%= f.input :pickup_end %>
       <%= f.input :photo, as: :file %>
       <%= f.submit class:"btn btn-success"%>
     <% end %>
