@@ -1,9 +1,4 @@
 class FoodsController < ApplicationController
-  def show
-    @restaurant = Restaurant.find(params[:restaurant_id])
-    @food = Food.find(params[:id])
-  end
-
   def index
     @foods = Food.all
   end
@@ -26,10 +21,9 @@ class FoodsController < ApplicationController
     end
   end
 
-  def destroy
-    @food = food.find(params[:id])
-    @food.destroy
-    redirect_to foods_path, status: :see_other
+  def show
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @food = Food.find(params[:id])
   end
 
   def edit
@@ -43,9 +37,15 @@ class FoodsController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def destroy
+    @food = food.find(params[:id])
+    @food.destroy
+    redirect_to foods_path, status: :see_other
+  end
+
   private
 
   def food_params
-    params.require(:food).permit(:status, :restaurant_id, :user_id)
+    params.require(:food).permit(:food_name, :food_price, :food_description, :allergen, :food_quantity, :restaurant_id, :user_id)
   end
 end
