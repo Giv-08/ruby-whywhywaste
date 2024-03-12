@@ -9,9 +9,9 @@ class FoodsController < ApplicationController
   end
 
   def create
-    @food = food.new(food_params)
-    @food.status = "pending"
     @restaurant = Restaurant.find(params[:restaurant_id])
+    @food = Food.new(food_params)
+    # @food.status = "pending"
     # @food.restaurant = @restaurant
     # @food.user = current_user
     if @food.save
@@ -28,17 +28,17 @@ class FoodsController < ApplicationController
 
   def edit
     @restaurant = restaurant.find(params[:restaurant_id])
-    @food = food.find(params[:id])
+    @food = Food.find(params[:id])
   end
   # patch /foods/:id
   def update
-    @food = food.find(params[:id])
+    @food = Food.find(params[:id])
     @food.update(food_params)
     redirect_to dashboard_path
   end
 
   def destroy
-    @food = food.find(params[:id])
+    @food = Food.find(params[:id])
     @food.destroy
     redirect_to foods_path, status: :see_other
   end
