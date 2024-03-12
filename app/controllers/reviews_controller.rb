@@ -14,4 +14,8 @@ class ReviewsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+  def review_params
+    params.require(:review).permit(:content, :restaurant_id, :user_id)
+  end
 end
