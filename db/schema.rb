@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_12_034124) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_12_044816) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -48,13 +48,22 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_12_034124) do
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
     t.string "cuisine"
-    t.string "location"
     t.string "phone_no"
-    t.string "email"
     t.integer "rating"
-    t.datetime "pickup_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "pickup_start"
+    t.datetime "pickup_end"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
+    t.index ["email"], name: "index_restaurants_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_restaurants_on_reset_password_token", unique: true
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -78,7 +87,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_12_034124) do
     t.string "first_name"
     t.string "last_name"
     t.string "phone_no"
-    t.string "location"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
