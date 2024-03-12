@@ -5,9 +5,9 @@ class ApplicationController < ActionController::Base
   private
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :phone_no])
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :phone_no, :name, :cuisine, :phone_no, :rating, :email, :address, :pickup_start, :pickup_end ])
   end
-
+  
 
   def authenticate_user_or_restaurant
     unless user_signed_in? || restaurant_signed_in?
