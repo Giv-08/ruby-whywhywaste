@@ -1,18 +1,26 @@
+<%# food form %>
 <div class="d-flex justify-content-center">
-  <div class="form-wrap border border-warning m-5" style="width: 35rem;">
-  <br>
-  <h2 class="text-center dashboard-heading">Add food item to the menu</h2>
-
+<div class="form-wrap border border-warning m-5" style="width: 35rem;">
+<br>
+<h1 class="text-center">Add food item to your menu</h1>
+<br>
   <div class="form m-5 ml-5">
-    <%= simple_form_for[@restaurant, @food] do |f| %>
-      <%= f.input :food_name%>
-      <%= f.input :food_price %>
-      <%= f.input :food_description %>
+    <%= simple_form_for [@restaurant, @food] do |f| %>
+      <%= f.input :name%>
+      <%= f.input :price %>
+      <%= f.input :description %>
       <%= f.input :allergen%>
-      <%= f.input :food_quantity %>
+      <%= f.input :quantity %>
+      <%= f.association :restaurant %>
       <%= f.input :photo, as: :file %>
       <%= f.submit class:"btn btn-success"%>
     <% end %>
   </div>
-  </div>
+</div>
+</div>
+<%# button %>
+<div class="button-container">
+  <div class="btn d-flex justify-content-center">
+  <span ><%= link_to "Back to home", root_path, class: "button-positive" %></span>
+    </div>
 </div>
