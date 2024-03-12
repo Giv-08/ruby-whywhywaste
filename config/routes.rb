@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     # Nested routes - foods belonging to restaurant
     resources :foods
     # Nested routes - reviews belonging to restaurant
-    resources :reviews, only: [:index, :create]
+    resources :reviews, only: [:index, :create, :new]
     # Nested routes - orders related to a specific restaurant
     resources :orders, only: [:index, :create]
   end
