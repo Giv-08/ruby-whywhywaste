@@ -78,4 +78,3 @@ end
 
 # cloudinary
 gem "dotenv-rails"
-gem "cloudinary"

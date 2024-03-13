@@ -22,12 +22,12 @@
     <%# EACH CARD OF RESTUARANT %>
     <%= link_to restaurant_path(restaurant) do %>
       <div class="card-product restaurants-main-card">
-        <div class="card-img">
-          <% if restaurant.photo.attached? %>
-            <%= cl_image_tag(restaurant.photo.key, width:200, height:200, class: "object-fit-cover", crop: :fill, gravity: :face) %>
-          <% else %>
-            <p>No images available for <%= restaurant.name %></p>
-          <% end %>
+        <%# <div class="card-img"> %>
+          <%# <% if restaurant.photo.attached? %>
+            <%# <%= image_tag url_for(restaurant.photo), width:200, height:200, class: "object-fit-cover" %>
+          <%# <% else %>
+            <%# <p>No images available for <%= restaurant.name</p> %>
+          <%# <% end %>
         </div>
         <h5><%= restaurant.name %></h5>
         <p><%= restaurant.cuisine %></p>
