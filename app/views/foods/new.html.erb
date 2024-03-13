@@ -1,9 +1,9 @@
 <%# food form %>
 <div class="d-flex justify-content-center">
-<div class="form-wrap border border-warning m-5" style="width: 35rem;">
-<br>
-<h1 class="text-center">Add food item to your menu</h1>
-<br>
+  <div class="form-wrap border border-warning m-5" style="width: 35rem;">
+  <br>
+  <h2 class="text-center dashboard-heading">Add food item to restaurant menu</h2>
+
   <div class="form m-5 ml-5">
     <%= simple_form_for [@restaurant, @food] do |f| %>
       <%= f.input :name%>
@@ -11,7 +11,7 @@
       <%= f.input :description %>
       <%= f.input :allergen%>
       <%= f.input :quantity %>
-      <%= f.association :restaurant %>
+       <%= f.association :restaurant %>
       <%= f.input :photo, as: :file %>
       <%= f.submit class:"btn btn-success"%>
     <% end %>

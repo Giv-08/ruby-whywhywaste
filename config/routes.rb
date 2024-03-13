@@ -27,6 +27,9 @@ Rails.application.routes.draw do
     resources :orders, only: [:index, :create]
   end
 
+  get '/search', to: 'search#list', as: :search
+  get '/search/map', to: 'search#map', as: :search_map
+
   # Defines the root path route ("/")
   # root "posts#index"
 end
