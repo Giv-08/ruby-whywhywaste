@@ -2,7 +2,10 @@
 <h3>Favourite restaurants</h3>
 <ul>
   <% @restaurants.each do |restaurant| %>
-    <li><%= restaurant.name %></li>
+    <li> <%= restaurant.name %></li>
+    <li> <%= restaurant.phone_no %></li>
+    <li> <%= restaurant.address %></li>
+    <br>
   <% end %>
 </ul>
 
