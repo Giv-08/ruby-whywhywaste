@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @restaurant = Restaurant.find(params[:restaurant_id])
     @review = Review.new
@@ -7,9 +9,12 @@ class ReviewsController < ApplicationController
   def create
     # @review.user = current_user
     @review = Review.new(review_params)
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @review.restaurant = @restaurant
+    @review.user = current_user
     # @restaurant = Restaurant.find(params[:restaurant_id])
     if @review.save
-      redirect_to restaurants_path_, notice: "review created successfully"
+      redirect_to restaurant_path(@restaurant), notice: "review created successfully"
     else
       render :new, status: :unprocessable_entity
     end
