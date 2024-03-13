@@ -1,0 +1,12 @@
+<h1><%= @restaurant.name %>'s menu</h1>
+
+<%# card for each food items %>
+<ul>
+  <% @restaurants.each do |restaurant| %>
+    <li>Food item : <%= restaurant.name %> </li>
+    <li>Price : $ <%= restaurant. %> </li>
+    <li>Description : <%= restaurant.description %> </li>
+    <li>Quantity : <%= restaurant.quantity %> </li>
+  <br>
+  <% end %>
+</ul>
