@@ -35,3 +35,39 @@
 <%= link_to 'Add more food item', new_restaurant_food_path(@restaurant), class: 'btn-positive' %>
 <%= link_to 'Confirm list', new_restaurant_food_path(@restaurant), class: 'btn-positive mt-3' %>
 </div>
+
+<div class="container restaurant-info">
+  <ul>
+      <li>Restaurant name : <%= @restaurant.name %> </li>
+      <li>Cuisine : <%= @restaurant.cuisine %> </li>
+      <li>Phone no : <%= @restaurant.phone_no %> </li>
+      <li>Rating : <%= @restaurant.rating %> </li>
+  </ul>
+</div>
+<hr>
+
+<h3>Menu:</h3>
+
+<%# IF STATEMENT - list items, else say its empty %>
+<%# <div class="container"> %>
+  <%# <div class="card food-items-card"> %>
+  <%# list all food items %>
+    <%# <% if @restaurant.foods.any? %>
+      <%# <%= @restaurant.foods.each do |food| %>
+      <%# <% end %>
+    <%# <% else %>
+      <%# <p>Your menu is empty</p> %>
+    <%# <% end %>
+  <%# </div> %>
+<%# </div> %>
+
+
+<h2> review </h2>
+<%= link_to 'create_a_review', new_restaurant_review_path(@restaurant) %>
+
+<ul>
+  <% @restaurant.reviews.each do |review| %>
+    <li><%= review.content %></li>
+  <% end %>
+</ul>
+

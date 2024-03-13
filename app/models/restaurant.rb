@@ -3,6 +3,10 @@ class Restaurant < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
   has_many :foods, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   # has_many :orders, dependent: :destroy
+
+  has_one_attached :photo
 end
