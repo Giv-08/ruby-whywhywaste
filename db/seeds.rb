@@ -7,8 +7,13 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+Food.destroy_all
+OrderLine.destroy_all
+Order.destroy_all
+Review.destroy_all
 User.destroy_all
 Restaurant.destroy_all
+
 restaurant = Restaurant.new(
   name: "La Tour d'Argent",
   cuisine: "Italian",
@@ -16,9 +21,9 @@ restaurant = Restaurant.new(
   phone_no: "0000111122",
   email: "latour@gmail.com",
   rating: "3",
-  # pickup_time: DateTime.today.change({ hour: 17 })
   pickup_start: "2024-03-12 06:25:00",
-  pickup_end: "2024-03-12 07:25:00"
+  pickup_end: "2024-03-12 07:25:00",
+  password: "latour@gmail.com"
 )
 restaurant.save
 
@@ -29,8 +34,53 @@ restaurant2 = Restaurant.new(
   phone_no: "444466666",
   email: "magic@gmail.com",
   rating: "5",
-  # pickup_time: DateTime.today.change({ hour: 17 })
   pickup_start: "2024-03-12 08:25:00",
-  pickup_end: "2024-03-12 09:25:00"
+  pickup_end: "2024-03-12 09:25:00",
+  password: "magic@gmail.com"
 )
 restaurant2.save
+
+Food.create!(
+  name: 'Burger',
+  price: 20.33,
+  description: "Burger with beef patty",
+  quantity: 20,
+  restaurant: restaurant
+)
+
+Food.create!(
+  name: 'Pasta',
+  price: 25.00,
+  description: "Spaghetti Bolognese",
+  quantity: 10,
+  restaurant: restaurant2
+)
+
+user1 = User.new(
+  first_name: "manisha",
+  last_name: "parajuli",
+  phone_no: "000111222",
+  email: "manisa@gmail.com",
+  password: "manisa@gmail.com"
+)
+user1.save
+
+user2 = User.new(
+  first_name: "giv",
+  last_name: "chutima",
+  phone_no: "0009999888",
+  email: "giv@gmail.com",
+  password: "giv@gmail.com"
+)
+user2.save
+
+user3 = User.new(
+  first_name: "debbi",
+  last_name: "deb",
+  phone_no: "0009999888",
+  email: "giv@gmail.com",
+  password: "giv@gmail.com"
+)
+user3.save
+
+puts "Success! ✨"

@@ -24,3 +24,13 @@
     <%# <% end %>
   <%# </div> %>
 <%# </div> %>
+
+
+<h2> review </h2>
+<%= link_to 'create_a_review', new_restaurant_review_path(@restaurant) %>
+
+<ul>
+  <% @restaurant.reviews.each do |review| %>
+    <li><%= review.content %></li>
+  <% end %>
+</ul>
