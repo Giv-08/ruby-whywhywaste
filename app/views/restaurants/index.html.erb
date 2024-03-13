@@ -1,5 +1,6 @@
 <h1>Restaurants</h1>
 <h3>Favourite restaurants</h3>
+<%= current_user %>
 <ul>
   <% @restaurants.each do |restaurant| %>
     <li><%= restaurant.name %></li>
