@@ -1,0 +1,14 @@
+.btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+a.btn-positive {
+  width: 190px;
+  background-color: #f8e0a9;
+  text-decoration: none;
+  color: black;
+  border: 1px solid #FFC107;
+  border-radius: 5px;
+}

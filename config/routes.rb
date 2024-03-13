@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   # routes for pages
   resources :pages
   # Defined routes for the restaurants
+  get 'restaurants/dashboard', to: 'restaurants/dashboard#dashboard'
+  get 'users/dashboard', to: 'users/dashboard#dashboard'
   resources :restaurants do
     # Nested routes - foods belonging to restaurant
     resources :foods
