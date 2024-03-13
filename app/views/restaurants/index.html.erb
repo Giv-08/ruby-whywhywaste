@@ -1,13 +1,37 @@
 <h1>Restaurants</h1>
-<h3>Favourite restaurants</h3>
-<ul>
-  <% @restaurants.each do |restaurant| %>
-    <li><%= restaurant.name %></li>
-  <% end %>
-</ul>
 
-<%# SEARCH BAR %>
+<%# SEARCH BAR? OR BUTTON? %>
 
 <%# FAVOURITE RESTAURANT CARDS %>
+<%# cards are viewed randonly? %>
+<h3>Favourite restaurants</h3>
+<div class="card-fav-restaurants">
+</div>
 
-<%# CARDS OF RESTAURANTS - RANDOM restaurant.all %>
+<%# CARDS OF RESTAURANTS %>
+<%# My resgistered restaurant card on top %>
+<%# then random views of restaurants registered on app %>
+<%# cards - click link_to restaurant show pg %>
+<h3>My Restaurant</h3>
+<div>
+</div>
+
+<h3>List of available Restaurants</h3>
+<div class="container mx-auto card-container-restaurants">
+  <% @restaurants.shuffle.each do |restaurant| %>
+    <%# EACH CARD OF RESTUARANT %>
+    <%= link_to restaurant_path(restaurant) do %>
+      <div class="card-product restaurants-main-card">
+        <%# <div class="card-img"> %>
+          <%# <% if restaurant.photo.attached? %>
+            <%# <%= image_tag url_for(restaurant.photo), width:200, height:200, class: "object-fit-cover" %>
+          <%# <% else %>
+            <%# <p>No images available for <%= restaurant.name</p> %>
+          <%# <% end %>
+        </div>
+        <h5><%= restaurant.name %></h5>
+        <p><%= restaurant.cuisine %></p>
+      </div>
+    <% end %>
+  <% end %>
+</div>
