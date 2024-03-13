@@ -14,8 +14,9 @@ class FoodsController < ApplicationController
     # @food.status = "pending"
     @food.restaurant = @restaurant
     # @food.user = current_user
+    @food.restaurant = @restaurant
     if @food.save
-      redirect_to dashboard_path, notice: "food created successfully"
+      redirect_to restaurants_path, notice: "food created successfully"
     else
       render :new, status: :unprocessable_entity
     end
@@ -27,8 +28,8 @@ class FoodsController < ApplicationController
   end
 
   def edit
-    @food = Food.find(params[:id])
     @restaurant = Restaurant.find(params[:restaurant_id])
+    @food = Food.find(params[:id])
   end
 
   # patch /foods/:id

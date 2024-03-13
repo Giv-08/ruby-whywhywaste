@@ -1,14 +1,9 @@
-<h1> Create a review </h1>
- <div class="form m-5 ml-5">
-    <%= simple_form_for[@restaurant, @review] do |f| %>
-      <%= f.input :name%>
-      <%= f.input :cuisine %>
-      <%= f.input :location %>
-      <%= f.input :phone_no %>
-      <%= f.input :email %>
-      <%= f.input :rating %>
-      <%= f.input :pickup_time %>
-      <%= f.input :photo, as: :file %>
+<h1 class="text-center"> Write a review for <%= @restaurant.name %> </h1>
+  <div class="form m-5 ml-5">
+    <%= simple_form_for [@restaurant, @review] do |f| %>
+      <%= f.input :content %>
       <%= f.submit class:"btn btn-success"%>
     <% end %>
   </div>
+
+<%# add rating %>
