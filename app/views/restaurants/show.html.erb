@@ -1,4 +1,4 @@
-<h1 class="show-restaurant-title text-center">Welcome to <%= @restaurant.name %>'s Page</h1>
+<h1 class="show-restaurant-title text-center mt-5">Welcome to <%= @restaurant.name %>'s Page</h1>
 
 <%# <ul class="restaurant-show">
     <li>Restaurant name : <%= @restaurant.name %> </li>
@@ -25,3 +25,7 @@
       </div>
     <% end %>
     <br>
+<div class="btn">
+<%= link_to 'Add more food item', new_restaurant_food_path(@restaurant), class: 'btn-positive' %>
+<%= link_to 'Confirm list', new_restaurant_food_path(@restaurant), class: 'btn-positive mt-3' %>
+</div>
