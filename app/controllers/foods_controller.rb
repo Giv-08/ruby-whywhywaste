@@ -36,7 +36,7 @@ class FoodsController < ApplicationController
   def update
     @food = Food.find(params[:id])
     @food.update(food_params)
-    redirect_to dashboard_path
+    redirect_to restaurant_food_path
   end
 
   def destroy

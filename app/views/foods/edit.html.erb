@@ -1,7 +1,7 @@
 <h1>Edit <%= @food.name %>'s details</h1>
 
 <div class="edit-form">
-      <%= simple_form_for(@food) do |f| %>
+      <%= simple_form_for [@restaurant, @food], method: :patch do |f| %>
       <%= f.input :name %>
       <%= f.input :price %>
       <%= f.input :description %>
