@@ -1,9 +1,12 @@
 <h1 class="show-restaurant-title text-center">Welcome to <%= @restaurant.name %>'s Page</h1>
 
-<ul>
+<ul class="restaurant-show">
     <li>Restaurant name : <%= @restaurant.name %> </li>
     <li>Cuisine : <%= @restaurant.cuisine %> </li>
     <li>Phone no : <%= @restaurant.phone_no %> </li>
     <li>Rating : <%= @restaurant.rating %> </li>
   <br>
 </ul>
+<li>Menu : <% @restaurant.foods.each do |food| %>
+<%= food.name %> </li>
+<% end %>
