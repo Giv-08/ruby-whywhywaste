@@ -1,0 +1,12 @@
+<h1>Cart</h1>
+
+
+<% if @order.order_lines.empty? %>
+  <p>Your cart is currently empty...</p>
+<% else %>
+  <ul>
+    <% @order.order_lines.each do |ol| %>
+      <li><%= ol.quantity %> x <%= ol.food.name %> (<%= ol.food.price %>)</li>
+    <% end %>
+  </ul>
+<% end %>

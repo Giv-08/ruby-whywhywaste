@@ -7,8 +7,13 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+Food.destroy_all
+OrderLine.destroy_all
+Order.destroy_all
+Review.destroy_all
 User.destroy_all
 Restaurant.destroy_all
+
 restaurant = Restaurant.new(
   name: "La Tour d'Argent",
   cuisine: "Italian",
@@ -34,6 +39,22 @@ restaurant2 = Restaurant.new(
   password: "magic@gmail.com"
 )
 restaurant2.save
+
+Food.create!(
+  name: 'Burger',
+  price: 20.33,
+  description: "Burger with beef patty",
+  quantity: 20,
+  restaurant: restaurant
+)
+
+Food.create!(
+  name: 'Pasta',
+  price: 25.00,
+  description: "Spaghetti Bolognese",
+  quantity: 10,
+  restaurant: restaurant2
+)
 
 user1 = User.new(
   first_name: "manisha",
@@ -61,3 +82,5 @@ user3 = User.new(
   password: "giv@gmail.com"
 )
 user3.save
+
+puts "Success! ✨"
