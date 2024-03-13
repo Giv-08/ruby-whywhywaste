@@ -1,0 +1,6 @@
+<h1>Search list</h1>
+<%# TABS (LIST/MAP) %>
+<div class="d-flex align-items-center border">
+  <%= link_to 'List', '#', class: 'btn btn-primary' %>
+  <%= link_to 'Map', search_map_path(query: params[:query]), class: 'btn btn-secondary' %>
+</div>
