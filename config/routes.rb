@@ -25,7 +25,7 @@ Rails.application.routes.draw do
     # Nested routes - orders related to a specific restaurant
     resources :orders, only: [:index, :create]
   end
-
+  get "dashboard", to: "pages#dashboard", as: :dashboard
   # Defines the root path route ("/")
   # root "posts#index"
 end
