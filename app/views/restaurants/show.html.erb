@@ -1,16 +1,17 @@
 <h1 class="show-restaurant-title text-center mt-5">Welcome to <%= @restaurant.name %>'s Page</h1>
 
-<h2 class="text-center">Menu</h2>
-
-  <h2 class="text-center">Menu : </h2>
+<h2 class="text-center">Selected Food items</h2>
   <br>
-
-    <% if @restaurant.foods.empty? %>
+    <% if @published_foods.empty? %>
       <p class="text-center">Your menu is currently empty.</p>
       <p class="text-center">Please use "add more food item" button below to add menus for your restaurant</p>
     <% else %>
-      <% @restaurant.foods.each do |food| %>
+      <% @published_foods.each do |food| %>
         <div class="food-card">
+      <%# add icon %>
+      <%= link_to foods_path do %>
+          <%= image_tag "https://www.svgrepo.com/show/2087/plus.svg", width: 20%>
+            <% end %>
           <div class="card-product-infos">
 
             <% if food.photo.attached? %>
@@ -23,7 +24,7 @@
               <li id="food-price">$<%= food.price %> </li>
               <li id="food-description"><%= food.description %> </li>
               <%# edit icon %>
-              <%= link_to edit_restaurant_food_path(@restaurant) do %>
+              <%= link_to edit_food_path(food) do %>
                 <%= image_tag "https://w7.pngwing.com/pngs/944/137/png-transparent-pen-computer-icons-pen-angle-pencil-black-thumbnail.png", width: 20%>
               <% end %>
             </div>
@@ -31,21 +32,24 @@
         </div>
       <% end %>
     <% end %>
-
 <br>
-
 <div class="btn">
 <%= link_to 'Add more food item', new_restaurant_food_path(@restaurant), class: 'btn-positive' %>
-<%= link_to 'Confirm list', new_restaurant_food_path(@restaurant), class: 'btn-positive mt-3' %>
+<%= link_to 'Publish', restaurants_path, class: 'btn-positive mt-3' , data: { turbo_method: :update }%>
 </div>
 <br>
+
 <h3 class="text-center"><%= @restaurant.name %>'s details</h3>
 <div class="container restaurant-info">
   <ul>
       <li>Restaurant name : <%= @restaurant.name %> </li>
       <li>Cuisine : <%= @restaurant.cuisine %> </li>
       <li>Phone no : <%= @restaurant.phone_no %> </li>
-      <li>Rating : <%= @restaurant.rating %> </li>
+      <div class="d-flex">
+        <li class="d-flex text-center">Rating: <%= @restaurant.rating.to_i.times do %></p>
+          <i class="fa-regular fa-star fa-xs" style="color: #ffba24;"></i>
+        <% end %></li>
+      </div>
   </ul>
 </div>
 <hr>
@@ -65,15 +69,13 @@
   <%# </div> %>
 <%# </div> %>
 
-
-<%# <h2> review </h2>
-<%= link_to 'create_a_review', new_restaurant_review_path(@restaurant) %>
-
 <h3 class="text-center">All reviews for <%= @restaurant.name %>:</h3>
-<div>
+<div class="review-card">
+
 <ul>
   <% @restaurant.reviews.each do |review| %>
-    <li><%= review.content %></li>
+    <li>"<%= review.content %>"</li>
+    <li>From: <%= review.user.first_name%> <%= review.user.last_name%></li>
   <% end %>
 </ul>
 </div>

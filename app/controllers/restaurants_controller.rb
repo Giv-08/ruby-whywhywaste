@@ -20,7 +20,7 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     # @food = Food.find(params[:id])
-    @foods = @restaurant.foods
+    @published_foods = @restaurant.foods.where(published: true)
   end
 
   # def map
@@ -67,6 +67,6 @@ class RestaurantsController < ApplicationController
   private
 
   def restaurant_params
-    params.require(:restaurant).permit(:name, :cuisine, :address, :phone_no, :email, :rating, :pickup_start, :pickup_end, :latitude, :longitude )
+    params.require(:restaurant).permit(:name, :cuisine, :address, :phone_no, :email, :rating, :pickup_start, :pickup_end, :latitude, :longitude, :published )
   end
 end
