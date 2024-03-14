@@ -15,6 +15,8 @@
     <li>Allergen: <%= @food.allergen%></li>
     <li>Quantity: <%= @food.quantity %></li>
 </ul>
-</div>
 
-<%# <%= link_to list_path(list), class: 'nav-btn', data: { turbo_method: :delete } do %> %>
+</div>
+<%= link_to "add to cart", food_order_lines_path(@food), data: { turbo_method: :post } %>
+
+<%# <%= link_to list_path(list), class: 'nav-btn', data: { turbo_method: :delete } do %>

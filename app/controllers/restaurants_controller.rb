@@ -14,12 +14,9 @@ class RestaurantsController < ApplicationController
       @other_restaurants = Restaurant.all
 
     end
-
     # Grab all foods from signed-in restaurant
     @foods = Food.all
   end
-
-
   # def index
   #   if current_user&.restaurant?
   #     # Signed-in restaurant only
