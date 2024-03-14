@@ -4,3 +4,6 @@
   <%= link_to 'List', search_path(query: params[:query]), class: 'btn btn-secondary' %>
   <%= link_to 'Map', '#', class: 'btn btn-primary' %>
 </div>
+<div class="container">
+  <%= render "restaurants/map", markers: @markers %>
+</div>
