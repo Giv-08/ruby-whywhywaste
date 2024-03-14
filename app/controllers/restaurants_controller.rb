@@ -20,7 +20,7 @@ class RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     # @food = Food.find(params[:id])
-    @foods = @restaurant.foods
+    @published_foods = @restaurant.foods.where(published: true)
   end
 
   # def map

@@ -11,9 +11,7 @@ class FoodsController < ApplicationController
   def create
     @restaurant = Restaurant.find(params[:restaurant_id])
     @food = Food.new(food_params)
-    # @food.status = "pending"
     @food.restaurant = @restaurant
-    # @food.user = current_user
     @food.restaurant = @restaurant
     if @food.save
       redirect_to restaurants_path, notice: "food created successfully"
