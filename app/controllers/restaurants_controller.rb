@@ -1,8 +1,6 @@
 class RestaurantsController < ApplicationController
   def index
-
     @restaurants = Restaurant.all
-
 
     # Signed-in restaurant only
     if restaurant_signed_in?
