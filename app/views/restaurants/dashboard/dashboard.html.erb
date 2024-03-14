@@ -1,17 +1,16 @@
-<h1>Restaurant dashboard</h1>
+<h1 class="text-center">Restaurant dashboard</h1>
 
-
-<h2>Published menu</h2>
+<ul class="nav-menu">
+  <li><h2>Published menu</h2></li>
 <%# Loop through all published %>
-<ul>
- <% @published_foods.each do |food| %>
- <li><%= food.name %></li>
- <li><%= food.price %></li>
- <% end %>
- </ul>
- <ul>
+  <ul>
+    <% @published_foods.each do |food| %>
+      <li><%= food.name %></li>
+      <li><%= food.price %></li>
+    <% end %>
+  </ul>
 
-<h2>Your menu (unpublished)</h2>
+<li><h2>Your menu (unpublished)</h2></li>
 <% @unpublished_foods.each do |food| %>
         <div class="food-card">
       <%# add icon %>
@@ -37,11 +36,7 @@
         </div>
       <% end %>
 
- <%# <% @unpublished_foods.each do |food| %>
-  <%# <li><%= food.name  %></li>
-  <%# <li><%= food.price %></li>
- <%# <% end %>
- <%# </ul> %>
+</ul>
 <div class="d-flex justify-content-center flex-column">
 <%= link_to "Help Centre", "#", class: "btn btn-primary" %>
 <%= link_to "Notification", "#", class: "btn btn-primary" %>
