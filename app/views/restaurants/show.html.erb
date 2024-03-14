@@ -14,17 +14,19 @@
       <div class="food-card">
         <div class="card-product-infos">
 
-          <%# <%= cl_image_tag food.photo.key, height: 180, width: 150, crop: :fill %>
           <% if food.photo.attached? %>
             <%= cl_image_tag food.photo.key, height: 180, width: 150, crop: :fill %>
           <% else %>
             <img style="width: 150px" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
           <% end %>
           <div class="text-infos">
-          <li id="food-name"><%= food.name %> </li>
-          <li id="food-price">$<%= food.price %> </li>
-          <li id="food-description"><%= food.description %> </li>
-          <img id="edit-icon"style="width: 20px" src="https://w7.pngwing.com/pngs/944/137/png-transparent-pen-computer-icons-pen-angle-pencil-black-thumbnail.png">
+            <li id="food-name"><%= food.name %> </li>
+            <li id="food-price">$<%= food.price %> </li>
+            <li id="food-description"><%= food.description %> </li>
+            <%# edit icon %>
+            <%= link_to edit_restaurant_food_path(@restaurant) do %>
+              <%= image_tag "https://w7.pngwing.com/pngs/944/137/png-transparent-pen-computer-icons-pen-angle-pencil-black-thumbnail.png", width: 20%>
+            <% end %>
           </div>
         </div>
       </div>
@@ -34,7 +36,8 @@
 <%= link_to 'Add more food item', new_restaurant_food_path(@restaurant), class: 'btn-positive' %>
 <%= link_to 'Confirm list', new_restaurant_food_path(@restaurant), class: 'btn-positive mt-3' %>
 </div>
-
+<br>
+<h3 class="text-center"><%= @restaurant.name %>'s details</h3>
 <div class="container restaurant-info">
   <ul>
       <li>Restaurant name : <%= @restaurant.name %> </li>
@@ -45,7 +48,6 @@
 </div>
 <hr>
 
-<h3>Menu:</h3>
 
 <%# IF STATEMENT - list items, else say its empty %>
 <%# <div class="container"> %>
@@ -61,11 +63,15 @@
 <%# </div> %>
 
 
-<h2> review </h2>
+<%# <h2> review </h2>
 <%= link_to 'create_a_review', new_restaurant_review_path(@restaurant) %>
 
+<h3 class="text-center">All reviews for <%= @restaurant.name %>:</h3>
+<div>
 <ul>
   <% @restaurant.reviews.each do |review| %>
     <li><%= review.content %></li>
   <% end %>
 </ul>
+</div>
+<br>
