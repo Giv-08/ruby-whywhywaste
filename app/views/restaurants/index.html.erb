@@ -13,7 +13,7 @@
 <%# IF signed-in as Restaurant - code below %>
 <%# ELSE signed-in USER - bottom half of code %>
 
-<%# <% if restaurant_signed_in? %>
+<% if restaurant_signed_in? %>
 <%# RESTAURANT SIGN-IN %>
   <%# RESTAURANT FOOD CARDS - random display %>
   <h3>My Food Items</h3>
@@ -78,7 +78,7 @@
     <% end %>
   </div>
 
-<%# <% elsif user_signed_in? %>
+<% elsif user_signed_in? %>
 <%# SIGNED IN AS USER %>
 
   <%# FAVOURITE RESTAURANT CARDS %>
@@ -99,6 +99,28 @@
     <%# <% end %>
   <%# </div> %>
   <%# <hr> %>
+
+   <%# RESTAURANTS CARDS - random display %>
+  <h3>My Favourite Restaurants</h3>
+  <div class="container mx-auto fav-restaurants row">
+    <% @restaurants.shuffle.each do |restaurant| %>
+      <div class="col-sm-6 col-md-3 justify-content-center">
+        <div class="card restaurants-list">
+          <div class="card-img-top">
+            <% if restaurant.photo.attached? %>
+                <%= cl_image_tag(restaurant.photo.key, width:100, height:100, class: "object-fit-cover", crop: :fill, gravity: :face) %>
+            <% else %>
+              <p>No images available for <%= restaurant.name %></p>
+            <% end %>
+          </div>
+          <%# float food name onto image %>
+          <h5><%= restaurant.name %></h5>
+          <p><%= restaurant.cuisine %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <hr>
 
   <%# LIST OF ALL RESTAURANTS %>
   <h3>List of available Restaurants</h3>
@@ -122,4 +144,4 @@
       <% end %>
     <% end %>
   </div>
-<%# <% end %>
+<% end %>
