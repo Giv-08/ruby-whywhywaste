@@ -1,11 +1,28 @@
 class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
+    # @markers = @restaurants.geocoded.map do |restaurant|
+    #   {
+    #     lat: restaurant.latitude,
+    #     lng: restaurant.longitude
+    #   }
+    # end
   end
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    # @foods = @restaurant.foods
   end
+
+  # def map
+  #   @restaurants = Restaurant.all
+  #   @markers = @restaurants.geocoded.map do |restaurant|
+  #     {
+  #       lat: restaurant.latitude,
+  #       lng: restaurant.longitude
+  #     }
+  #   end
+  # end
 
   # def create
   #   @restaurant = Restaurant.new(restaurant_params)

@@ -77,5 +77,4 @@ group :test do
 end
 
 # cloudinary
-gem "dotenv-rails"
 gem "cloudinary"

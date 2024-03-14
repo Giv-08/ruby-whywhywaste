@@ -20,10 +20,9 @@
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
     <%= f.input :address,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "address" }%>
-
+                input_html: {autocomplete: "street-address ", data: {address_autocomplete_target: "address"}},
+                wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
+                %>
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
@@ -38,5 +37,3 @@
     </div>
   </div>
 <% end %>
-
-
