@@ -1,19 +1,14 @@
 <h1 class="show-restaurant-title text-center mt-5">Welcome to <%= @restaurant.name %>'s Page</h1>
 
-<%# <ul class="restaurant-show">
-    <li>Restaurant name : <%= @restaurant.name %> </li>
-    <%# <li>Cuisine : <%= @restaurant.cuisine %> </li>
-    <%# <li>Phone no : <%= @restaurant.phone_no %> </li>
-    <%# <li>Rating : <%= @restaurant.rating %> </li>
-  <%# <br> %>
-<%# </ul> %>
+<h2 class="text-center">Menu</h2>
 
-
-  <h2 class="text-center">Menu : </h2>
+<%# if-condition %>
     <% @restaurant.foods.each do |food| %>
+    <% if food.present? %>
       <div class="food-card">
         <div class="card-product-infos">
-            <%= link_to edit_food_path(food) do %>
+        <%# add selected food items/ plus icon %>
+            <%= link_to restaurants_dashboard_path do %>
               <%= image_tag "https://t4.ftcdn.net/jpg/01/26/10/59/360_F_126105961_6vHCTRX2cPOnQTBvx9OSAwRUapYTEmYA.jpg", width: 20%>
             <% end %>
           <% if food.photo.attached? %>
@@ -32,6 +27,12 @@
           </div>
         </div>
       </div>
+       <% else %>
+        <h3 class="text-center">Your menu is empty</h3>
+        <%# <div class="btn">
+        <%= link_to 'Add a food item', new_restaurant_food_path(@restaurant), class: 'btn-positive' %>
+        <%# </div> %>
+        <% end %>
     <% end %>
     <br>
 <div class="btn">
@@ -49,6 +50,7 @@
   </ul>
 </div>
 <hr>
+
 
 
 <%# IF STATEMENT - list items, else say its empty %>

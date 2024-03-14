@@ -41,8 +41,6 @@ class RestaurantsController < ApplicationController
   #     render 'restaurants/index_for_customer'
 
 
-
-
   def show
     @restaurant = Restaurant.find(params[:id])
     # @food = Food.find(params[:id])
