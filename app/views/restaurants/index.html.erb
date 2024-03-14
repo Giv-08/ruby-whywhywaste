@@ -69,12 +69,12 @@
           <%# float restaurant name and location onto image %>
           <div class="mask d-flex justify-content-center align-items-center flex-column text-center rounded px-2 ">
             <h5><%= restaurant.name %></h5>
-            <p><%= restaurant.address %></p>
+            <p class="text-center">Address: <%= restaurant.address %></p>
           </div>
           <%# cuisine, rating, distance bottom of card image %>
-          <h5><%= restaurant.cuisine %></h5>
+          <h5 class="text-center">Cuisine: <%= restaurant.cuisine %></h5>
           <div class="rating d-flex">
-          <p>Rating: <%= restaurant.rating.to_i.times do %></p>
+          <p class="text-center">Rating: <%= restaurant.rating.to_i.times do %></p>
               <i class="fa-regular fa-star fa-xs" style="color: #ffba24;"></i>
            <% end %>
            </div>

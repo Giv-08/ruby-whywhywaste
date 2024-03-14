@@ -48,7 +48,11 @@
       <li>Restaurant name : <%= @restaurant.name %> </li>
       <li>Cuisine : <%= @restaurant.cuisine %> </li>
       <li>Phone no : <%= @restaurant.phone_no %> </li>
-      <li>Rating : <%= @restaurant.rating %> </li>
+      <div class="d-flex">
+        <li class="d-flex text-center">Rating: <%= @restaurant.rating.to_i.times do %></p>
+          <i class="fa-regular fa-star fa-xs" style="color: #ffba24;"></i>
+        <% end %></li>
+      </div>
   </ul>
 </div>
 <hr>
@@ -77,6 +81,7 @@
 <ul>
   <% @restaurant.reviews.each do |review| %>
     <li><%= review.content %></li>
+    <li><%= review.user.first_name%> <%= review.user.last_name%></li>
   <% end %>
 </ul>
 </div>
