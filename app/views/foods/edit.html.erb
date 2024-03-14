@@ -1,20 +1,20 @@
-<h1>Edit <%= @food.name %>'s details</h1>
+<h1 class="text-center mt-5">Edit <%= @food.name %>'s details</h1>
 
-<div class="edit-form">
-      <%= simple_form_for @food, method: :patch do |f| %>
+<div class="edit-form d-flex flex-column align-items-center">
+  <%= simple_form_for @food, method: :patch do |f| %>
       <%= f.input :name %>
       <%= f.input :price %>
       <%= f.input :description %>
       <%= f.input :allergen %>
       <%= f.input :quantity %>
       <%= f.input :photo, as: :file %>
-      <%= f.submit class:"btn btn-success"%>
-    <% end %>
-    <br>
-    <p>or</p>
-    <br>
+      <%= f.submit class:"btn btn-success update-food"%>
+  <% end %>
+  <p class="text-center">or</p>
     <%# delete btn %>
-            <%= link_to food_path(@food), data: { turbo_method: :delete } do %>
-            <h3 class="btn btn-danger">Delete this item</h3>
-            <% end %>
+    <div class="btn">
+    <%= link_to food_path(@food), data: { turbo_method: :delete }, style: "text-decoration: none" do %>
+      <h3 class="btn btn-danger">Delete this item</h3>
+    <% end %>
+    </div>
 </div>

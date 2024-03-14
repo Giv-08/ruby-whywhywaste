@@ -1,10 +1,9 @@
-<h1><%= @restaurant.name %> notifications</h1>
+<h1 class="text-center"><%= @restaurant.name %> notifications</h1>
 
-
-<div class="notification-card mt-3">
+<div class="notification-card mt-3 ">
 <p>Order from: Customer name</p>
 <p>Customer id: Customer id</p>
 <p>Order from: Customer name</p>
-<%= link_to 'Accept', restaurants_dashboard_path(@restaurant), class: 'btn-positive' %>
-<%= link_to 'Reject', restaurants_dashboard_path(@restaurant), class: 'btn-positive' %>
+<%= link_to 'Accept', restaurants_dashboard_path(@restaurant), method: :patch, class: 'btn-positive' %>
+<%= link_to 'Reject', restaurant_notification_path(@restaurant), method: :patch, class: 'btn-positive' %>
   </div>
