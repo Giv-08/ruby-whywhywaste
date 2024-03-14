@@ -1,5 +1,5 @@
  <%# EACH CARD OF RESTUARANT %>
-    <%= link_to restaurant_path(restaurant) do %>
+    <%= link_to restaurants_dashboard_path(restaurant) do %>
       <div class="card card-product restaurants-main-card">
         <div class="card-img">
           <% if restaurant.photo.attached? %>

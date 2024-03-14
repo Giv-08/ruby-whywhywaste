@@ -1,15 +1,11 @@
 <h1 class="text-center">Restaurant dashboard</h1>
 
 <ul class="nav-menu">
-  <li><h2>Published menu</h2></li>
+  <li><h2 class="text-center">Published menu</h2></li>
 <%# Loop through all published %>
   <ul>
     <% @published_foods.each do |food| %>
      <div class="food-card d-flex">
-      <%# add icon %>
-      <%= link_to foods_path do %>
-          <%= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
-            <% end %>
           <div class="card-product-infos">
             <% if food.photo.attached? %>
               <%= cl_image_tag food.photo.key, height: 80, width: 80, crop: :fill %>
@@ -21,11 +17,6 @@
               <li id="food-price">$<%= food.price %> </li>
               <li id="food-description"><%= food.description %> </li>
               <br>
-              <%# edit icon %>
-              <div class="edit-icon d-flex justify-content-end">
-                <%= link_to edit_food_path(food) do %>
-                  <%= image_tag "https://w7.pngwing.com/pngs/944/137/png-transparent-pen-computer-icons-pen-angle-pencil-black-thumbnail.png", width: 20%>
-                <% end %>
               </div>
             </div>
           </div>
@@ -64,7 +55,7 @@
 
 </ul>
 <div class="d-flex justify-content-center flex-column">
-<%= link_to "Go to menu", restaurants_dashboard_path(@restaurant), class: "btn btn-primary" %>
+<%= link_to "Go to menu", restaurant_foods_path(@restaurant), class: "btn btn-primary" %>
 <%= link_to "Help Centre", "#", class: "btn btn-primary" %>
 <%= link_to "Notification", restaurant_notification_path(@restaurant), class: "btn btn-primary" %>
 </div>
