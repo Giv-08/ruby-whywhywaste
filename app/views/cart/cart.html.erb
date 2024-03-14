@@ -6,7 +6,9 @@
 <% else %>
   <ul>
     <% @order.order_lines.each do |ol| %>
-      <li><%= ol.quantity %> x <%= ol.food.name %> (<%= ol.food.price %>)</li>
+      <li><strong>Food Name: </strong><%= ol.food.name %>
+      <strong>Quantity: </strong><%= ol.quantity %>
+      <strong>Price: </strong> (<%= ol.food.price %>) </li>
     <% end %>
   </ul>
 <% end %>

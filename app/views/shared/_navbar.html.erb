@@ -5,12 +5,12 @@
         <% if user_signed_in? %>
         <ul class="nav nav-underline">
           <li class="nav-item">
-            <%= link_to auth_path, class: "nav-link px-3" do %>
+            <%= link_to restaurants_path, class: "nav-link px-3" do %>
               <i class="fa-solid fa-house"></i>
             <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to auth_path, class: "nav-link px-3" do %>
+            <%= link_to "#", class: "nav-link px-3" do %>
               <i class="fa-solid fa-bell"></i>
             <% end %>
           </li>
@@ -20,7 +20,7 @@
             <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to auth_path, class: "nav-link px-3" do %>
+            <%= link_to users_dashboard_path, class: "nav-link px-3" do %>
               <i class="fa-solid fa-user"></i>
             <% end %>
           </li>
@@ -28,12 +28,12 @@
         <% elsif restaurant_signed_in?%>
           <ul class="nav nav-underline">
             <li class="nav-item">
-              <%= link_to auth_path, class: "nav-link px-3" do %>
+              <%= link_to restaurants_path, class: "nav-link px-3" do %>
                 <i class="fa-solid fa-house"></i>
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to auth_path, class: "nav-link px-3" do %>
+              <%= link_to "#", class: "nav-link px-3" do %>
                 <i class="fa-solid fa-bell"></i>
               <% end %>
             </li>
@@ -43,7 +43,7 @@
               <% end %>
             </li>
             <li class="nav-item">
-              <%= link_to auth_path, class: "nav-link px-3" do %>
+              <%= link_to restaurants_dashboard_path, class: "nav-link px-3" do %>
                 <i class="fa-solid fa-user"></i>
               <% end %>
             </li>
@@ -57,4 +57,4 @@
     </div>
   </div>
 </div>
-<%= link_to "Log out", destroy_restaurant_session_path, data: {turbo_method: :delete}, class: "btn btn-primary" %>
+<%#= link_to "Log out", destroy_restaurant_session_path, data: {turbo_method: :delete}, class: "btn btn-primary" %>

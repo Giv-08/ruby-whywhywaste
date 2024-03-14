@@ -9,8 +9,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
-  # root to: "pages#home"
-  root to: "pages#authentication"
+  root to: "pages#home"
+  # root to: "pages#authentication"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get "pages/auth", to: "pages#authentication", as: :auth
   # routes for pages
   resources :pages
-  
+
   # Defined routes for the restaurants
   get 'restaurants/dashboard', to: 'restaurants/dashboard#dashboard'
   get 'restaurants/:id/notification', to: 'restaurants/dashboard#notification'
@@ -32,6 +32,9 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :create, :new]
     # Nested routes - orders related to a specific restaurant
     resources :orders, only: [:index, :create]
+  end
+  resources :foods do
+    resources :order_lines, only: [:create]
   end
 
   get '/search', to: 'search#list', as: :search

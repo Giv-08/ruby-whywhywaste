@@ -11,15 +11,10 @@ class RestaurantsController < ApplicationController
       # fetches all restaurants
       @my_restaurant = nil
       @other_restaurants = Restaurant.all
-
-      render 'restaurant_card', restaurant: @my_restaurant
     end
-
     # Grab all foods from signed-in restaurant
     @foods = Food.all
   end
-
-
   # def index
   #   if current_user&.restaurant?
   #     # Signed-in restaurant only
