@@ -45,7 +45,6 @@
 </div>
 <hr>
 
-<h3>Menu:</h3>
 
 <%# IF STATEMENT - list items, else say its empty %>
 <%# <div class="container"> %>
@@ -61,11 +60,13 @@
 <%# </div> %>
 
 
-<h2> review </h2>
+<%# <h2> review </h2>
 <%= link_to 'create_a_review', new_restaurant_review_path(@restaurant) %>
 
+<h3 class="text-center">All reviews for <%= @restaurant.name %>:</h3>
 <ul>
   <% @restaurant.reviews.each do |review| %>
     <li><%= review.content %></li>
   <% end %>
 </ul>
+<br>
