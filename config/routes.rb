@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     registrations: 'restaurants/registrations',
     sessions: 'restaurants/sessions'
   }
-  
+
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
@@ -25,13 +25,13 @@ Rails.application.routes.draw do
   get 'users/dashboard', to: 'users/dashboard#dashboard'
   resources :restaurants do
     # Nested routes - foods belonging to restaurant
-    resources :foods
+    resources :foods, only: [:new, :create]
     # Nested routes - reviews belonging to restaurant
     resources :reviews, only: [:index, :create, :new]
     # Nested routes - orders related to a specific restaurant
     resources :orders, only: [:index, :create]
   end
-
+  resources :foods, only: [:edit, :update, :destroy, :show]
   get '/search', to: 'search#list', as: :search
   get '/search/map', to: 'search#map', as: :search_map
 

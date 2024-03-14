@@ -28,21 +28,23 @@ class FoodsController < ApplicationController
   end
 
   def edit
-    @restaurant = Restaurant.find(params[:restaurant_id])
     @food = Food.find(params[:id])
+    @restaurant = @food.restaurant
   end
 
   # patch /foods/:id
   def update
     @food = Food.find(params[:id])
+    @restaurant = @food.restaurant
     @food.update(food_params)
-    redirect_to restaurant_food_path
+    redirect_to restaurant_path(@restaurant)
   end
 
   def destroy
     @food = Food.find(params[:id])
+    @restaurant = @food.restaurant
     @food.destroy
-    redirect_to foods_path, status: :see_other
+    redirect_to restaurant_path(@restaurant), status: :see_other
   end
 
   private
