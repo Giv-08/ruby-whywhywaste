@@ -78,3 +78,5 @@ end
 
 # cloudinary
 gem "cloudinary"
+# Dotenv for using ENV variables from .env file
+gem "dotenv-rails"

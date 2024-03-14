@@ -13,8 +13,7 @@
 <%# IF signed-in as Restaurant - code below %>
 <%# ELSE signed-in USER - bottom half of code %>
 
-<% if restaurant_signed_in? %>
-
+<%# <% if restaurant_signed_in? %>
 <%# RESTAURANT SIGN-IN %>
   <%# RESTAURANT FOOD CARDS - random display %>
   <h3>My Food Items</h3>
@@ -79,7 +78,7 @@
     <% end %>
   </div>
 
-<% elsif user_signed_in? %>
+<%# <% elsif user_signed_in? %>
 <%# SIGNED IN AS USER %>
 
   <%# FAVOURITE RESTAURANT CARDS %>
@@ -123,4 +122,4 @@
       <% end %>
     <% end %>
   </div>
-<% end %>
+<%# <% end %>
