@@ -1,17 +1,30 @@
 class RestaurantsController < ApplicationController
   def index
+
     @restaurants = Restaurant.all
-    # @markers = @restaurants.geocoded.map do |restaurant|
-    #   {
-    #     lat: restaurant.latitude,
-    #     lng: restaurant.longitude
-    #   }
-    # end
+  
+
+    # Signed-in restaurant only
+    if restaurant_signed_in?
+      @my_restaurant = current_restaurant
+
+      # fetch all other restaurants (excluding signed-in restaurant)
+      @other_restaurants = Restaurant.where.not(id: @my_restaurant&.id)
+    else
+      # fetches all restaurants
+      @my_restaurant = nil
+      @other_restaurants = Restaurant.all
+    end
+
   end
 
   def show
     @restaurant = Restaurant.find(params[:id])
-    # @foods = @restaurant.foods
+
+    @foods = @restaurant.foods
+
+    @food = Food.find(params[:id])
+
   end
 
   # def map

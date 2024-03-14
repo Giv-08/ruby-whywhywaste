@@ -1,6 +1,7 @@
 <h1 class="text-center"> Write a review for <%= @restaurant.name %> </h1>
   <div class="form m-5 ml-5">
     <%= simple_form_for [@restaurant, @review] do |f| %>
+      <%= f.error :base %>
       <%= f.input :content %>
       <%= f.submit class:"btn btn-success"%>
     <% end %>

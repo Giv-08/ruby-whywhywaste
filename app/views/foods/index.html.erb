@@ -1,13 +1,16 @@
-<h1 class= "text-center">Food index</h1>
+<h1 class= "text-center">Restaurant menu</h1>
 
 <div class="mt-3">
+
 <ul>
   <% @foods.each do |food| %>
     <li>Food item : <%= food.name %> </li>
     <li>Price : $ <%= food.price %> </li>
     <li>Description : <%= food.description %> </li>
     <li>Quantity : <%= food.quantity %> </li>
+    <li>Restaurant : <%= food.restaurant.name%> </li>
   <br>
   <% end %>
+
 </ul>
   </div>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'cart/cart'
   devise_for :restaurants, controllers: {
     registrations: 'restaurants/registrations',
     sessions: 'restaurants/sessions'
@@ -19,6 +20,8 @@ Rails.application.routes.draw do
   # routes for pages
   resources :pages
   # Defined routes for the restaurants
+  get 'restaurants/dashboard', to: 'restaurants/dashboard#dashboard'
+  get 'users/dashboard', to: 'users/dashboard#dashboard'
   resources :restaurants do
     # Nested routes - foods belonging to restaurant
     resources :foods
@@ -31,6 +34,7 @@ Rails.application.routes.draw do
   get '/search', to: 'search#list', as: :search
   get '/search/map', to: 'search#map', as: :search_map
 
+  get '/cart', to: 'cart#cart', as: :cart
   # Defines the root path route ("/")
   # root "posts#index"
 end

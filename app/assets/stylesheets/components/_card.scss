@@ -1,0 +1,31 @@
+.food-card {
+  list-style: none;
+  font-size: 12px;
+  background-color: beige;
+  border: 1px solid #d2b763;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.card-product-infos {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+.text-infos {
+  padding: 0px 15px;
+}
+
+li#food-name {
+  font-weight: 900;
+}
+
+li#food-description {
+  font-size: 10px;
+}
+
+img#edit-icon {
+  position: absolute;
+  right: 10px;
+}
