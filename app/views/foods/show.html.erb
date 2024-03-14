@@ -3,6 +3,11 @@
 <%# food item photo %>
 
 <div class="detail-box d-flex justify-content-center">
+    <% if @food.photo.attached? %>
+      <%= cl_image_tag @food.photo.key, height: 180, width: 150, crop: :fill %>
+    <% else %>
+      <img style="width: 150px" src="https://hips.hearstapps.com/hmg-prod/images/delish-200511-seo-club-sandwich-h-14383-eb-1590780714.jpg?crop=0.671xw:1.00xh;0.123xw,0&resize=1200:*" />
+    <% end %>
 <ul>
     <li>Name: <%= @food.name %></li>
     <li>Price: <%= @food.price %></li>
