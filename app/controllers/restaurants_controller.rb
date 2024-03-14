@@ -1,6 +1,7 @@
 class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
+
     # Signed-in restaurant only
     if restaurant_signed_in?
       @my_restaurant = current_restaurant
@@ -11,6 +12,7 @@ class RestaurantsController < ApplicationController
       # fetches all restaurants
       @my_restaurant = nil
       @other_restaurants = Restaurant.all
+
     end
     # Grab all foods from signed-in restaurant
     @foods = Food.all
@@ -32,8 +34,6 @@ class RestaurantsController < ApplicationController
   #     end
   #   else
   #     render 'restaurants/index_for_customer'
-
-
 
 
   def show

@@ -1,7 +1,7 @@
 <h1>Edit <%= @food.name %>'s details</h1>
 
 <div class="edit-form">
-      <%= simple_form_for [@restaurant, @food], method: :patch do |f| %>
+      <%= simple_form_for @food, method: :patch do |f| %>
       <%= f.input :name %>
       <%= f.input :price %>
       <%= f.input :description %>
@@ -14,7 +14,7 @@
     <p>or</p>
     <br>
     <%# delete btn %>
-            <%= link_to restaurant_path(@restaurant), data: { turbo_method: :delete } do %>
+            <%= link_to food_path(@food), data: { turbo_method: :delete } do %>
             <h3 class="btn btn-danger">Delete this item</h3>
             <% end %>
 </div>
