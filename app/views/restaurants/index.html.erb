@@ -4,8 +4,10 @@
 <hr>
 
 <%# SEARCH BAR? OR BUTTON? %>
+<div class="search d-flex justify-content-center">
 <%= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
 <hr>
+</div>
 
 
 <%# DEBBIE DODODODODODO %>
@@ -38,7 +40,7 @@
 
   <%# CARDS OF RESTAURANTS %>
   <%# SIGNED-IN RESTAURANT ONLY %>
-  <h3>My Restaurant</h3>
+  <h3 class="text-center">My Restaurant</h3>
     <div class="container mx-auto container-signedin-restaurant">
       <div class="card signedin-restaurant">
         <% if @my_restaurant.present? %>
@@ -71,7 +73,12 @@
           </div>
           <%# cuisine, rating, distance bottom of card image %>
           <h5><%= restaurant.cuisine %></h5>
-          <p><%= restaurant.rating %></p>
+          <div class="rating d-flex">
+          <p>Rating: <%= restaurant.rating.to_i.times do %></p>
+              <i class="fa-regular fa-star fa-xs" style="color: #ffba24;"></i>
+           <% end %>
+           </div>
+          <%# <p><%= restaurant.rating %></p>
           <%# <p><%= restaurant.distance</p> %>
         </div>
       <% end %>
