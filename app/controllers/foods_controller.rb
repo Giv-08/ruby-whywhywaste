@@ -1,6 +1,7 @@
 class FoodsController < ApplicationController
   def index
     @foods = Food.all
+    @unpublished_foods = Food.where(published: false)
   end
 
   def new
