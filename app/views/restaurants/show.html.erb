@@ -2,7 +2,6 @@
 
 <h2 class="text-center">Menu</h2>
 
-  <h2 class="text-center">Menu : </h2>
   <br>
 
     <% if @published_foods.empty? %>
@@ -40,7 +39,7 @@
 
 <div class="btn">
 <%= link_to 'Add more food item', new_restaurant_food_path(@restaurant), class: 'btn-positive' %>
-<%= link_to 'Confirm list', new_restaurant_food_path(@restaurant), class: 'btn-positive mt-3' %>
+<%= link_to 'Publish', restaurants_dashboard_path(@restaurant), class: 'btn-positive mt-3' %>
 </div>
 <br>
 <h3 class="text-center"><%= @restaurant.name %>'s details</h3>
