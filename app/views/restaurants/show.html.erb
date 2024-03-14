@@ -20,14 +20,13 @@
             <img style="width: 150px" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
           <% end %>
           <div class="text-infos">
-          <li id="food-name"><%= food.name %> </li>
-          <li id="food-price">$<%= food.price %> </li>
-          <li id="food-description"><%= food.description %> </li>
-          <%# edit icon %>
-          <%= link_to edit_restaurant_food_path(@restaurant) do %>
-            <%= image_tag "https://w7.pngwing.com/pngs/944/137/png-transparent-pen-computer-icons-pen-angle-pencil-black-thumbnail.png", width: 20%>
-          <% end %>
-          <%# <img id="edit-icon" style="width: 20px" src="https://w7.pngwing.com/pngs/944/137/png-transparent-pen-computer-icons-pen-angle-pencil-black-thumbnail.png"> %>
+            <li id="food-name"><%= food.name %> </li>
+            <li id="food-price">$<%= food.price %> </li>
+            <li id="food-description"><%= food.description %> </li>
+            <%# edit icon %>
+            <%= link_to edit_restaurant_food_path(@restaurant) do %>
+              <%= image_tag "https://w7.pngwing.com/pngs/944/137/png-transparent-pen-computer-icons-pen-angle-pencil-black-thumbnail.png", width: 20%>
+            <% end %>
           </div>
         </div>
       </div>
