@@ -12,29 +12,10 @@ class RestaurantsController < ApplicationController
       # fetches all restaurants
       @my_restaurant = nil
       @other_restaurants = Restaurant.all
-
     end
     # Grab all foods from signed-in restaurant
     @foods = Food.all
   end
-  # def index
-  #   if current_user&.restaurant?
-  #     # Signed-in restaurant only
-  #     if restaurant_signed_in?
-  #       @my_restaurant = current_restaurant
-
-  #       # fetch all other restaurants (excluding signed-in restaurant)
-  #       @other_restaurants = Restaurant.where.not(id: @my_restaurant&.id)
-  #       render 'restaurants/index_for_restaurant'
-  #     else
-  #       # fetches all restaurants
-  #       @my_restaurant = nil
-  #       @other_restaurants = Restaurant.all
-  #       render 'restaurants/index_for_restaurant'
-  #     end
-  #   else
-  #     render 'restaurants/index_for_customer'
-
 
   def show
     @restaurant = Restaurant.find(params[:id])
