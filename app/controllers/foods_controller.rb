@@ -15,7 +15,7 @@ class FoodsController < ApplicationController
     @food.restaurant = @restaurant
     @food.restaurant = @restaurant
     if @food.save
-      redirect_to restaurants_path, notice: "food created successfully"
+      redirect_to restaurant_foods_path, notice: "food created successfully"
     else
       render :new, status: :unprocessable_entity
     end

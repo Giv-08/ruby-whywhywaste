@@ -21,6 +21,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
     # @food = Food.find(params[:id])
     @published_foods = @restaurant.foods.where(published: true)
+    @unpublished_foods = @restaurant.foods.where(published: false)
   end
 
   # def map
