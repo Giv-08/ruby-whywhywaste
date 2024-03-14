@@ -1,2 +1,8 @@
 // Import page-specific CSS files here.
 @import "home";
+
+// RESTAURANT CARD
+.card-text-container.column {
+  display: flex;
+  flex-direction: column;
+}

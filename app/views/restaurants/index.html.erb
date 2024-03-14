@@ -13,104 +13,114 @@
 <%# IF signed-in as Restaurant - code below %>
 <%# ELSE signed-in USER - bottom half of code %>
 
+<% if restaurant_signed_in? %>
 
-<%# RESTAURANT FOOD CARDS - random display %>
-<h3>My Food Items</h3>
-<%# <div class="container mx-auto card-container-foodlist"> %>
-  <%# <% @foods.shuffle.each do |food| %>
-    <%# <div class="card restaurant-foodlist"> %>
-      <%# <div class="card-img-top"> %>
-        <%# <% if food.photo.attached? %>
-            <%# <%= cl_image_tag(food.photo.key, width:100, height:100, class: "object-fit-cover", crop: :fill, gravity: :face) %>
-          <%# <% else %>
-            <%# <p>No images available for <%= food.name</p>  %>
-          <%# <% end %>
-      <%# </div> %>
-      <%# float food name onto image %>
-      <%# <h5><%= food.name</h5>  %>
-    <%# </div> %>
-  <%# <% end %>
-<%# </div> %>
-<hr>
-
-<%# CARDS OF RESTAURANTS %>
-<%# SIGNED-IN RESTAURANT ONLY %>
-<h3>My Restaurant</h3>
-  <div class="container mx-auto container-signedin-restaurant">
-    <div class="card signedin-restaurant">
-      <% if @my_restaurant.present? %>
-        <%= render 'restaurant_card', restaurant: @my_restaurant %>
-      <% else %>
-        <p>No signed-in restaurant found.</p>
-      <% end %>
-    </div>
-  </div>
-<hr>
-
-<%# LIST OF OTHER RESTAURANTS %>
-<h3>List of available Restaurants</h3>
-<div class="container mx-auto card-container-restaurants">
-  <% @other_restaurants.each do |restaurant| %>
-    <%# EACH CARD OF RESTUARANT %>
-    <%= link_to restaurant_path(restaurant) do %>
-      <div class="card card-product restaurants-main-card">
-        <div class="card-img">
-          <% if restaurant.photo.attached? %>
-            <%= cl_image_tag(restaurant.photo.key, width:200, height:200, class: "object-fit-cover", crop: :fill, gravity: :face) %>
-          <% else %>
-            <p>No images available for <%= restaurant.name %></p>
-          <% end %>
+<%# RESTAURANT SIGN-IN %>
+  <%# RESTAURANT FOOD CARDS - random display %>
+  <h3>My Food Items</h3>
+  <div class="container mx-auto card-container-foodlist row">
+    <% @foods.shuffle.each do |food| %>
+      <div class="col-sm-6 col-md-3 justify-content-center">
+        <div class="card restaurant-foodlist">
+          <div class="card-img-top">
+            <% if food.photo.attached? %>
+                <%= cl_image_tag(food.photo.key, width:100, height:100, class: "object-fit-cover", crop: :fill, gravity: :face) %>
+            <% else %>
+              <p>No images available for <%= food.name %></p>
+            <% end %>
+          </div>
+          <%# float food name onto image %>
+          <h5><%= food.name %></h5>
         </div>
-        <%# float restaurant name and location onto image %>
-        <h5><%= restaurant.name %></h5>
-        <p><%= restaurant.cuisine %></p>
-        <%# cuisine, rating, distance bottom of card image %>
       </div>
     <% end %>
-  <% end %>
-</div>
+  </div>
+  <hr>
 
+  <%# CARDS OF RESTAURANTS %>
+  <%# SIGNED-IN RESTAURANT ONLY %>
+  <h3>My Restaurant</h3>
+    <div class="container mx-auto container-signedin-restaurant">
+      <div class="card signedin-restaurant">
+        <% if @my_restaurant.present? %>
+          <%= render 'restaurant_card', restaurant: @my_restaurant %>
+        <% else %>
+          <p>No signed-in restaurant found.</p>
+        <% end %>
+      </div>
+    </div>
+  <hr>
 
+  <%# LIST OF OTHER RESTAURANTS %>
+  <h3>List of available Restaurants</h3>
+  <div class="container mx-auto card-container-restaurants">
+    <% @other_restaurants.each do |restaurant| %>
+      <%# EACH CARD OF RESTUARANT %>
+      <%= link_to restaurant_path(restaurant) do %>
+        <div class="card card-product restaurants-main-card">
+          <div class="card-img">
+            <% if restaurant.photo.attached? %>
+              <%= cl_image_tag(restaurant.photo.key, width:200, height:200, class: "object-fit-cover", crop: :fill, gravity: :face) %>
+            <% else %>
+              <p>No images available for <%= restaurant.name %></p>
+            <% end %>
+          </div>
+          <%# float restaurant name and location onto image %>
+          <div class="mask d-flex justify-content-center align-items-center flex-column text-center rounded px-2 ">
+            <h5><%= restaurant.name %></h5>
+            <p><%= restaurant.address %></p>
+          </div>
+          <%# cuisine, rating, distance bottom of card image %>
+          <h5><%= restaurant.cuisine %></h5>
+          <p><%= restaurant.rating %></p>
+          <%# <p><%= restaurant.distance</p> %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+<% elsif user_signed_in? %>
 <%# SIGNED IN AS USER %>
 
-<%# FAVOURITE RESTAURANT CARDS %>
-<%# <h3>My Favourite Restaurants</h3> %>
-<%# <div class="container mx-auto fav-restaurants"> %>
-  <%# <% @restaurants.each do |restaurant| %>
-    <%# <div class="card fav-restaurant"> %>
-      <%# <div class="card-img"> %>
-        <%# <% if restaurant.photo.attached? %>
-            <%# <%= cl_image_tag(restaurant.photo.key, width:100, height:100, class: "object-fit-cover", crop: :fill, gravity: :face) %>
-          <%# <% else %>
-            <%# <p>No images available for <%= restaurant.name</p>  %>
-          <%# <% end %>
-      <%# </div> %>
-      <%# <h5><%= food.name</h5>  %>
-      <%# <p><%= restaurant.cuisine</p>  %>
-    <%# </div> %>
-  <%# <% end %>
-<%# </div> %>
-<%# <hr> %>
-
-<%# LIST OF ALL RESTAURANTS %>
-<%# <h3>List of available Restaurants</h3> %>
-<%# <div class="container mx-auto card-container-restaurants"> %>
-  <%# <% @other_restaurants.each do |restaurant| %>
-    <%# EACH CARD OF RESTUARANT %>
-    <%# <%= link_to restaurant_path(restaurant) do %>
-      <%# <div class="card card-product restaurants-main-card">
-        <div class="card-img"> %>
+  <%# FAVOURITE RESTAURANT CARDS %>
+  <%# <h3>My Favourite Restaurants</h3> %>
+  <%# <div class="container mx-auto fav-restaurants"> %>
+    <%# <% @restaurants.each do |restaurant| %>
+      <%# <div class="card fav-restaurant"> %>
+        <%# <div class="card-img"> %>
           <%# <% if restaurant.photo.attached? %>
-            <%# <%= cl_image_tag(restaurant.photo.key, width:200, height:200, class: "object-fit-cover", crop: :fill, gravity: :face) %>
-          <%# <% else %>
-            <%# <p>No images available for <%= restaurant.name</p>  %>
-          <%# <% end %>
+              <%# <%= cl_image_tag(restaurant.photo.key, width:100, height:100, class: "object-fit-cover", crop: :fill, gravity: :face) %>
+            <%# <% else %>
+              <%# <p>No images available for <%= restaurant.name</p>  %>
+            <%# <% end %>
         <%# </div> %>
-        <%# float restaurant name and location onto image %>
-        <%# <h5><%= restaurant.name</h5>  %>
+        <%# <h5><%= food.name</h5>  %>
         <%# <p><%= restaurant.cuisine</p>  %>
-        <%# cuisine, rating, distance bottom of card image %>
       <%# </div> %>
     <%# <% end %>
-  <%# <% end %>
-<%# </div> %>
+  <%# </div> %>
+  <%# <hr> %>
+
+  <%# LIST OF ALL RESTAURANTS %>
+  <h3>List of available Restaurants</h3>
+  <div class="container mx-auto card-container-restaurants">
+    <% @other_restaurants.each do |restaurant| %>
+      <%# EACH CARD OF RESTUARANT %>
+      <%= link_to restaurant_path(restaurant) do %>
+        <div class="card card-product restaurants-main-card">
+          <div class="card-img">
+            <% if restaurant.photo.attached? %>
+              <%= cl_image_tag(restaurant.photo.key, width:200, height:200, class: "object-fit-cover", crop: :fill, gravity: :face) %>
+            <% else %>
+              <p>No images available for <%= restaurant.name %></p>
+            <% end %>
+          </div>
+          <%# float restaurant name and location onto image %>
+          <h5><%= restaurant.name %></h5>
+          <p><%= restaurant.cuisine %></p>
+          <%# cuisine, rating, distance bottom of card image %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

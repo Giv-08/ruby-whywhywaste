@@ -9,8 +9,22 @@
           <% end %>
         </div>
         <%# float restaurant name and location onto image %>
-        <h5><%= restaurant.name %></h5>
-        <p><%= restaurant.cuisine %></p>
+        <%# <div class="mask d-flex justify-content-center align-items-center flex-column text-center rounded px-2 "> %>
+          <%# <h5 class="card-img-overlay text-center"><%= restaurant.name</h5>  %>
+          <%# <p class="card-img-overlay text-center"><%= restaurant.address</p>  %>
+        <%# </div> %>
+
+        <div class="overlay d-flex justify-content-center align-items-center flex-column text-center px-2">
+          <div class="card-text-container column">
+            <h5 class="card-img-overlay text-center d-flex"><%= restaurant.name %></h5>
+            <p class="card-img-overlay text-center d-flex"><%= restaurant.address %></p>
+          </div>
+        </div>
+
+
         <%# cuisine, rating, distance bottom of card image %>
+        <h5><%= restaurant.cuisine %></h5>
+        <p><%= restaurant.rating %></p>
+        <%# <p><%= restaurant.distance</p> %>
       </div>
     <% end %>
