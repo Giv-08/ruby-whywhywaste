@@ -1,15 +1,41 @@
-<h1 class= "text-center">Restaurant menu</h1>
+<h1 class= "text-center mt-5">Your menu</h1>
 
 <div class="mt-3">
-
+<%# show whole menu = unpublished ones here %>
+<%# if @my_restaurant.present? %>
 <ul>
-  <% @foods.each do |food| %>
-    <li>Food item : <%= food.name %> </li>
-    <li>Price : $ <%= food.price %> </li>
-    <li>Description : <%= food.description %> </li>
-    <li>Quantity : <%= food.quantity %> </li>
-    <li>Restaurant : <%= food.restaurant.name%> </li>
+  <% @unpublished_foods.each do |food| %>
+  <div class="food-card">
+      <%# add icon %>
+      <%= link_to restaurants_dashboard_path do %> <%# wanna go to restaurant/show %>
+          <%= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
+            <% end %>
+          <div class="card-product-infos">
+            <% if food.photo.attached? %>
+              <%= cl_image_tag food.photo.key, height: 180, width: 150, crop: :fill %>
+            <% else %>
+              <img style="width: 150px" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <% end %>
+            <div class="text-infos">
+              <li id="food-name"><%= food.name %> </li>
+              <li id="food-price">$<%= food.price %> </li>
+              <li id="food-description"><%= food.description %> </li>
+              <li>Restaurant : <strong><%= food.restaurant.name%> </strong></li>
+              <%# edit icon %>
+              <br>
+              <%= link_to edit_food_path(food) do %>
+                <%= image_tag "https://w7.pngwing.com/pngs/944/137/png-transparent-pen-computer-icons-pen-angle-pencil-black-thumbnail.png", width: 20%>
+              <% end %>
+            </div>
+          </div>
+        </div>
+    <%# <li>Food item : <%= food.name %> </li>
+    <%# <li>Price : $ <%= food.price %> </li>
+    <%# <li>Description : <%= food.description %> </li>
+    <%# <li>Quantity : <%= food.quantity %> </li>
+    <%# <li>Restaurant : <strong><%= food.restaurant.name%> </strong></li>
   <br>
   <% end %>
 </ul>
   </div>
+<%# end%>

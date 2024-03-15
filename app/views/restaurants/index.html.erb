@@ -1,11 +1,13 @@
 
 <%# SIGNED IN AS RESTAURANT %>
-<h1>Restaurant</h1>
+<h1 class="text-center">Restaurant</h1>
 <hr>
 
 <%# SEARCH BAR? OR BUTTON? %>
+<div class="search d-flex justify-content-center">
 <%= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
 <hr>
+</div>
 
 
 <%# DEBBIE DODODODODODO %>
@@ -16,29 +18,32 @@
 <% if restaurant_signed_in? %>
 <%# RESTAURANT SIGN-IN %>
   <%# RESTAURANT FOOD CARDS - random display %>
-  <h3>My Food Items</h3>
+  <h3 class="text-center">My Food Items</h3>
   <div class="container mx-auto card-container-foodlist row">
     <% @foods.shuffle.each do |food| %>
-      <div class="col-sm-6 col-md-3 justify-content-center">
-        <div class="card restaurant-foodlist">
-          <div class="card-img-top">
-            <% if food.photo.attached? %>
+      <%# <div class="col-sm-6 col-md-3 justify-content-center"> %>
+          <div class="col-4" style="padding: 0">
+            <div class="card restaurant-foodlist">
+              <div class="card-img-top">
+              <% if food.photo.attached? %>
                 <%= cl_image_tag(food.photo.key, width:100, height:100, class: "object-fit-cover", crop: :fill, gravity: :face) %>
-            <% else %>
-              <p>No images available for <%= food.name %></p>
-            <% end %>
+              <% else %>
+                <p>No images available for <%= food.name %></p>
+              <% end %>
+          <h5><%= food.name %></h5>
           </div>
           <%# float food name onto image %>
-          <h5><%= food.name %></h5>
         </div>
       </div>
     <% end %>
+  </div>
+  </div>
   </div>
   <hr>
 
   <%# CARDS OF RESTAURANTS %>
   <%# SIGNED-IN RESTAURANT ONLY %>
-  <h3>My Restaurant</h3>
+  <h3 class="text-center">My Restaurant</h3>
     <div class="container mx-auto container-signedin-restaurant">
       <div class="card signedin-restaurant">
         <% if @my_restaurant.present? %>
@@ -51,7 +56,7 @@
   <hr>
 
   <%# LIST OF OTHER RESTAURANTS %>
-  <h3>List of available Restaurants</h3>
+  <h3 class="text-center">List of available Restaurants</h3>
   <div class="container mx-auto card-container-restaurants">
     <% @other_restaurants.each do |restaurant| %>
       <%# EACH CARD OF RESTUARANT %>
@@ -67,11 +72,16 @@
           <%# float restaurant name and location onto image %>
           <div class="mask d-flex justify-content-center align-items-center flex-column text-center rounded px-2 ">
             <h5><%= restaurant.name %></h5>
-            <p><%= restaurant.address %></p>
+            <p class="text-center">Address: <%= restaurant.address %></p>
           </div>
           <%# cuisine, rating, distance bottom of card image %>
-          <h5><%= restaurant.cuisine %></h5>
-          <p><%= restaurant.rating %></p>
+          <h5 class="text-center">Cuisine: <%= restaurant.cuisine %></h5>
+          <div class="rating d-flex">
+          <p class="text-center">Rating: <%= restaurant.rating.to_i.times do %></p>
+              <i class="fa-regular fa-star fa-xs" style="color: #ffba24;"></i>
+           <% end %>
+           </div>
+          <%# <p><%= restaurant.rating %></p>
           <%# <p><%= restaurant.distance</p> %>
         </div>
       <% end %>
@@ -103,7 +113,7 @@
   <%# <hr> %>
 
    <%# RESTAURANTS CARDS - random display %>
-  <h3>My Favourite Restaurants</h3>
+  <h3 class="text-center">My Favourite Restaurants</h3>
   <div class="container mx-auto fav-restaurants row">
     <% @restaurants.shuffle.each do |restaurant| %>
       <div class="col-sm-6 col-md-3 justify-content-center">
@@ -125,7 +135,7 @@
   <hr>
 
   <%# LIST OF ALL RESTAURANTS %>
-  <h3>List of available Restaurants</h3>
+  <h3 class="text-center">List of available Restaurants</h3>
   <div class="container mx-auto card-container-restaurants">
     <% @other_restaurants.each do |restaurant| %>
       <%# EACH CARD OF RESTUARANT %>
