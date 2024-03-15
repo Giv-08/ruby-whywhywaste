@@ -32,6 +32,7 @@ Rails.application.routes.draw do
         patch :published, :unpublished
       end
     end
+
     # Nested routes - reviews belonging to restaurant
     resources :reviews, only: [:index, :create, :new]
     # Nested routes - orders related to a specific restaurant
@@ -48,6 +49,13 @@ Rails.application.routes.draw do
   get '/search/map', to: 'search#map', as: :search_map
 
   get '/cart', to: 'cart#cart', as: :cart
+  get 'order_lines/:id' => "order_lines#show", as: "order_lines"
+  get 'order_lines/:id/add' => "order_lines#add_quantity", as: "orders"
+  post 'order_lines/:id/add' => "order_lines#add_quantity", as: "order_lines_add"
+  get 'order_lines/:id/reduce' => "order_lines#reduce_quantity", as: "orders_reduce"
+  post 'order_lines/:id/reduce' => "order_lines#reduce_quantity", as: "order_lines_reduce"
+
+  delete 'order_lines/:id' => "order_lines#destroy"
   # Defines the root path route ("/")
   # root "posts#index"
 end
