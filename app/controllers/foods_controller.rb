@@ -3,7 +3,7 @@ class FoodsController < ApplicationController
     @foods = Food.all
     @unpublished_foods = Food.where(published: false)
     @my_restaurant = current_restaurant
-    @foods = @my_restaurant.foods
+    @foods = @my_restaurant.foods if current_restaurant
   end
 
   def new
