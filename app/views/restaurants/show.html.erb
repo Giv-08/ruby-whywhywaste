@@ -45,6 +45,7 @@
 <br>
 <%# user log-in %>
 <% elsif user_signed_in? %>
+
 <h2>Choose any items</h2>
   <% if @published_foods.empty? %>
       <p class="text-center">Your menu is currently empty.</p>
@@ -53,9 +54,9 @@
       <% @published_foods.each do |food| %>
         <div class="food-card">
       <%# add icon %>
-      <%#= link_to foods_path do %>
-          <%#= image_tag "https://www.svgrepo.com/show/2087/plus.svg", width: 20%>
-            <%# end %>
+      <%= link_to foods_path do %>
+          <%= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
+            <% end %>
           <div class="card-product-infos">
             <% if food.photo.attached? %>
               <%= cl_image_tag food.photo.key, height: 80, width: 80, crop: :fill %>
