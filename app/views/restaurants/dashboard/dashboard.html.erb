@@ -7,6 +7,9 @@
     <% @published_foods.each do |food| %>
      <div class="food-card d-flex">
           <div class="card-product-infos">
+         <%= link_to unpublished_restaurant_food_path(food.restaurant, food), data: { turbo_method: :patch } do %> <%# for published published_restaurant_path %>
+          <%= image_tag "https://cdn-icons-png.flaticon.com/512/262/262039.png", width: 20%>
+            <% end %>
             <% if food.photo.attached? %>
               <%= cl_image_tag food.photo.key, height: 80, width: 80, crop: :fill %>
             <% else %>
@@ -29,7 +32,7 @@
 <%# publish button %>
 <div class="btn">
 <%#= link_to 'Add more food item', restaurant_foods_path(@restaurant), class: 'btn-positive' %>
-<%= link_to 'Publish', restaurants_path, class: 'btn-positive mt-3' , method: :patch, data: { turbo_confirm: 'Are you sure?' }%>
+<%= link_to 'Publish', restaurants_path, class: 'btn-positive mt-3' ,  data: {'turbo_confirm': "Are you sure you want to submit this form?" } %> <%# fix message%>
 </div>
 <%# <li><h2>Your menu (unpublished)</h2></li>
 <% @unpublished_foods.each do |food| %>

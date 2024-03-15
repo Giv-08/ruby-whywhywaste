@@ -29,7 +29,7 @@ Rails.application.routes.draw do
     # Nested routes - foods belonging to restaurant
     resources :foods, only: [:new, :create, :index, :show] do
       member do
-        patch :published
+        patch :published, :unpublished
       end
     end
     # Nested routes - reviews belonging to restaurant
