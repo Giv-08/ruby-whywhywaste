@@ -6,6 +6,7 @@
 <% else %>
   <div class="container">
     <ul>
+      <% total_price = 0 %>
       <% @order.order_lines.each do |ol| %>
         <li><strong>Food Name: </strong><%= ol.food.name %></li>
         <li>
@@ -14,16 +15,19 @@
           <%= ol.quantity %> <%= link_to "+", order_lines_add_path(:id => ol), method: :post %>
 
           </li>
-        <li>Description: <%= ol.food.description %> </li>
-        <li><strong>Price: </strong> (<%= ol.food.price %>) </li>
+        <li><strong>Description: </strong><%= ol.food.description %> </li>
+        <li><strong>Price: </strong> <%= ol.food.price * ol.quantity%></li>
+        <% total_price +=  ol.food.price * ol.quantity %>
 
-        <li>Total Price: </li>
         <%= link_to "Delete",
                 order_lines_path(ol),
                 data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
               %>
 
       <% end %>
+
     </ul>
   </div>
 <% end %>
+<%= link_to "Continue shopping", restaurants_path %>
+<%= link_to "Proceed to checkout",  orders_path(total_price: total_price), data: { turbo_method: :post } %><br>
