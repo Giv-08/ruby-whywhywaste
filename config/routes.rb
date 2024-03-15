@@ -27,7 +27,11 @@ Rails.application.routes.draw do
   get 'users/dashboard', to: 'users/dashboard#dashboard'
   resources :restaurants do
     # Nested routes - foods belonging to restaurant
-    resources :foods, only: [:new, :create, :index]
+    resources :foods, only: [:new, :create, :index] do
+      member do
+        patch :published
+      end
+    end
     # Nested routes - reviews belonging to restaurant
     resources :reviews, only: [:index, :create, :new]
     # Nested routes - orders related to a specific restaurant
@@ -37,7 +41,6 @@ Rails.application.routes.draw do
   resources :foods do
     resources :order_lines, only: [:create]
   end
-
 
   resources :foods, only: [:edit, :update, :destroy, :show]
 

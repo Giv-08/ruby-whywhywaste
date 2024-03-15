@@ -16,6 +16,9 @@
               <li id="food-name"><%= food.name %> </li>
               <li id="food-price">$<%= food.price %> </li>
               <li id="food-description"><%= food.description %> </li>
+              <div class="sale-icon">
+              <%= image_tag "https://www.iconpacks.net/icons/2/free-sale-icon-1994-thumb.png", width: 40 %>
+              </div>
               <br>
               </div>
             </div>
@@ -55,7 +58,7 @@
 
 </ul>
 <div class="d-flex justify-content-center flex-column">
-<%= link_to "Go to menu", restaurant_foods_path(@restaurant), class: "btn btn-primary" %>
+<%= link_to "Manage your menu", restaurant_foods_path(@restaurant), class: "btn btn-primary" %>
 <%= link_to "Help Centre", "#", class: "btn btn-primary" %>
 <%= link_to "Notification", restaurant_notification_path(@restaurant), class: "btn btn-primary" %>
 </div>
