@@ -9,12 +9,11 @@
     <% else %>
       <% @published_foods.each do |food| %>
         <div class="food-card">
-      <%# add icon %>
-      <%#= link_to foods_path do %>
+          <%# add icon %>
+          <%#= link_to foods_path do %>
           <%#= image_tag "https://www.svgrepo.com/show/2087/plus.svg", width: 20%>
-            <%# end %>
+          <%# end %>
           <div class="card-product-infos">
-
             <% if food.photo.attached? %>
               <%= cl_image_tag food.photo.key, height: 80, width: 80, crop: :fill %>
             <% else %>
@@ -26,24 +25,31 @@
               <li id="food-description"><%= food.description %> </li>
               <%# edit icon %>
 
-
-              <%= link_to edit_food_path(food) do %>
-
-                <%= image_tag "https://w7.pngwing.com/pngs/944/137/png-transparent-pen-computer-icons-pen-angle-pencil-black-thumbnail.png", width: 20%>
+              <% if @my_restaurant.id == @restaurant.id %>
+                <%= link_to edit_food_path(food) do %>
+                  <%= image_tag "https://w7.pngwing.com/pngs/944/137/png-transparent-pen-computer-icons-pen-angle-pencil-black-thumbnail.png", width: 20%>
+                <% end %>
               <% end %>
             </div>
           </div>
         </div>
       <% end %>
     <% end %>
-<br>
-<div class="btn">
-<%#= link_to 'Add more food item', restaurant_foods_path(@restaurant), class: 'btn-positive' %>
-<%= link_to 'Publish', restaurants_path, class: 'btn-positive mt-3' , method: :patch, data: { turbo_confirm: 'Are you sure?' }%>
-</div>
-<%# add "are you sure" %>
-<br>
 
+  <br>
+
+  <%# BUTTONS ADD & PUBLISH%>
+  <% if @my_restaurant.id == @restaurant.id %>
+    <div class="btn">
+      <%= link_to 'Add more food item', new_restaurant_food_path(@restaurant), class: 'btn-positive' %>
+      <%= link_to 'Publish', restaurants_path, class: 'btn-positive mt-3' , method: :patch, data: { turbo_confirm: 'Are you sure?' }%>
+    </div>
+    <%# add "are you sure" %>
+  <% end %>
+</div>
+
+<br>
+<%# CURRENT RESTAURANT DETAILS %>
 <h3 class="text-center"><%= @restaurant.name %>'s details</h3>
 <div class="container restaurant-info">
   <ul>
@@ -74,6 +80,7 @@
   <%# </div> %>
 <%# </div> %>
 
+<%# REVIEWS FOR CURRENT RESTAURANT %>
 <h3 class="text-center">All reviews for <%= @restaurant.name %>:</h3>
 <div class="review-card">
 
