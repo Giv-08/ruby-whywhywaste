@@ -20,9 +20,13 @@ class FoodsController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
   def published
-    raise
+    @food = Food.find(params[:id])
+    @food.update(published: true)
+    redirect_to restaurants_dashboard_path
   end
+
   def show
     # @restaurant = Restaurant.find(params[:restaurant_id])
     @food = Food.find(params[:id])

@@ -7,7 +7,7 @@
   <% @unpublished_foods.each do |food| %>
   <div class="food-card">
       <%# add icon %>
-      <%= link_to published_restaurant_food_path(food.restaurant, food), method: :patch do %> <%# wanna go to restaurant/show and change attr to true %>
+      <%= link_to published_restaurant_food_path(food.restaurant, food), data: { turbo_method: :patch } do %> <%# wanna go to restaurant/show and change attr to true %>
           <%= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
             <% end %>
           <div class="card-product-infos">
