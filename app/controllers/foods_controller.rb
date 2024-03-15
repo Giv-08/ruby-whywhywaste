@@ -2,6 +2,8 @@ class FoodsController < ApplicationController
   def index
     @foods = Food.all
     @unpublished_foods = Food.where(published: false)
+    @my_restaurant = current_restaurant
+    @foods = @my_restaurant.foods
   end
 
   def new
@@ -19,6 +21,20 @@ class FoodsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def published
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @food = Food.find(params[:id])
+    @food.update(published: true)
+    redirect_to restaurants_dashboard_path
+  end
+
+  def unpublished
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @food = Food.find(params[:id])
+    @food.update(published: false)
+    redirect_to restaurants_dashboard_path
   end
 
   def show
