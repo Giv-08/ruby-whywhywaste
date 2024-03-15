@@ -1,14 +1,29 @@
-<h1>Cart</h1>
+<h1 class="text-center">Cart</h1>
 
 
 <% if @order.order_lines.empty? %>
   <p>Your cart is currently empty...</p>
 <% else %>
-  <ul>
-    <% @order.order_lines.each do |ol| %>
-      <li><strong>Food Name: </strong><%= ol.food.name %>
-      <strong>Quantity: </strong><%= ol.quantity %>
-      <strong>Price: </strong> (<%= ol.food.price %>) </li>
-    <% end %>
-  </ul>
+  <div class="container">
+    <ul>
+      <% @order.order_lines.each do |ol| %>
+        <li><strong>Food Name: </strong><%= ol.food.name %></li>
+        <li>
+          <strong>Quantity:</strong>
+          <%= link_to "-", order_lines_reduce_path(:id => ol), method: :post %>
+          <%= ol.quantity %> <%= link_to "+", order_lines_add_path(:id => ol), method: :post %>
+
+          </li>
+        <li>Description: <%= ol.food.description %> </li>
+        <li><strong>Price: </strong> (<%= ol.food.price %>) </li>
+
+        <li>Total Price: </li>
+        <%= link_to "Delete",
+                order_lines_path(ol),
+                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+              %>
+
+      <% end %>
+    </ul>
+  </div>
 <% end %>
