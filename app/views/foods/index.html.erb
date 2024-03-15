@@ -4,7 +4,7 @@
 <%# show whole menu = unpublished ones here %>
 <% if restaurant_signed_in? %>
 <ul>
-  <% @foods.each do |food| %>
+  <% @my_restaurant.foods.each do |food| %>
   <div class="food-card">
       <%# add icon %>
       <%= link_to published_restaurant_food_path(food.restaurant, food), data: { turbo_method: :patch } do %> <%# for published published_restaurant_path %>
@@ -26,6 +26,10 @@
               <%= link_to edit_food_path(food) do %>
                 <%= image_tag "https://w7.pngwing.com/pngs/944/137/png-transparent-pen-computer-icons-pen-angle-pencil-black-thumbnail.png", width: 20%>
               <% end %>
+              <%# Button to view food (food show page) %>
+              <div class="card-footer text-center">
+                <%= link_to 'View', food_path(food), class: 'button-positive' %>
+              </div>
             </div>
           </div>
         </div>
@@ -33,6 +37,7 @@
   <% end %>
 </ul>
   </div>
+
   <%# user login %>
 <% elsif user_signed_in? %>
   <ul>

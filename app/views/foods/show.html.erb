@@ -17,6 +17,7 @@
 </ul>
 
 </div>
-<%= link_to "add to cart", food_order_lines_path(@food), data: { turbo_method: :post } %>
+<% if user_signed_in? %>
+  <%= link_to "add to cart", food_order_lines_path(@food), data: { turbo_method: :post } %>
+<% end %>
 
-<%# <%= link_to list_path(list), class: 'nav-btn', data: { turbo_method: :delete } do %>

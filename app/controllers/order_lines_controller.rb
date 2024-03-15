@@ -42,7 +42,4 @@ class OrderLinesController < ApplicationController
     redirect_to cart_path, status: :see_other
   end
 
-  # def show
-
-  # end
 end
