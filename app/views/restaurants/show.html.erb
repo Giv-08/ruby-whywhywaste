@@ -34,7 +34,7 @@
     <% end %>
 <br>
 <div class="btn">
-<%= link_to 'Add more food item', restaurant_foods_path(@restaurant), class: 'btn-positive' %>
+<%#= link_to 'Add more food item', restaurant_foods_path(@restaurant), class: 'btn-positive' %>
 <%= link_to 'Publish', restaurants_path, class: 'btn-positive mt-3' , method: :patch, data: { turbo_confirm: 'Are you sure?' }%>
 </div>
 <%# add "are you sure" %>

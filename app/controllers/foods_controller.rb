@@ -22,6 +22,7 @@ class FoodsController < ApplicationController
   end
 
   def published
+    @restaurant = Restaurant.find(params[:restaurant_id])
     @food = Food.find(params[:id])
     @food.update(published: true)
     redirect_to restaurants_dashboard_path

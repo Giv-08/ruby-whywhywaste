@@ -26,7 +26,11 @@
         </div>
     <% end %>
   </ul>
-
+<%# publish button %>
+<div class="btn">
+<%#= link_to 'Add more food item', restaurant_foods_path(@restaurant), class: 'btn-positive' %>
+<%= link_to 'Publish', restaurants_path, class: 'btn-positive mt-3' , method: :patch, data: { turbo_confirm: 'Are you sure?' }%>
+</div>
 <%# <li><h2>Your menu (unpublished)</h2></li>
 <% @unpublished_foods.each do |food| %>
         <%# <div class="food-card d-flex"> %>
