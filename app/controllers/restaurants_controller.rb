@@ -19,9 +19,15 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @my_restaurant = current_restaurant if restaurant_signed_in?
     # @food = Food.find(params[:id])
     @published_foods = @restaurant.foods.where(published: true)
     @unpublished_foods = @restaurant.foods.where(published: false)
+
+    # if restaurant_signed_in?
+    #   @my_restaurant = current_restaurant
+
+    # end
   end
 
   # def map
