@@ -18,4 +18,31 @@ class OrderLinesController < ApplicationController
       redirect_to food_path(@food), alert: "Something went wrong adding item to cart"
     end
   end
+
+  def add_quantity
+    @order_line = OrderLine.find(params[:id])
+    @order_line.quantity += 1
+    # if @order_line.quantity < # total stock
+    @order_line.save
+    redirect_to cart_path
+  end
+
+  def reduce_quantity
+    @order_lines = OrderLine.find(params[:id])
+    if @order_lines.quantity > 1
+      @order_lines.quantity -= 1
+    end
+    @order_lines.save
+    redirect_to cart_path
+  end
+
+  def destroy
+    @order_line = OrderLine.find(params[:id])
+    @order_line.destroy
+    redirect_to cart_path, status: :see_other
+  end
+
+  # def show
+
+  # end
 end

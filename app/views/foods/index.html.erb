@@ -4,10 +4,10 @@
 <%# show whole menu = unpublished ones here %>
 <%# if @my_restaurant.present? %>
 <ul>
-  <% @unpublished_foods.each do |food| %>
+  <% @foods.each do |food| %>
   <div class="food-card">
       <%# add icon %>
-      <%= link_to restaurants_dashboard_path do %> <%# wanna go to restaurant/show %>
+      <%= link_to published_restaurant_food_path(food.restaurant, food), data: { turbo_method: :patch } do %> <%# for published published_restaurant_path %>
           <%= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
             <% end %>
           <div class="card-product-infos">
