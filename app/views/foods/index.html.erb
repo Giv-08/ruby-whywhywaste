@@ -1,10 +1,8 @@
 <h1 class= "text-center mt-5">Your menu</h1>
 
 <div class="mt-3">
-<%# DISPLAY UNPUBLISHED LIST OF FOODS (FOODS.ALL) %>
-
+<%# show whole menu = unpublished ones here %>
 <% if restaurant_signed_in? %>
-
 <ul>
   <% @my_restaurant.foods.each do |food| %>
   <div class="food-card">
@@ -35,13 +33,43 @@
             </div>
           </div>
         </div>
-    <%# <li>Food item : <%= food.name %> </li>
-    <%# <li>Price : $ <%= food.price %> </li>
-    <%# <li>Description : <%= food.description %> </li>
-    <%# <li>Quantity : <%= food.quantity %> </li>
-    <%# <li>Restaurant : <strong><%= food.restaurant.name%> </strong></li>
   <br>
   <% end %>
 </ul>
   </div>
-<% end%>
+
+  <%# user login %>
+<% elsif user_signed_in? %>
+  <ul>
+  <% @foods.each do |food| %>
+  <div class="food-card">
+      <%# add icon %>
+      <%= link_to published_restaurant_food_path(food.restaurant, food), data: { turbo_method: :patch } do %> <%# for published published_restaurant_path %>
+          <%= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
+            <% end %>
+          <div class="card-product-infos">
+            <% if food.photo.attached? %>
+              <%= cl_image_tag food.photo.key, height: 180, width: 150, crop: :fill %>
+            <% else %>
+              <img style="width: 150px" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+            <% end %>
+            <div class="text-infos">
+              <li id="food-name"><%= food.name %> </li>
+              <li id="food-price">$<%= food.price %> </li>
+              <li id="food-description"><%= food.description %> </li>
+              <li>Restaurant : <strong><%= food.restaurant.name%> </strong></li>
+              <%# edit icon %>
+              <br>
+              <div class="btn">
+                <%= link_to 'Add to cart', cart_path, class: 'btn-positive mt-3' ,  data: {'turbo_confirm': "Are you sure you want to submit this form?" } %> <%# fix message%>
+              </div>
+            </div>
+          </div>
+        </div>
+       <br>
+     <% end %>
+    <div class="btn">
+      <%= link_to 'Continue shopping', restaurants_path, class: 'btn-positive mt-3' ,  data: {'turbo_confirm': "Are you sure you want to submit this form?" } %> <%# fix message%>
+    </div>
+    <br><br><br>
+<% end %>
