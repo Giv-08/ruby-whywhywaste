@@ -1,0 +1,8 @@
+<p><strong>checkout</strong></p>
+<%= @order.total_price %>
+
+<p>Payment Options:</p>
+<button>Cash</button>
+<%= link_to( "Credit card",
+            restaurants_path,
+            data: { turbo_method: :get, turbo_confirm: "Thank You for shopping with us" }) %>

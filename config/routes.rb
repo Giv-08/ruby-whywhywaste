@@ -27,35 +27,36 @@ Rails.application.routes.draw do
   get 'users/dashboard', to: 'users/dashboard#dashboard'
   resources :restaurants do
     # Nested routes - foods belonging to restaurant
-
-    resources :foods, only: [:new, :create, :edit, :index]
-
-
-
+    resources :foods, only: [:new, :create, :edit, :index, :show]
     # Nested routes - reviews belonging to restaurant
     resources :reviews, only: [:index, :create, :new]
     # Nested routes - orders related to a specific restaurant
-    resources :orders, only: [:index, :create]
+    # resources :orders, only: [:index, :create, :new]
   end
 
   resources :foods do
     resources :order_lines, only: [:create]
   end
 
+  resources :orders
 
   resources :foods, only: [:edit, :update, :destroy, :show]
 
   get '/search', to: 'search#list', as: :search
   get '/search/map', to: 'search#map', as: :search_map
 
+
+  # routes related to orders and carts
   get '/cart', to: 'cart#cart', as: :cart
   get 'order_lines/:id' => "order_lines#show", as: "order_lines"
-  get 'order_lines/:id/add' => "order_lines#add_quantity", as: "orders"
+  get 'order_lines/:id/add' => "order_lines#add_quantity", as: "orders_lines_quantity"
   post 'order_lines/:id/add' => "order_lines#add_quantity", as: "order_lines_add"
   get 'order_lines/:id/reduce' => "order_lines#reduce_quantity", as: "orders_reduce"
   post 'order_lines/:id/reduce' => "order_lines#reduce_quantity", as: "order_lines_reduce"
 
   delete 'order_lines/:id' => "order_lines#destroy"
+
+
   # Defines the root path route ("/")
   # root "posts#index"
 end
