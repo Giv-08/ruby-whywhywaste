@@ -7,6 +7,9 @@
     <% @published_foods.each do |food| %>
      <div class="food-card d-flex">
           <div class="card-product-infos">
+         <%= link_to unpublished_restaurant_food_path(food.restaurant, food), data: { turbo_method: :patch } do %> <%# for published published_restaurant_path %>
+          <%= image_tag "https://cdn-icons-png.flaticon.com/512/262/262039.png", width: 20%>
+            <% end %>
             <% if food.photo.attached? %>
               <%= cl_image_tag food.photo.key, height: 80, width: 80, crop: :fill %>
             <% else %>
@@ -16,6 +19,9 @@
               <li id="food-name"><%= food.name %> </li>
               <li id="food-price">$<%= food.price %> </li>
               <li id="food-description"><%= food.description %> </li>
+              <div class="sale-icon">
+              <%= image_tag "https://www.iconpacks.net/icons/2/free-sale-icon-1994-thumb.png", width: 40 %>
+              </div>
               <br>
               </div>
             </div>
@@ -23,7 +29,11 @@
         </div>
     <% end %>
   </ul>
-
+<%# publish button %>
+<div class="btn">
+<%#= link_to 'Add more food item', restaurant_foods_path(@restaurant), class: 'btn-positive' %>
+<%= link_to 'Publish', restaurants_path, class: 'btn-positive mt-3' ,  data: {'turbo_confirm': "Are you sure you want to submit this form?" } %> <%# fix message%>
+</div>
 <%# <li><h2>Your menu (unpublished)</h2></li>
 <% @unpublished_foods.each do |food| %>
         <%# <div class="food-card d-flex"> %>
@@ -55,7 +65,7 @@
 
 </ul>
 <div class="d-flex justify-content-center flex-column">
-<%= link_to "Go to menu", restaurant_foods_path(@restaurant), class: "btn btn-primary" %>
+<%= link_to "Manage your menu", restaurant_foods_path(@restaurant), class: "btn btn-primary" %>
 <%= link_to "Help Centre", "#", class: "btn btn-primary" %>
 <%= link_to "Notification", restaurant_notification_path(@restaurant), class: "btn btn-primary" %>
 </div>

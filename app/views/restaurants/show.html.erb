@@ -1,12 +1,12 @@
 <h1 class="show-restaurant-title text-center mt-5">Welcome to <%= @restaurant.name %>'s Page</h1>
 
-<h2 class="text-center">Unpublished Food items</h2>
+<h2 class="text-center">To be published Food items</h2>
   <br>
-    <% if @unpublished_foods.empty? %>
+    <% if @published_foods.empty? %>
       <p class="text-center">Your menu is currently empty.</p>
       <p class="text-center">Please use "add more food item" button below to add menus for your restaurant</p>
     <% else %>
-      <% @unpublished_foods.each do |food| %>
+      <% @published_foods.each do |food| %>
         <div class="food-card">
       <%# add icon %>
       <%#= link_to foods_path do %>
@@ -37,7 +37,7 @@
     <% end %>
 <br>
 <div class="btn">
-<%= link_to 'Add more food item', new_restaurant_food_path(@restaurant), class: 'btn-positive' %>
+<%#= link_to 'Add more food item', restaurant_foods_path(@restaurant), class: 'btn-positive' %>
 <%= link_to 'Publish', restaurants_path, class: 'btn-positive mt-3' , method: :patch, data: { turbo_confirm: 'Are you sure?' }%>
 </div>
 <%# add "are you sure" %>
