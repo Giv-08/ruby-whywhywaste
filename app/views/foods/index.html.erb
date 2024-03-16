@@ -39,7 +39,6 @@
   <% end %>
 </ul>
   </div>
-
   <%# user login %>
 <% elsif user_signed_in? %>
   <ul>
@@ -68,8 +67,8 @@
             </div>
           </div>
         </div>
-       <br>
-     <% end %>
+      <br>
+    <% end %>
     <div class="btn">
       <%= link_to 'Continue shopping', restaurants_path, class: 'btn-positive mt-3' ,  data: {'turbo_confirm': "Are you sure you want to submit this form?" } %> <%# fix message%>
     </div>

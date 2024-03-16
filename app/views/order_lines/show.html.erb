@@ -1,1 +1,10 @@
-<h1>seccessfully added one more quantity</h1>
+<h2>Your 5 most recent purchase</h2>
+<% previous_order = @order.last(5) %>
+<ul class="container"><% previous_order.each do |pe| %>
+
+  <li>Order id: <%= pe.id %></li>
+  <li>Total price: <%= pe.total_price %></li>
+  <%= link_to "Review",  %>
+  <br>
+  <% end %>
+</ul>
