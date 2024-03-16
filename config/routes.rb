@@ -20,16 +20,13 @@ Rails.application.routes.draw do
   get "pages/auth", to: "pages#authentication", as: :auth
   # routes for pages
   resources :pages
-
   # Defined routes for the restaurants
   get 'restaurants/dashboard', to: 'restaurants/dashboard#dashboard'
   get 'restaurants/:id/notification', to: 'restaurants/dashboard#notification', as: :restaurant_notification
   get 'users/dashboard', to: 'users/dashboard#dashboard'
   resources :restaurants do
     # Nested routes - foods belonging to restaurant
-
     resources :foods, only: [:new, :create, :edit, :index, :show]
-
     resources :foods, only: [:new, :create, :index, :show] do
       member do
         patch :published, :unpublished
@@ -46,10 +43,17 @@ Rails.application.routes.draw do
   resources :foods do
     resources :order_lines, only: [:create]
   end
+  resources :orders do
+    member do
+      patch 'checkout'
+    end
+  end
 
-
-  resources :orders
-
+  # resources :orders do
+  #   collection do
+  #     get 'history', to: 'orders#history'
+  #   end
+  # end
 
   resources :foods, only: [:edit, :update, :destroy, :show]
 
@@ -60,14 +64,18 @@ Rails.application.routes.draw do
   # routes related to orders and carts
   get '/cart', to: 'cart#cart', as: :cart
   get 'order_lines/:id' => "order_lines#show", as: "order_lines"
+
   get 'order_lines/:id/add' => "order_lines#add_quantity", as: "orders_lines_quantity"
   post 'order_lines/:id/add' => "order_lines#add_quantity", as: "order_lines_add"
   get 'order_lines/:id/reduce' => "order_lines#reduce_quantity", as: "orders_reduce"
   post 'order_lines/:id/reduce' => "order_lines#reduce_quantity", as: "order_lines_reduce"
-
   delete 'order_lines/:id' => "order_lines#destroy"
 
-
+  # resources :order_lines do
+  #   collection do
+  #     get 'previous_order'
+  #   end
+  # end
   # Defines the root path route ("/")
   # root "posts#index"
 end
