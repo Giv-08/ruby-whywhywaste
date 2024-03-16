@@ -11,3 +11,10 @@ eagerLoadControllersFrom("controllers", application)
 // lazyLoadControllersFrom("controllers", application)
 // import AddressAutocompleteController from "./address_autocomplete_controller.js"
 // application.register("address_autocomplete", AddressAutocompleteController)
+
+// flickity
+var flkty = new Flickity( '.main-gallery', {
+  // options
+  cellAlign: 'left',
+  contain: true
+});

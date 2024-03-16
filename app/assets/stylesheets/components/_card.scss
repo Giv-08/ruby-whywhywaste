@@ -1,3 +1,53 @@
+$green: #789D67;
+$yellow: #F9CC63;
+$orange: #F3844C;
+$white: #ffffff;
+$black: #0F0F12;
+
+// restaurant index
+.restaurant-photo {
+  width: 200px;
+  height: 150px;
+}
+//  flickity
+* { box-sizing: border-box; }
+
+.carousel {
+  background: #fff8db;
+}
+
+.carousel-cell {
+  // width: 66%;
+  height: 200px;
+  margin-right: 10px;
+  background-color: transparent;
+  border-radius: 5px;
+  counter-increment: carousel-cell;
+}
+
+div.card.restaurants-list {
+  width: 390px;
+  margin-left: -59px;
+  height: 200px;
+  background-color: #fff8db;
+}
+
+.card-img-top {
+  display: flex;
+  align-items: center;
+}
+/* cell number */
+.carousel-cell:before {
+  display: block;
+  text-align: center;
+  // content: counter(carousel-cell);
+//   line-height: 200px;
+//   font-size: 80px;
+//   color: white;
+}
+
+//  food index
+
 .food-card {
   list-style: none;
   font-size: 12px;
