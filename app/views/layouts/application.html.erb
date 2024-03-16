@@ -12,7 +12,7 @@
     <%= javascript_importmap_tags %>
 
     <%# Mapbox  %>
-
+<script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
     <script id="search-js" defer src="https://api.mapbox.com/search-js/v1.0.0-beta.18/web.js"></script>
     <script>
     const accessToken = '<%= ENV["MAPBOX_API_KEY"] %>';
@@ -25,7 +25,7 @@
 
       autofill.addEventListener('retrieve', async (event) => {
         const fullAddress = event.detail.features[0].properties.full_address;
-        
+
         event.target.value = await fullAddress;
       });
 

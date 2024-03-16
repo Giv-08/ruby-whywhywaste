@@ -20,7 +20,9 @@
               <li id="food-name"><%= food.name %> </li>
               <li id="food-price">$<%= food.price %> </li>
               <li id="food-description"><%= food.description %> </li>
-              <li>Restaurant : <strong><%= food.restaurant.name%> </strong></li>
+              <li id="food-price">Quantity: <%= food.quantity %> </li>
+              <%# <li>Restaurant : <strong><%= food.restaurant.name%> </strong></li>
+
               <%# edit icon %>
               <br>
               <%= link_to edit_food_path(food) do %>
