@@ -1,12 +1,15 @@
 
 <%# SIGNED IN AS RESTAURANT %>
-<h1 class="text-center">Welome to homepage</h1>
-<hr>
-
 <%# SEARCH BAR? OR BUTTON? %>
-<div class="search d-flex justify-content-center">
-<%= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
-<hr>
+<div class="search">
+<h1 class="top-text">Welome to WHY WHY WASTE</h1>
+<%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
+<form action="" class="search-bar">
+  <input type="search" name="search" pattern=".*\S.*" required>
+  <button class="search-btn" type="submit">
+    <span>Search</span>
+  </button>
+</form>
 </div>
 
 <%# RESTAURANT SIGN-IN %>
