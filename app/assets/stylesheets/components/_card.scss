@@ -1,3 +1,34 @@
+// restaurant index
+.restaurant-photo {
+  width: 200px;
+  height: 150px;
+}
+//  flickity
+.carousel {
+  background: #EEE;
+}
+
+.carousel-cell {
+  width: 66%;
+  height: 100px;
+  margin-right: 10px;
+  background:transparent;
+  border-radius: 5px;
+  counter-increment: carousel-cell;
+}
+
+/* cell number */
+// .carousel-cell:before {
+//   display: block;
+//   text-align: center;
+//   content: counter(carousel-cell);
+//   line-height: 200px;
+//   font-size: 80px;
+//   color: white;
+// }
+
+//  food index
+
 .food-card {
   list-style: none;
   font-size: 12px;
