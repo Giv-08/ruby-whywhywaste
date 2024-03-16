@@ -4,11 +4,10 @@
 <div class="search">
 <h1 class="top-text">Welome to WHY WHY WASTE</h1>
 <%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
-<form action="" class="search-bar">
-  <input type="search" name="search" pattern=".*\S.*" required>
-  <button class="search-btn" type="submit">
-    <span>Search</span>
-  </button>
+<form onsubmit="event.preventDefault();" role="search">
+  <label for="search">Search for stuff</label>
+  <input id="search" type="search" placeholder="Search..." autofocus required />
+  <button type="submit">Go</button>
 </form>
 </div>
 
@@ -16,7 +15,7 @@
 <% if restaurant_signed_in? %>
 
   <%# CURRENTLY SIGNED-IN RESTAURANT FOOD CARDS - random display %>
-  <h3 class="text-center">My Food Items</h3>
+  <h3 class="index-head">My Food Items</h3>
   <div class="container mx-auto card-container-foodlist row">
     <% @my_restaurant.foods.shuffle.each do |food| %>
       <%# <div class="col-sm-6 col-md-3 justify-content-center"> %>
@@ -51,10 +50,9 @@
         <% end %>
       </div>
     </div>
-  <hr>
 
   <%# LIST OF OTHER RESTAURANTS %>
-  <h3 class="text-center">List of available Restaurants</h3>
+  <h3 class="index-head">List of available Restaurants</h3>
   <div class="container mx-auto card-container-restaurants">
     <% @other_restaurants.each do |restaurant| %>
       <%# EACH CARD OF RESTUARANT %>
@@ -111,7 +109,7 @@
   <%# <hr> %>
 
    <%# RESTAURANTS CARDS - random display %>
-  <h3 class="text-center">My Favourite Restaurants</h3>
+  <h3 class="index-head">My Favourite Restaurants</h3>
   <div class="container mx-auto fav-restaurants row">
     <% @restaurants.shuffle.each do |restaurant| %>
       <div class="col-sm-6 col-md-3 justify-content-center">
@@ -130,10 +128,9 @@
       </div>
     <% end %>
   </div>
-  <hr>
 
   <%# LIST OF ALL RESTAURANTS %>
-  <h3 class="text-center">List of available Restaurants</h3>
+  <h3 class="index-head">List of available Restaurants</h3>
   <div class="container mx-auto card-container-restaurants">
     <% @other_restaurants.each do |restaurant| %>
       <%# EACH CARD OF RESTUARANT %>
