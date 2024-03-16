@@ -1,18 +1,26 @@
+$green: #789D67;
+$yellow: #F9CC63;
+$orange: #F3844C;
+$white: #ffffff;
+$black: #0F0F12;
+
 // restaurant index
 .restaurant-photo {
   width: 200px;
   height: 150px;
 }
 //  flickity
+* { box-sizing: border-box; }
+
 .carousel {
-  background: #EEE;
+  background: #fff8db;
 }
 
 .carousel-cell {
   width: 66%;
-  height: 100px;
+  height: 200px;
   margin-right: 10px;
-  background:transparent;
+  background-color: transparent;
   border-radius: 5px;
   counter-increment: carousel-cell;
 }
