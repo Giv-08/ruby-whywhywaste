@@ -1,8 +1,9 @@
+<%= link_to '🡰', 'javascript:history.back()' %>
 <p><strong>checkout</strong></p>
 <%= @order.total_price %>
 
 <p>Payment Options:</p>
 <button>Cash</button>
-<%= link_to( "Credit card",
-            restaurants_path,
-            data: { turbo_method: :get, turbo_confirm: "Thank You for shopping with us" }) %>
+<% if @order.status == "cart" %>
+  <%= button_to "Checkout Order", checkout_order_path(@order), method: :patch, data: { confirm: "Are you sure you want to checkout this order?" }, class: "btn btn-primary" %>
+<% end %>

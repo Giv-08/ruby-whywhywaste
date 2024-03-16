@@ -21,10 +21,16 @@ class OrderLinesController < ApplicationController
 
   def add_quantity
     @order_line = OrderLine.find(params[:id])
-    @order_line.quantity += 1
-    # if @order_line.quantity < # total stock
-    @order_line.save
-    redirect_to cart_path
+    @food_id = @order_line.food_id
+    @food = Food.find(@food_id)
+    @food_quantity = @food.quantity
+    if @food_quantity > @order_line.quantity
+      @order_line.quantity += 1
+      @order_line.save
+      redirect_to cart_path
+    else
+      redirect_to cart_path, alert: "you have reached the maximum quantity limit"
+    end
   end
 
   def reduce_quantity
@@ -42,8 +48,7 @@ class OrderLinesController < ApplicationController
     redirect_to cart_path, status: :see_other
   end
 
-  def show
-    @order = Order.all
-  end
+  
+
 
 end

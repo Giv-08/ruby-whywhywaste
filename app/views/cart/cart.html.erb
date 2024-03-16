@@ -1,5 +1,6 @@
-<h1 class="text-center">Cart</h1>
+<%= link_to '🡰', 'javascript:history.back()' %>
 
+<h1 class="text-center">Cart</h1>
 
 <% if @order.order_lines.empty? %>
   <p>Your cart is currently empty...</p>
@@ -18,16 +19,16 @@
         <li><strong>Description: </strong><%= ol.food.description %> </li>
         <li><strong>Price: </strong> <%= ol.food.price * ol.quantity%></li>
         <% total_price +=  ol.food.price * ol.quantity %>
-
         <%= link_to "Delete",
                 order_lines_path(ol),
                 data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
               %>
-
       <% end %>
+      <br>
+      <%= link_to "Proceed to checkout",  orders_path(total_price: total_price), data: { turbo_method: :post } %>
 
     </ul>
   </div>
 <% end %>
+
 <%= link_to "Continue shopping", restaurants_path %>
-<%= link_to "Proceed to checkout",  orders_path(total_price: total_price), data: { turbo_method: :post } %><br>

@@ -10,4 +10,12 @@ class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
   end
+
+  def checkout
+    @order = Order.find(params[:id])
+    @order.update(status: "paid")
+    redirect_to cart_path, notice: 'Order checked out successfully.'
+  end
+
+  
 end
