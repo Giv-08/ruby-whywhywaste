@@ -3,7 +3,7 @@ class FoodsController < ApplicationController
     @foods = Food.all
     @unpublished_foods = Food.where(published: false)
     @my_restaurant = current_restaurant
-    @foods = @my_restaurant.foods if current_restaurant
+    @foods = @my_restaurant.foods
   end
 
   def new
@@ -52,14 +52,16 @@ class FoodsController < ApplicationController
     @food = Food.find(params[:id])
     @restaurant = @food.restaurant
     @food.update(food_params)
-    redirect_to restaurant_path(@restaurant)
+    # redirect_to restaurant_path(@restaurant)
+    redirect_to restaurant_foods_path(@restaurant)
   end
 
   def destroy
     @food = Food.find(params[:id])
     @restaurant = @food.restaurant
     @food.destroy
-    redirect_to restaurant_path(@restaurant), status: :see_other
+    # redirect_to restaurant_path(@restaurant), status: :see_other
+    redirect_to restaurant_foods_path(@restaurant), status: :see_other
   end
 
   private

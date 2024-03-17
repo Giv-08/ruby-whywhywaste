@@ -1,6 +1,7 @@
 class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
+    @published_foods = Food.published
 
     # Signed-in restaurant only
     if restaurant_signed_in?
