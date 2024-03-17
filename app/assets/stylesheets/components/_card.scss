@@ -41,13 +41,11 @@ $light-yellow: #ffffd5;
 .card.card-product.restaurants-main-card {
   background-color: $light-yellow;
   border-radius: 20px;
-  border: 3px solid $white;
 }
 
 .card.card-product.restaurants-second-card {
   background-color: $light-yellow;
   border-radius: 20px;
-  border: 1px solid $light-yellow;
   height: 300px;
   margin-bottom: 20px;
 }
@@ -84,6 +82,7 @@ div.card.signedin-restaurant {
 .card-img-top {
   display: flex;
   align-items: center;
+  border-radius: 20px;
 }
 
 .carousel.is-fullscreen .carousel-cell {
@@ -122,10 +121,11 @@ div.card.signedin-restaurant {
 
 .food-card {
   list-style: none;
+  height: 20vh;
   font-size: 12px;
-  background-color: beige;
+  background-color: $light-yellow;
   border: 1px solid #d2b763;
-  border-radius: 10px;
+  border-radius: 20px;
   margin-bottom: 10px;
 }
 
@@ -141,10 +141,11 @@ div.card.signedin-restaurant {
 
 li#food-name {
   font-weight: 900;
+  letter-spacing: 1px;
 }
 
 li#food-description {
-  font-size: 10px;
+  font-size: 15px;
 }
 
 img#edit-icon {
@@ -159,6 +160,11 @@ img#edit-icon {
 // restaurant/show
 .review-card {
   border: 1px solid rgb(250, 182, 79);
+}
+
+ul {
+  position: relative;
+  right: 5vw;
 }
 
 li {
