@@ -40,6 +40,19 @@ restaurant2 = Restaurant.new(
 )
 restaurant2.save
 
+restaurant3 = Restaurant.new(
+  name: "Bon Bon bakery",
+  cuisine: "Pasteries",
+  address: "Richmond, melbourne",
+  phone_no: "444466666",
+  email: "bonbon@gmail.com",
+  rating: "5",
+  pickup_start: "2024-03-12 08:25:00",
+  pickup_end: "2024-03-12 09:25:00",
+  password: "bonbon@gmail.com"
+)
+restaurant3.save
+
 Food.create!(
   name: 'Burger',
   price: 20.33,
