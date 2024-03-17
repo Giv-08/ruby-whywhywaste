@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm bg-dark-subtle "  id="navbar-bottom">
+<div class="navbar navbar-expand-sm bg-dark-subtle2 "  id="navbar-bottom">
   <div class="container mx-3">
     <div class="navbar" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mx-3">
@@ -37,11 +37,11 @@
                 <i class="fa-solid fa-bell"></i>
               <% end %>
             </li>
-            <li class="nav-item">
+            <%# <li class="nav-item">
               <%= link_to new_restaurant_food_path(current_restaurant), class: "nav-link px-3" do %> <%# change path > new_restaurant_food_path %>
-                <i class="fa-solid fa-plus"></i>
-              <% end %>
-            </li>
+                <%# <i class="fa-solid fa-plus"></i> %>
+              <%# end %>
+            <%# </li>  %>
             <li class="nav-item">
               <%= link_to restaurants_dashboard_path, class: "nav-link px-3" do %>
                 <i class="fa-solid fa-user"></i>

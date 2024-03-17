@@ -121,11 +121,11 @@
   <% @restaurants.shuffle.each do |restaurant| %>
       <div class="carousel-cell">
     <div class="card restaurants-list">
-      <div class="card-img-top">
+      <div class="card-img-top-user">
         <% if restaurant.photo.attached? %>
-          <%= cl_image_tag(restaurant.photo.key, width:220, height:200, class: "object-fit-cover", crop: :fill, gravity: :face) %>
+          <%= cl_image_tag(restaurant.photo.key, width:240, height:200, class: "object-fit-cover", crop: :fill, gravity: :face) %>
         <% else %>
-          <img class="restaurant-photo" src="https://img.delicious.com.au/MYhAwMVF/del/2023/01/sandoitchi-181514-1.jpg" alt="cafe-photo">
+          <img class="restaurant-user-photo" src="https://img.delicious.com.au/MYhAwMVF/del/2023/01/sandoitchi-181514-1.jpg" alt="cafe-photo">
               <%# <p>No images available for <%= restaurant.name %>
         <% end %>
         <div class="card-text">
@@ -167,7 +167,7 @@
     <% @other_restaurants.each do |restaurant| %>
       <%# EACH CARD OF RESTUARANT %>
       <%= link_to restaurant_foods_path(restaurant) do %>
-        <div class="card card-product restaurants-main-card">
+        <div class="card card-product restaurants-main-card-user">
           <div class="card-img">
             <% if restaurant.photo.attached? %>
               <%= cl_image_tag(restaurant.photo.key, width:200, height:200, class: "object-fit-cover", crop: :fill, gravity: :face) %>
