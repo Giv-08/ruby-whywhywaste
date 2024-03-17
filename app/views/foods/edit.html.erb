@@ -13,9 +13,10 @@
   <% end %>
   <p class="text-center">or</p>
     <%# delete btn %>
-    <div class="btn">
-    <%= link_to food_path(@food), data: { turbo_method: :delete }, style: "text-decoration: none" do %>
-      <h3 class="btn btn-danger">Delete this item</h3>
-    <% end %>
-    </div>
+  <div class="btn">
+    <%#= link_to food_path(@food), data: { turbo_method: :delete }, style: "text-decoration: none" do %>
+    <%# <h3 class="btn btn-danger">Delete this item</h3> %>
+    <%# end %>
+    <%= link_to "Delete this item", food_path(@food), data: {turbo_method: :delete, turbo_confirm: "Do you really want to delete #{ERB::Util.html_escape(@food.name)}?"}, class: 'button-negative' %>
+  </div>
 </div>

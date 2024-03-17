@@ -14,10 +14,11 @@
 <%# RESTAURANT SIGN-IN %>
 <% if restaurant_signed_in? %>
 
-  <%# CURRENTLY SIGNED-IN RESTAURANT FOOD CARDS - random display %>
-  <h3 class="index-head">My Food Items</h3>
+  <%# CURRENTLY SIGNED-IN RESTAURANT PUBLISHED FOOD CARDS %>
+  <h3 class="index-head">My Published Menu</h3>
   <div class="container mx-auto card-container-foodlist row">
-    <% @my_restaurant.foods.shuffle.each do |food| %>
+    <%# @my_restaurant.foods.shuffle.each do |food| %>
+    <% @published_foods.each do |food| %>
       <%# <div class="col-sm-6 col-md-3 justify-content-center"> %>
       <div class="col-3" style="padding: 0">
         <div class="card restaurant-foodlist">

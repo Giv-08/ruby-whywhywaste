@@ -34,7 +34,7 @@
 <%# publish button %>
 <div class="btn">
 <%#= link_to 'Add more food item', restaurant_foods_path(@restaurant), class: 'btn-positive' %>
-<%= link_to 'Publish', restaurants_path, class: 'btn-positive mt-3' ,  data: {'turbo_confirm': "Are you sure you want to submit this form?" } %> <%# fix message%>
+<%= link_to 'Publish', restaurants_path, class: 'btn-positive mt-3' ,  data: {turbo_method: :post,turbo_confirm: "Would you like to post these food items?" } %>
 </div>
 <%# <li><h2>Your menu (unpublished)</h2></li>
 <% @unpublished_foods.each do |food| %>
