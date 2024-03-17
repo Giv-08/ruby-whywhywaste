@@ -10,10 +10,9 @@
   <button type="submit">Go</button>
 </form>
 </div>
-
+<%# -------------------------------------------------------------- %>
 <%# RESTAURANT SIGN-IN %>
 <% if restaurant_signed_in? %>
-
   <%# CURRENTLY SIGNED-IN RESTAURANT FOOD CARDS - random display %>
   <h3 class="index-head">My Food Items</h3>
 <!-- Flickity HTML init -->
@@ -40,7 +39,7 @@
   </div>
   <% end %>
 </div>
-
+<%# ------------------------------------------------------------ %>
   <%# CARDS OF RESTAURANTS %>
   <%# SIGNED-IN RESTAURANT ONLY %>
   <h3 class="index-head">My Restaurant</h3>
@@ -53,7 +52,7 @@
         <% end %>
       </div>
     </div>
-
+<%# ------------------------------------------------------------- %>
   <%# LIST OF OTHER RESTAURANTS %>
   <h3 class="index-head">List of available Restaurants</h3>
   <div class="container mx-auto card-container-restaurants">

@@ -31,6 +31,10 @@ $black: #0F0F12;
 //   align-items: center;
 //   justify-content: center;
 // }
+.card.card-product.restaurants-main-card {
+  background-color: $white;
+  border-radius: 20px;
+}
 
 div.card.restaurants-list {
   width: 100vw;
@@ -39,6 +43,25 @@ div.card.restaurants-list {
   background-color: #ffffd5;
   border: none;
   border-radius: 20px;
+}
+
+div.card.signedin-restaurant {
+  border-radius: 20px;
+}
+
+.card-img-name {
+  position: absolute;
+  // top: 6%;
+  left: 80%;
+  // transform: translate(-50%, -50%);
+  padding: 10px 20px;
+  text-shadow: 1px 1px 3px #464646;
+  text-align: center;
+  display: flex;
+  justify-content: flex-end;
+  color: rgb(255, 249, 249);
+  font-size: 1rem;
+  z-index: 1;
 }
 
 .card-img-top {
@@ -142,6 +165,7 @@ p.text-top {
   margin: 5px 10px;
   text-align: center;
   font-weight: 500;
+  font-size: 17px;
   letter-spacing: 1.5px;
 }
 
@@ -152,4 +176,12 @@ p.text {
 p.text-description {
   margin: 5px 10px;
   font-size: 14px;
+}
+
+// my restaurant
+img.object-fit-cover-my-restaurant {
+  max-width: -webkit-fill-available;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  position: relative;
 }

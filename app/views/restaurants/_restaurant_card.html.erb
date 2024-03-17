@@ -3,8 +3,9 @@
     <%= link_to restaurants_dashboard_path(restaurant) do %>
       <div class="card card-product restaurants-main-card">
         <div class="card-img">
+          <h5 class="card-img-name"><%= restaurant.name %></h5>
           <% if restaurant.photo.attached? %>
-            <%= cl_image_tag(restaurant.photo.key, width:200, height:200, class: "object-fit-cover", crop: :fill, gravity: :face) %>
+            <%= cl_image_tag(restaurant.photo.key, class: "object-fit-cover-my-restaurant", crop: :fill, gravity: :face) %>
           <% else %>
             <p>No images available for <%= restaurant.name %></p>
           <% end %>
@@ -16,16 +17,14 @@
         <%# </div> %>
 
         <div class="overlay d-flex justify-content-center align-items-center flex-column text-center px-2">
-          <div class="card-text-container column">
-            <h5 class="card-img-overlay text-center d-flex"><%= restaurant.name %></h5>
-            <p class="card-img-overlay text-center d-flex"><%= restaurant.address %></p>
+          <div class="card-text-container">
+            <%# <h5 class="card-img-name"><%= restaurant.name %></h5>
+            <p class="card-img-overlay text-center d-flex"><%#= restaurant.address %></p>
           </div>
         </div>
-
-
         <%# cuisine, rating, distance bottom of card image %>
-        <h5><%= restaurant.cuisine %></h5>
-        <p><%= restaurant.rating %></p>
+        <p>Cuisine:  <%= restaurant.cuisine %></p>
+        <p>Rating:  <%= restaurant.rating %></p>
         <%# <p><%= restaurant.distance</p> %>
       </div>
     <% end %>
