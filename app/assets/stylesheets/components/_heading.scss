@@ -1,5 +1,22 @@
+h1.text-center {
+  color: $white;
+  margin: 20px 10px;
+  letter-spacing: 2px;
+  position: relative;
+  top: -5px;
+}
+
+h2.text-center {
+  color: $white;
+  margin: 20px 10px;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 2px #326715
+}
+
 h3.index-head {
   color: $white;
   text-align: center;
-  margin-top: 20px;
+  margin: 30px 10px;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 2px #326715
 }

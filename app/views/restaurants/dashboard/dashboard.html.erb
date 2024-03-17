@@ -1,5 +1,11 @@
-<%= link_to '🡰', 'javascript:history.back()' %>
+<div class="search">
+<div class="back"><%= link_to 'javascript:history.back()' do %>
+<i class="fa-solid fa-angles-left" style="color: #F3844C;"></i>
+<% end %></div>
 <h1 class="text-center">Restaurant dashboard</h1>
+<%# <img src="/app/assets/images/logo1.png" alt=""> need to add logo%>
+<%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
+</div>
 
 <ul class="nav-menu">
   <li><h2 class="text-center">To be published menu</h2></li>
@@ -18,9 +24,9 @@
             <% end %>
             <div class="text-infos">
               <li id="food-name"><%= food.name %> </li>
-              <li id="food-price">$<%= food.price %> </li>
+              <li id="food-price">$  <%= food.price %> </li>
               <li id="food-description"><%= food.description %> </li>
-              <li id="food-quantity">Quantity: <%= food.quantity %> </li>
+              <li id="food-quantity">qty: <%= food.quantity %> </li>
               <div class="sale-icon">
               <%= image_tag "https://www.iconpacks.net/icons/2/free-sale-icon-1994-thumb.png", width: 40 %>
               </div>
