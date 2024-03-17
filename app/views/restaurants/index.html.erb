@@ -1,8 +1,11 @@
 <%# SIGNED IN AS RESTAURANT %>
 <%# SEARCH BAR? OR BUTTON? %>
 <div class="search">
-<div class="back"><%= link_to image_tag("https://cdn-icons-png.freepik.com/512/5839/5839106.png"), 'javascript:history.back()' %></div> <%# need to show %>
-<div><img src="/app/assets/images/logo1.png" alt="www-logo"></div>
+<div class="back"><%= link_to 'javascript:history.back()' do %>
+<i class="fa-solid fa-angles-left" style="color: #F3844C;"></i>
+<% end %></div>
+<h1 class="top-text">WHY WHY WASTE</h1>
+<%# <img src="/app/assets/images/logo1.png" alt=""> need to add logo%>
 <%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
 <form onsubmit="event.preventDefault();" role="search">
   <label for="search">Search for stuff</label>
@@ -59,8 +62,9 @@
     <% @other_restaurants.each do |restaurant| %>
       <%# EACH CARD OF RESTUARANT %>
       <%= link_to restaurant_path(restaurant) do %>
-        <div class="card card-product restaurants-main-card">
+        <div class="card card-product restaurants-second-card">
           <div class="card-img">
+            <h5 class="card-img-name "><%= restaurant.name %></h5>
             <% if restaurant.photo.attached? %>
               <%= cl_image_tag(restaurant.photo.key, width:200, height:200, class: "object-fit-cover", crop: :fill, gravity: :face) %>
             <% else %>
@@ -69,16 +73,15 @@
             <% end %>
           </div>
           <%# float restaurant name and location onto image %>
-          <div class="mask d-flex justify-content-center align-items-center flex-column text-center rounded px-2 ">
-            <h5><%= restaurant.name %></h5>
+          <div class="mask">
             <p class="text-center">Address: <%= restaurant.address %></p>
-          </div>
           <%# cuisine, rating, distance bottom of card image %>
           <h5 class="text-center">Cuisine: <%= restaurant.cuisine %></h5>
           <div class="rating d-flex">
-          <p class="text-center">Rating: <% restaurant.rating.to_i.times do %></p>
-              <i class="fa-regular fa-star fa-xs" style="color: #ffba24;"></i>
+          <p class="text-center"><% restaurant.rating.to_i.times do %></p>
+              <i class="fa-solid fa-star" style="color: #FFD43B; margin: 0px;"></i>
            <% end %>
+          </div>
            </div>
           <%# <p><%= restaurant.rating %></p>
           <%# <p><%= restaurant.distance</p> %>
@@ -120,7 +123,7 @@
     <div class="card restaurants-list">
       <div class="card-img-top">
         <% if restaurant.photo.attached? %>
-          <%= cl_image_tag(restaurant.photo.key, width:220, height:170, class: "object-fit-cover", crop: :fill, gravity: :face) %>
+          <%= cl_image_tag(restaurant.photo.key, width:220, height:200, class: "object-fit-cover", crop: :fill, gravity: :face) %>
         <% else %>
           <img class="restaurant-photo" src="https://img.delicious.com.au/MYhAwMVF/del/2023/01/sandoitchi-181514-1.jpg" alt="cafe-photo">
               <%# <p>No images available for <%= restaurant.name %>
