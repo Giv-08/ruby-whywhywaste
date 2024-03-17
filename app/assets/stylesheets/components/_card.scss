@@ -3,38 +3,99 @@ $yellow: #F9CC63;
 $orange: #F3844C;
 $white: #ffffff;
 $black: #0F0F12;
+$light-yellow: #ffffd5;
 
 // restaurant index
 .restaurant-photo {
-  width: 200px;
-  height: 150px;
+  width: 95vw;
+  height: 200px;
+  position: relative;
+  bottom: 17px;
+  left: -3px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }
+
 //  flickity
 * { box-sizing: border-box; }
 
 .carousel {
-  background: #fff8db;
+  background: transparent;
 }
 
-.carousel-cell {
-  // width: 66%;
-  height: 200px;
-  margin-right: 10px;
-  background-color: transparent;
-  border-radius: 5px;
-  counter-increment: carousel-cell;
+.flickity-page-dots {
+  display: none;
+}
+// .carousel-cell {
+//   // width: 66%;
+//   min-width: 40vw;
+//   height: 200px;
+//   margin-right: 10px;
+//   background-color: transparent;
+//   border-radius: 5px;
+//   counter-increment: carousel-cell;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+// }
+.card.card-product.restaurants-main-card {
+  background-color: $light-yellow;
+  border-radius: 20px;
+}
+
+.card.card-product.restaurants-second-card {
+  background-color: $light-yellow;
+  border-radius: 20px;
+  height: 300px;
+  margin-bottom: 20px;
 }
 
 div.card.restaurants-list {
-  width: 390px;
-  margin-left: -59px;
+  width: 98vw;
+  margin-left: 0px;
   height: 200px;
-  background-color: #fff8db;
+  background-color: $light-yellow;
+  border: none;
+  border-radius: 20px;
+}
+
+div.card.signedin-restaurant {
+  border-radius: 20px;
+}
+
+.card-img-name {
+  position: absolute;
+  width: max-content;
+  right: 0%;
+  padding: 5px 25px;
+  text-shadow: 1px 1px 3px #464646;
+  text-align: center;
+  display: flex;
+  justify-content: flex-end;
+  color: white;
+  font-size: 1.2rem;
+  z-index: 1;
+  border-radius: 40px;
+  background: #ffffff52;
 }
 
 .card-img-top {
   display: flex;
   align-items: center;
+  border-radius: 20px;
+}
+
+.carousel.is-fullscreen .carousel-cell {
+  height: 100%;
+}
+
+.carousel-cell-image {
+  display: block;
+  max-height: 100%;
+}
+
+.carousel.is-fullscreen .carousel-cell-image {
+  max-width: 100%;
 }
 /* cell number */
 .carousel-cell:before {
@@ -46,14 +107,25 @@ div.card.restaurants-list {
 //   color: white;
 }
 
+.carousel-cell {
+  width: 100%;
+  height: 200px;
+  margin-right: 10px;
+  /* center images in cells with flexbox */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 //  food index
 
 .food-card {
   list-style: none;
+  height: 20vh;
   font-size: 12px;
-  background-color: beige;
+  background-color: $light-yellow;
   border: 1px solid #d2b763;
-  border-radius: 10px;
+  border-radius: 20px;
   margin-bottom: 10px;
 }
 
@@ -69,10 +141,11 @@ div.card.restaurants-list {
 
 li#food-name {
   font-weight: 900;
+  letter-spacing: 1px;
 }
 
 li#food-description {
-  font-size: 10px;
+  font-size: 15px;
 }
 
 img#edit-icon {
@@ -89,6 +162,11 @@ img#edit-icon {
   border: 1px solid rgb(250, 182, 79);
 }
 
+ul {
+  position: relative;
+  right: 5vw;
+}
+
 li {
   list-style: none;
   font-size: 15px;
@@ -97,7 +175,83 @@ li {
 div.container.restaurant-info {
   border: 1px solid rgb(250, 182, 79);
 }
+p {
+  letter-spacing: 1.5px;
+}
 
 h5 {
   font-size: 18px;
+}
+h5.text-center {
+  margin-top: -15px;
+}
+
+p.text-top {
+  margin: 5px 10px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 17px;
+  letter-spacing: 1.5px;
+}
+
+p.text {
+  margin: 5px 10px;
+}
+
+p.text-description {
+  margin: 5px 10px;
+  font-size: 14px;
+}
+
+// my restaurant
+img.object-fit-cover-my-restaurant {
+  max-width: -webkit-fill-available;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  position: relative;
+  border-top-left-radius: 20px;
+}
+
+.object-fit-cover {
+border-top-left-radius: 20px;
+border-bottom-left-radius: 20px;
+}
+
+div.restaurant-card-info {
+  padding: 0px 20px;
+  display: flex;
+  justify-content: flex-start;
+  color:$orange;
+  font-size: 20px;
+  align-items: center;
+}
+div.cuisine {
+  display: flex;
+  justify-content: center;
+  margin-right: 135px;
+}
+
+p.cuisine {
+  font-size: 25px;
+  position: relative;
+  top: 7px;
+}
+
+p.rating {
+  display: flex;
+  border: 2px solid $orange;
+  padding: 5px;
+  border-radius: 50px;
+  width: 10rem;
+  justify-content: center;
+}
+
+img#food-icon {
+  width: 30px;
+  bottom: 4px;
+  position: relative;
+}
+
+div.rating.d-flex {
+  justify-content: center;
 }
