@@ -1,3 +1,10 @@
+$green: #789D67;
+$yellow: #F9CC63;
+$orange: #F3844C;
+$white: #ffffff;
+$black: #0F0F12;
+$light-yellow: #ffffd5;
+
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
@@ -15,12 +22,21 @@
   bottom: 0;
   width: 100%;
   height: 60px;
+  z-index: 1;
 
 }
 #navbar-bottom i {
   font-size: 24px;
+  color: #ff5d0e;
 }
 
-.bg-dark-subtle {
-  background-color: #FFC107
+.bg-dark-subtle2 {
+  background-color: #FFC107;
+}
+
+.navbar > .container {
+display: flex;
+justify-content: space-around;
+position: absolute;
+left: 10px;
 }

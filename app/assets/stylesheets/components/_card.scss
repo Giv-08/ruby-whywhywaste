@@ -43,6 +43,12 @@ $light-yellow: #ffffd5;
   border-radius: 20px;
 }
 
+.card.card-product.restaurants-main-card-user {
+  background-color: $light-yellow;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
 .card.card-product.restaurants-second-card {
   background-color: $light-yellow;
   border-radius: 20px;
@@ -80,6 +86,22 @@ div.card.signedin-restaurant {
 }
 
 .card-img-top {
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.restaurant-user-photo {
+  width: 60vw;
+  height: 200px;
+  position: relative;
+  bottom: 0px;
+  left: -3px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.card-img-top-user {
   display: flex;
   align-items: center;
   border-radius: 20px;
