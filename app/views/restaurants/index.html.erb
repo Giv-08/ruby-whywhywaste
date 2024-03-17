@@ -16,27 +16,30 @@
 
   <%# CURRENTLY SIGNED-IN RESTAURANT FOOD CARDS - random display %>
   <h3 class="index-head">My Food Items</h3>
-  <div class="container mx-auto card-container-foodlist row">
-    <% @my_restaurant.foods.shuffle.each do |food| %>
-      <%# <div class="col-sm-6 col-md-3 justify-content-center"> %>
-      <div class="col-3" style="padding: 0">
-        <div class="card restaurant-foodlist">
-          <div class="card-img-top">
-            <% if food.photo.attached? %>
-              <%= cl_image_tag(food.photo.key, width:100, height:100, class: "object-fit-cover", crop: :fill, gravity: :face) %>
+<!-- Flickity HTML init -->
+<div class="carousel"
+  data-flickity='{ "wrapAround": true }'>
+  <% @my_restaurant.foods.shuffle.each do |food| %>
+      <div class="carousel-cell">
+    <div class="card restaurants-list">
+      <div class="card-img-top">
+        <% if food.photo.attached? %>
+              <%= cl_image_tag(food.photo.key, width:220, height:170, class: "object-fit-cover", crop: :fill, gravity: :center) %>
             <% else %>
-              <%# <p>No images available for <%= food.name %></p>
-              <img class="restaurant-photo" src="https://img.delicious.com.au/MYhAwMVF/del/2023/01/sandoitchi-181514-1.jpg" alt="cafe-photo">
+          <img class="restaurant-photo" src="https://img.delicious.com.au/MYhAwMVF/del/2023/01/sandoitchi-181514-1.jpg" alt="cafe-photo">
             <% end %>
-            <h5><%= food.name %></h5>
+            <div class="card-text">
+              <p class="text-top"><%= food.name %></p>
+              <p class="text">$ <%= food.price %></p>
+              <p class="text">Qty: <%= food.quantity %></p>
+              <p class="text"><%= food.description %></p>
+            </div>
           </div>
-        <%# float food name onto image %>
+          <%# float food name onto image %>
         </div>
-      </div>
-    <% end %>
   </div>
-  </div>
-  </div>
+  <% end %>
+</div>
   <hr>
 
   <%# CARDS OF RESTAURANTS %>
@@ -120,16 +123,16 @@
     <div class="card restaurants-list">
       <div class="card-img-top">
         <% if restaurant.photo.attached? %>
-          <%= cl_image_tag(restaurant.photo.key, width:200, height:150, class: "object-fit-cover", crop: :fill, gravity: :face) %>
+          <%= cl_image_tag(restaurant.photo.key, width:220, height:170, class: "object-fit-cover", crop: :fill, gravity: :face) %>
         <% else %>
           <img class="restaurant-photo" src="https://img.delicious.com.au/MYhAwMVF/del/2023/01/sandoitchi-181514-1.jpg" alt="cafe-photo">
-              <%# <p>No images available for <%= restaurant.name %></p>
+              <%# <p>No images available for <%= restaurant.name %>
         <% end %>
-        <div class="restaurant-text">
-          <p><%= restaurant.name %></p>
-          <p><%= restaurant.cuisine %></p>
-          <p><%= restaurant.address %></p>
-          </div>
+        <div class="card-text">
+          <p class="text-top"><%= restaurant.name %></p>
+          <p class="text"><%= restaurant.cuisine %></p>
+          <p class="text"><%= restaurant.address %></p>
+        </div>
           </div>
           <%# float food name onto image %>
         </div>
@@ -174,7 +177,7 @@
             <% end %>
           </div>
           <%# float restaurant name and location onto image %>
-          <h5><%= restaurant.name %></h5>
+          <p><%= restaurant.name %></p>
           <p><%= restaurant.cuisine %></p>
           <%# cuisine, rating, distance bottom of card image %>
         </div>
