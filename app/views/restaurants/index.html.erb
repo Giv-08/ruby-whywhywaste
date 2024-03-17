@@ -1,7 +1,7 @@
-<%= link_to '🡰', 'javascript:history.back()' %>
 <%# SIGNED IN AS RESTAURANT %>
 <%# SEARCH BAR? OR BUTTON? %>
 <div class="search">
+<div class="back"><%= link_to image_tag("https://static.thenounproject.com/png/1363414-200.png"), 'javascript:history.back()' %></div> <%# need to show %>
 <h1 class="top-text">Welome to WHY WHY WASTE</h1>
 <%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
 <form onsubmit="event.preventDefault();" role="search">
@@ -24,15 +24,15 @@
     <div class="card restaurants-list">
       <div class="card-img-top">
         <% if food.photo.attached? %>
-              <%= cl_image_tag(food.photo.key, width:220, height:170, class: "object-fit-cover", crop: :fill, gravity: :center) %>
+              <%= cl_image_tag(food.photo.key, width:220, height:200, class: "object-fit-cover", crop: :fill, gravity: :center) %>
             <% else %>
           <img class="restaurant-photo" src="https://img.delicious.com.au/MYhAwMVF/del/2023/01/sandoitchi-181514-1.jpg" alt="cafe-photo">
             <% end %>
             <div class="card-text">
               <p class="text-top"><%= food.name %></p>
-              <p class="text">$ <%= food.price %></p>
-              <p class="text">Qty: <%= food.quantity %></p>
-              <p class="text"><%= food.description %></p>
+              <p class="text">$  <%= food.price %></p>
+              <p class="text">qty:  <%= food.quantity %></p>
+              <p class="text-description"><%= food.description %></p>
             </div>
           </div>
           <%# float food name onto image %>
@@ -40,11 +40,10 @@
   </div>
   <% end %>
 </div>
-  <hr>
 
   <%# CARDS OF RESTAURANTS %>
   <%# SIGNED-IN RESTAURANT ONLY %>
-  <h3 class="text-center">My Restaurant</h3>
+  <h3 class="index-head">My Restaurant</h3>
     <div class="container mx-auto container-signedin-restaurant">
       <div class="card signedin-restaurant">
         <% if @my_restaurant.present? %>
@@ -111,7 +110,6 @@
       <%# </div> %>
     <%# <% end %>
   <%# </div> %>
-  <%# <hr> %>
 
    <%# RESTAURANTS CARDS - random display %>
   <h3 class="index-head">My Favourite Restaurants</h3>

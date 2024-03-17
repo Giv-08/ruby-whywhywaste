@@ -10,12 +10,25 @@ $black: #0F0F12;
   margin-top: 20px;
 }
 
+div.back {
+  top: 10px;
+  margin: 10px;
+  position: absolute;
+  img {
+    vertical-align: middle;
+    width: 20px;
+  }
+}
+
 div.search {
   display: flex;
   justify-content: center;
   flex-direction: column;
   background-color: $yellow;
   height: 90px;
+    a {
+  text-decoration: none;
+  }
 }
 
 :root {

@@ -7,7 +7,7 @@ $black: #0F0F12;
 // restaurant index
 .restaurant-photo {
   width: 220px;
-  height: 170px;
+  height: 200px;
 }
 //  flickity
 * { box-sizing: border-box; }
@@ -35,9 +35,10 @@ $black: #0F0F12;
 div.card.restaurants-list {
   width: 100vw;
   margin-left: 0px;
-  height: 170px;
+  height: 200px;
   background-color: #ffffd5;
   border: none;
+  border-radius: 20px;
 }
 
 .card-img-top {
@@ -129,6 +130,9 @@ li {
 div.container.restaurant-info {
   border: 1px solid rgb(250, 182, 79);
 }
+p {
+  letter-spacing: 1.5px;
+}
 
 h5 {
   font-size: 18px;
@@ -143,4 +147,9 @@ p.text-top {
 
 p.text {
   margin: 5px 10px;
+}
+
+p.text-description {
+  margin: 5px 10px;
+  font-size: 14px;
 }
