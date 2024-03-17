@@ -18,13 +18,18 @@
 
         <div class="overlay d-flex justify-content-center align-items-center flex-column text-center px-2">
           <div class="card-text-container">
-            <%# <h5 class="card-img-name"><%= restaurant.name %></h5>
             <p class="card-img-overlay text-center d-flex"><%#= restaurant.address %></p>
           </div>
         </div>
         <%# cuisine, rating, distance bottom of card image %>
-        <p>Cuisine:  <%= restaurant.cuisine %></p>
-        <p>Rating:  <%= restaurant.rating %></p>
+        <div class="restaurant-card-info">
+        <div class="cuisine">
+          <p class="cuisine"><img id="food-icon" src="https://cdn-icons-png.flaticon.com/512/433/433087.png" alt="food-icon">  <%= restaurant.cuisine %></p>
+        </div>
+          <p class="text-center"><% restaurant.rating.to_i.times do %></p>
+              <i class="fa-solid fa-star" style="color: #FFD43B; margin: 0px;"></i>
+           <% end %>
+        </div>
         <%# <p><%= restaurant.distance</p> %>
       </div>
     <% end %>

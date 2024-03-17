@@ -8,6 +8,8 @@ $black: #0F0F12;
   text-align: center;
   color: $white;
   margin-top: 20px;
+  left: 15px;
+  position: relative;
 }
 
 div.back {
@@ -16,7 +18,9 @@ div.back {
   position: absolute;
   img {
     vertical-align: middle;
-    width: 20px;
+    width: 50px;
+    position: relative;
+    bottom: 15px;
   }
 }
 

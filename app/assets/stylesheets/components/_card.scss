@@ -3,6 +3,7 @@ $yellow: #F9CC63;
 $orange: #F3844C;
 $white: #ffffff;
 $black: #0F0F12;
+$light-yellow: #ffffd5;
 
 // restaurant index
 .restaurant-photo {
@@ -32,15 +33,16 @@ $black: #0F0F12;
 //   justify-content: center;
 // }
 .card.card-product.restaurants-main-card {
-  background-color: $white;
+  background-color: $light-yellow;
   border-radius: 20px;
+  border: 1px solid $light-yellow;
 }
 
 div.card.restaurants-list {
   width: 100vw;
   margin-left: 0px;
   height: 200px;
-  background-color: #ffffd5;
+  background-color: $light-yellow;
   border: none;
   border-radius: 20px;
 }
@@ -51,17 +53,18 @@ div.card.signedin-restaurant {
 
 .card-img-name {
   position: absolute;
-  // top: 6%;
-  left: 80%;
-  // transform: translate(-50%, -50%);
-  padding: 10px 20px;
+  width: max-content;
+  right: 0%;
+  padding: 5px 25px;
   text-shadow: 1px 1px 3px #464646;
   text-align: center;
   display: flex;
   justify-content: flex-end;
-  color: rgb(255, 249, 249);
-  font-size: 1rem;
+  color: white;
+  font-size: 1.2rem;
   z-index: 1;
+  border-radius: 40px;
+  background: #ffffff52;
 }
 
 .card-img-top {
@@ -100,7 +103,6 @@ div.card.signedin-restaurant {
   align-items: center;
   justify-content: center;
 }
-
 
 //  food index
 
@@ -183,5 +185,38 @@ img.object-fit-cover-my-restaurant {
   max-width: -webkit-fill-available;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  position: relative;
+}
+
+div.restaurant-card-info {
+  padding: 0px 20px;
+  display: flex;
+  justify-content: space-around;
+  color:$orange;
+  font-size: 20px;
+  align-items: center;
+}
+div.cuisine {
+  display: flex;
+  justify-content: center;
+}
+p.cuisine {
+  font-size: 25px;
+  position: relative;
+  top: 7px;
+}
+
+p.rating {
+  display: flex;
+  border: 2px solid $orange;
+  padding: 5px;
+  border-radius: 50px;
+  width: 10rem;
+  justify-content: center;
+}
+
+img#food-icon {
+  width: 30px;
+  bottom: 4px;
   position: relative;
 }

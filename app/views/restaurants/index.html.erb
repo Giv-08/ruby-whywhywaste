@@ -1,8 +1,8 @@
 <%# SIGNED IN AS RESTAURANT %>
 <%# SEARCH BAR? OR BUTTON? %>
 <div class="search">
-<div class="back"><%= link_to image_tag("https://static.thenounproject.com/png/1363414-200.png"), 'javascript:history.back()' %></div> <%# need to show %>
-<h1 class="top-text">Welome to WHY WHY WASTE</h1>
+<div class="back"><%= link_to image_tag("https://cdn-icons-png.freepik.com/512/5839/5839106.png"), 'javascript:history.back()' %></div> <%# need to show %>
+<div><img src="/app/assets/images/logo1.png" alt="www-logo"></div>
 <%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
 <form onsubmit="event.preventDefault();" role="search">
   <label for="search">Search for stuff</label>
@@ -76,7 +76,7 @@
           <%# cuisine, rating, distance bottom of card image %>
           <h5 class="text-center">Cuisine: <%= restaurant.cuisine %></h5>
           <div class="rating d-flex">
-          <p class="text-center">Rating: <%= restaurant.rating.to_i.times do %></p>
+          <p class="text-center">Rating: <% restaurant.rating.to_i.times do %></p>
               <i class="fa-regular fa-star fa-xs" style="color: #ffba24;"></i>
            <% end %>
            </div>
