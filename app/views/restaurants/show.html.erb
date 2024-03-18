@@ -8,6 +8,7 @@
 </div>
 
 
+<%# RESTAURANT OWNER SIGNED IN %>
 <% if restaurant_signed_in? %>
 <h2 class="text-center">To be published Food items</h2>
   <br>
@@ -49,6 +50,7 @@
 </div>
 <%# add "are you sure" %>
 <br>
+
 <%# user log-in %>
 <% elsif user_signed_in? %>
 
@@ -59,11 +61,16 @@
     <% else %>
       <% @published_foods.each do |food| %>
         <div class="food-card">
+
+      <%# add icon %>
+      <%#= link_to foods_path(food) do %>
+          <%#= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
+             <%# end %>
+
           <%# add to cart link %>
           <%= link_to food_order_lines_path(food), data: { turbo_method: :post } do %>
             <%= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
           <% end %>
-
           <div class="card-product-infos">
             <% if food.photo.attached? %>
               <%= cl_image_tag food.photo.key, height: 120, width: 100, crop: :fill %>
@@ -74,9 +81,9 @@
               <li id="food-name"><%= food.name %> </li>
               <li id="food-price"><%= number_to_currency(food.price) %> </li>
               <li id="food-description"><%= food.description %> </li>
-              <li>
-                  <%= link_to "add to cart", food_order_lines_path(food), data: { turbo_method: :post } %>
-                </li>
+
+<%= link_to "add to cart", food_order_lines_path(food), data: { turbo_method: :post } %>
+
             </div>
           </div>
         </div>

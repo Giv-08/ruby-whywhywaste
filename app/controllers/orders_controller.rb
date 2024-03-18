@@ -18,4 +18,9 @@ class OrdersController < ApplicationController
   end
 
 
+  def past
+    # paid status of orders
+    @orders = current_user.orders.where("created_at < ?", Time.now)
+  end
+
 end

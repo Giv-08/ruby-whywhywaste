@@ -65,10 +65,12 @@
               <li>Restaurant : <strong><%= food.restaurant.name %></strong></li>
               <br>
               <div class="btn">
-                <%= link_to "add to cart", food_order_lines_path(food), data: { turbo_method: :post } %> <%# fix message%>
+                <%= link_to "add to cart", food_order_lines_path(food), data: { turbo_method: :post } %><%# fix message%>
+
                 <%#= link_to "add to cart", food_order_lines_path(food), data: { turbo_method: :post, turbo_confirm: "Are you sure you want to submit this form?" } %>
               </div>
             </div>
+          </div>
         </div>
       </div>
     <% end %>

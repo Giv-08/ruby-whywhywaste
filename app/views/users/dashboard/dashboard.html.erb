@@ -3,11 +3,10 @@
 
 <div class="container">
   <ul>
-    <%= link_to "Start shopping", restaurants_path  %>
+    <li><%= link_to "Start shopping", restaurants_path %></li>
     <%#= link_to "Order History", previous_order_path(@order) %>
-    <li>Previous Order</li>
-    <%#= link_to "Previous order", order_lines_path(@order_lines) %>
-    <li>Help center</li>
+    <li><%= link_to "Previous orders", past_orders_path %></li>
+    <li><%= link_to "Help Center", "#" %></li>
     <li><%= link_to "Log out", destroy_restaurant_session_path, data: {turbo_method: :delete}, class: "btn btn-primary" %></li>
   </ul>
 </div>
