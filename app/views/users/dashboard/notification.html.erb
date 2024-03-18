@@ -1,12 +1,20 @@
+<div class="nav-top">
+<%# go-back-icon %>
+<div class="back"><%= link_to 'javascript:history.back()' do %>
+<i class="fa-solid fa-angle-left"></i>
+<% end %></div>
+<%= image_tag "logo1.png", alt: "Logo", class: "logo-img" %>
+<%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
+</div>
 <%# dont need anymore %>
 <div class="search">
 <div class="back"><%= link_to 'javascript:history.back()' do %>
 <i class="fa-solid fa-angles-left" style="color: #F3844C;"></i>
 <% end %></div>
-<h1 class="text-center">Welcome to <%= current_user.first_name %> <%= current_user.last_name %>'s notifications</h1>
 <%# <img src="/app/assets/images/logo1.png" alt=""> need to add logo %>
 <%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
 </div>
+<h1 class="text-center">Welcome to <%= current_user.first_name %> <%= current_user.last_name %>'s notifications</h1>
 
 <%# take infos from orders table %>
 <% current_user.orders.each do |order| %>

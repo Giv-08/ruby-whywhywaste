@@ -1,6 +1,13 @@
-<%= link_to '🡰', 'javascript:history.back()' %>
+<div class="nav-top">
+<%# go-back-icon %>
+<div class="back"><%= link_to 'javascript:history.back()' do %>
+<i class="fa-solid fa-angle-left"></i>
+<% end %></div>
+<%= image_tag "logo1.png", alt: "Logo", class: "logo-img" %>
+<%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
+</div>
 
-<h1 class="text-center">Cart</h1>
+<h1 class="text-center">Your Cart</h1>
 
 <% if @order.order_lines.empty? %>
   <p>Your cart is currently empty...</p>

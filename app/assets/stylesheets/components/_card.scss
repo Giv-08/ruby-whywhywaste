@@ -60,12 +60,9 @@ $light-yellow: #ffffd5;
   margin-bottom: 20px;
 }
 
-.div.card.restaurants-list{
-  border-radius: 20px;
-}
 div.card.restaurants-list {
   width: 98vw;
-  margin-left: 0px;
+  margin: 10px;
   height: 200px;
   background-color: $light-yellow;
   border: none;

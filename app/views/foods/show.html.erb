@@ -1,8 +1,16 @@
-<%= link_to '🡰', 'javascript:history.back()' %>
-<h1 class="text-center"> <%= @food.name %> details </h1>
+<div class="nav-top">
+<%# go-back-icon %>
+<div class="back"><%= link_to 'javascript:history.back()' do %>
+<i class="fa-solid fa-angle-left"></i>
+<% end %></div>
+<%= image_tag "logo1.png", alt: "Logo", class: "logo-img" %>
+<%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
+</div>
+
 
 <%# food item photo %>
 
+<h1 class="text-center"> <%= @food.name %> details </h1>
 <div class="detail-box d-flex justify-content-center">
     <% if @food.photo.attached? %>
       <%= cl_image_tag @food.photo.key, height: 180, width: 150, crop: :fill %>
