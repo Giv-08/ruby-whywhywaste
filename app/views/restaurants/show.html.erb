@@ -68,6 +68,9 @@
               <li id="food-name"><%= food.name %> </li>
               <li id="food-price">$<%= food.price %> </li>
               <li id="food-description"><%= food.description %> </li>
+              <li>
+                  <%= link_to "add to cart", food_order_lines_path(food), data: { turbo_method: :post } %>
+                </li>
             </div>
           </div>
         </div>
