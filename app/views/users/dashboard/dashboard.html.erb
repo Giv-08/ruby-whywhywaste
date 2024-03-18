@@ -1,8 +1,7 @@
 <h1>User dashboard</h1>
 <ul>
   <%= link_to "Start shopping", restaurants_path  %>
-  <%#= link_to "Order History", previous_order_path(@order) %>
-  <%#= link_to "Previous order", order_lines_path(@order_lines) %>
+  <li>previous orders</li>
   <li>Help center</li>
   <li><%= link_to "Log out", destroy_restaurant_session_path, data: {turbo_method: :delete}, class: "btn btn-primary" %></li>
 </ul>

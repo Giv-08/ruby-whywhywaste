@@ -6,25 +6,37 @@
 
   <div class="form-inputs container my-3">
     <%= f.input :name,
+                placeholder: "Name",
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "name" } %>
     <%= f.input :cuisine,
+                placeholder: "cuisine",
                 required: true,
                 input_html: { autocomplete: "cuisine" } %>
     <%= f.input :phone_no,
+                placeholder: "phone",
                 required: true,
                 input_html: { autocomplete: "phone_no" } %>
-
     <%= f.input :email,
+                placeholder: "email",
                 required: true,
-
                 input_html: { autocomplete: "email" }%>
-    <%= f.input :address,
-                input_html: {autocomplete: "street-address ", data: {address_autocomplete_target: "address"}},
-                wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}
-                %>
 
+    <%= f.input :address,
+                placeholder: "address",
+
+                input_html: {
+                  autocomplete: "street-address ",
+                  data: {address_autocomplete_target: "address"},
+                  class: "d-none"
+                },
+                wrapper_html: {
+                  data: {
+                    controller: "address-autocomplete", address_autocomplete_access_token_value: ENV["MAPBOX_API_KEY"]
+                  }
+                }
+                %>
 
     <%= f.input :photo, as: :file %>
 
