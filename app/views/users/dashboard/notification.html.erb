@@ -10,10 +10,10 @@
 <%# take infos from orders table %>
 <div class="notification-card mt-3 ">
 <% current_user.orders.each do |order| %>
-<p>Order id: <%= order.id %></p>
-<p>Customer: <%= order.user.first_name%>
-   <% end %></p>
-<p>Total price: <%# price %></p>
+  <p>Order id: <%= order.id %></p>
+  <p>Customer: <%= order.user.first_name%>
+  <p>Total price: <%= number_to_currency(order.total_price) %><%# price %></p>
+<% end %></p>
 <p>Status: <%# paid %></p>
 <%#= link_to 'Picked up!', restaurants_dashboard_path(@restaurant), method: :patch, class: 'btn-positive' %>
 <%#= change status to DONE %>

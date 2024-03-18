@@ -13,7 +13,7 @@
 <%# else %>
 <div class="notification-card mt-3 ">
  <% @restaurant.orders.each do |order| %>
-<p>Customer: <%= order.total_price%></p>
+<p>Customer: <%= number_to_currency(order.total_price)%></p>
   <%# end %>
   <% end %>
   <h2>helloo</h2>
