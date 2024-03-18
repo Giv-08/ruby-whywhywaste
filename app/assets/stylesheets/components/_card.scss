@@ -23,6 +23,10 @@ $light-yellow: #ffffd5;
   background: transparent;
 }
 
+.flickity-button {
+  display: none;
+}
+
 .flickity-page-dots {
   display: none;
 }
@@ -56,12 +60,9 @@ $light-yellow: #ffffd5;
   margin-bottom: 20px;
 }
 
-.div.card.restaurants-list{
-  border-radius: 20px;
-}
 div.card.restaurants-list {
   width: 98vw;
-  margin-left: 0px;
+  margin: 10px;
   height: 200px;
   background-color: $light-yellow;
   border: none;
@@ -92,6 +93,12 @@ div.card.signedin-restaurant {
   display: flex;
   align-items: center;
   border-radius: 20px;
+  background-color: $light-yellow;
+}
+
+div.card.restaurant-foodlist {
+  border-radius: 20px;
+  margin: 10px;
 }
 
 .restaurant-user-photo {
@@ -240,6 +247,13 @@ img.object-fit-cover-my-restaurant {
 .object-fit-cover {
 border-top-left-radius: 20px;
 border-bottom-left-radius: 20px;
+}
+
+.object-fit-cover-restaurant {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  position: relative;
+  width: 94vw;
 }
 
 div.restaurant-card-info {
