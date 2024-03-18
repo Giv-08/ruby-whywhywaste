@@ -59,7 +59,7 @@
       <% @published_foods.each do |food| %>
         <div class="food-card">
       <%# add icon %>
-      <%= link_to foods_path do %>
+      <%= link_to foods_path(food) do %>
           <%= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
              <% end %>
           <div class="card-product-infos">

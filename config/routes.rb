@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   get 'restaurants/:id/notification', to: 'restaurants/dashboard#notification', as: :restaurant_notification
   get 'users/dashboard', to: 'users/dashboard#dashboard'
   get 'users/:id/notification', to: 'users/dashboard#notification', as: :user_notification
+
   resources :restaurants do
     # Nested routes - foods belonging to restaurant
     resources :foods, only: [:new, :create, :edit, :index, :show]
