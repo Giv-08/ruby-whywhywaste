@@ -13,8 +13,14 @@ class OrdersController < ApplicationController
 
   def checkout
     @order = Order.find(params[:id])
-    @order.update(status: "paid")
+    @order.update(status: :paid)
     redirect_to cart_path, notice: 'Order checked out successfully.'
+  end
+
+
+  def past
+    # paid status of orders
+    @orders = current_user.orders.where("created_at < ?", Time.now)
   end
 
 end

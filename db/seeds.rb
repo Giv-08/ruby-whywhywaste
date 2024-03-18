@@ -58,7 +58,8 @@ Food.create!(
   price: 20.33,
   description: "Burger with beef patty",
   quantity: 20,
-  restaurant: restaurant
+  restaurant: restaurant,
+  published: true
 )
 
 Food.create!(
