@@ -7,11 +7,11 @@
 
   <div class="form m-5 ml-5">
     <%= simple_form_for [@restaurant, @food] do |f| %>
-      <%= f.input :name%>
-      <%= f.input :price %>
-      <%= f.input :description %>
-      <%= f.input :allergen%>
-      <%= f.input :quantity %>
+      <%= f.input :name, placeholder: "Food Name"%>
+      <%= f.input :price, placeholder: "Price" %>
+      <%= f.input :description, placeholder: "Description" %>
+      <%= f.input :allergen, placeholder: "allergen"%>
+      <%= f.input :quantity, placeholder: "Quantity" %>
       <%= f.input :photo, as: :file %>
       <%= f.submit class:"btn btn-success"%>
     <% end %>

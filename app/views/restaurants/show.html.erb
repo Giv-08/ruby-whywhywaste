@@ -1,5 +1,12 @@
-<%= link_to '🡰', 'javascript:history.back()' %>
-<h1 class="show-restaurant-title text-center mt-5">Welcome to <%= @restaurant.name %>'s Page</h1>
+<div class="search">
+<div class="back"><%= link_to 'javascript:history.back()' do %>
+<i class="fa-solid fa-angles-left" style="color: #F3844C;"></i>
+<% end %></div>
+<h1 class="text-center show-restaurant-title text-center mt-5">Welcome to <%= @restaurant.name %></h1>
+<%# <img src="/app/assets/images/logo1.png" alt=""> need to add logo %>
+<%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
+</div>
+
 
 <%# RESTAURANT OWNER SIGNED IN %>
 <% if restaurant_signed_in? %>
@@ -11,10 +18,11 @@
     <% else %>
       <% @published_foods.each do |food| %>
         <div class="food-card">
-      <%# add icon %>
-      <%#= link_to foods_path do %>
-          <%#= image_tag "https://www.svgrepo.com/show/2087/plus.svg", width: 20%>
-            <%# end %>
+          <%# add to cart link %>
+          <%= link_to food_order_lines_path(food), data: { turbo_method: :post } do %>
+            <%= image_tag "https://www.svgrepo.com/show/2087/plus.svg", width: 20%>
+          <% end %>
+
           <div class="card-product-infos">
 
             <% if food.photo.attached? %>
@@ -27,10 +35,7 @@
               <li id="food-price">$<%= food.price %> </li>
               <li id="food-description"><%= food.description %> </li>
               <%# edit icon %>
-
-
               <%= link_to edit_food_path(food) do %>
-
                 <%= image_tag "https://w7.pngwing.com/pngs/944/137/png-transparent-pen-computer-icons-pen-angle-pencil-black-thumbnail.png", width: 20%>
               <% end %>
             </div>
@@ -49,20 +54,21 @@
 <%# user log-in %>
 <% elsif user_signed_in? %>
 
-<h2>Choose any items</h2>
+<h2 class="text-center">Choose any items</h2>
   <% if @published_foods.empty? %>
       <p class="text-center">Your menu is currently empty.</p>
       <p class="text-center">Please use "add more food item" button below to add menus for your restaurant</p>
     <% else %>
       <% @published_foods.each do |food| %>
         <div class="food-card">
-      <%# add icon %>
-      <%= link_to foods_path do %>
-          <%= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
-            <% end %>
+          <%# add to cart link %>
+          <%= link_to food_order_lines_path(food), data: { turbo_method: :post } do %>
+            <%= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
+          <% end %>
+
           <div class="card-product-infos">
             <% if food.photo.attached? %>
-              <%= cl_image_tag food.photo.key, height: 80, width: 80, crop: :fill %>
+              <%= cl_image_tag food.photo.key, height: 120, width: 100, crop: :fill %>
             <% else %>
               <img style="width: 150px" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
             <% end %>
@@ -70,13 +76,14 @@
               <li id="food-name"><%= food.name %> </li>
               <li id="food-price">$<%= food.price %> </li>
               <li id="food-description"><%= food.description %> </li>
+              <li>
+                  <%= link_to "add to cart", food_order_lines_path(food), data: { turbo_method: :post } %>
+                </li>
             </div>
           </div>
         </div>
       <% end %>
     <% end %>
-
-
 <% end %>
 <h3 class="text-center"><%= @restaurant.name %>'s details</h3>
 <div class="container restaurant-info">
@@ -84,8 +91,9 @@
       <li>Restaurant name : <%= @restaurant.name %> </li>
       <li>Cuisine : <%= @restaurant.cuisine %> </li>
       <li>Phone no : <%= @restaurant.phone_no %> </li>
+      <li>Address : <%= @restaurant.address %> </li>
       <div class="d-flex">
-        <li class="d-flex text-center">Rating: <%= @restaurant.rating.to_i.times do %></p>
+        <li class="d-flex text-center">Rating: <% @restaurant.rating.to_i.times do %></p>
           <i class="fa-regular fa-star fa-xs" style="color: #ffba24;"></i>
         <% end %></li>
       </div>

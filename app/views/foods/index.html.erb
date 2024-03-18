@@ -1,5 +1,11 @@
-<%= link_to '🡰', 'javascript:history.back()' %>
+<div class="search">
+<div class="back"><%= link_to 'javascript:history.back()' do %>
+<i class="fa-solid fa-angles-left" style="color: #F3844C;"></i>
+<% end %></div>
 <h1 class= "text-center mt-5">Restaurant's Menu</h1>
+<%# <img src="/app/assets/images/logo1.png" alt=""> need to add logo %>
+<%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
+</div>
 
 <div class="mt-3">
 <%# show whole menu = unpublished ones here %>
@@ -58,9 +64,10 @@
               <li id="food-description"><%= food.description %> </li>
               <li>Restaurant : <strong><%= food.restaurant.name %></strong></li>
               <br>
-            <div class="btn">
-              <%= link_to 'Add to cart', cart_path, class: 'btn-positive mt-3' ,  data: {'turbo_confirm': "Are you sure you want to submit this form?" } %> <%# fix message%>
-              <%#= link_to "add to cart", food_order_lines_path(food), data: { turbo_method: :post, turbo_confirm: "Are you sure you want to submit this form?" } %>
+              <div class="btn">
+                <%= link_to "add to cart", food_order_lines_path(food), data: { turbo_method: :post } %> <%# fix message%>
+                <%#= link_to "add to cart", food_order_lines_path(food), data: { turbo_method: :post, turbo_confirm: "Are you sure you want to submit this form?" } %>
+              </div>
             </div>
           </div>
         </div>
