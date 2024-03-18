@@ -8,6 +8,7 @@
 </div>
 
 <%# take infos from orders table %>
+
 <% current_restaurant.notifications.each do |notification| %>
   <% order = notification.order %>
   <div class="notification-card mt-3 ">
@@ -29,5 +30,6 @@
     </div>
   </div>
 <% end %>
+
 <%#= link_to 'Picked up!', restaurants_dashboard_path(@restaurant), method: :patch, class: 'btn-positive' %>
 <%#= change status to DONE %>

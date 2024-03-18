@@ -30,7 +30,7 @@
             <% end %>
             <div class="card-text">
               <p class="text-top"><%= food.name %></p>
-              <p class="text">$  <%= food.price %></p>
+              <p class="text">  <%= number_to_currency(food.price) %></p>
               <p class="text">qty:  <%= food.quantity %></p>
               <p class="text-description"><%= food.description %></p>
             </div>
