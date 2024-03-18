@@ -59,9 +59,9 @@
       <% @published_foods.each do |food| %>
         <div class="food-card">
       <%# add icon %>
-      <%= link_to foods_path(food) do %>
-          <%= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
-             <% end %>
+      <%#= link_to foods_path(food) do %>
+          <%#= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
+             <%# end %>
           <div class="card-product-infos">
             <% if food.photo.attached? %>
               <%= cl_image_tag food.photo.key, height: 120, width: 100, crop: :fill %>
@@ -72,6 +72,7 @@
               <li id="food-name"><%= food.name %> </li>
               <li id="food-price">$<%= food.price %> </li>
               <li id="food-description"><%= food.description %> </li>
+<%= link_to "add to cart", food_order_lines_path(food), data: { turbo_method: :post } %>
             </div>
           </div>
         </div>

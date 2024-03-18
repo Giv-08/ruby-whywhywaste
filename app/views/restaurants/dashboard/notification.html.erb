@@ -8,15 +8,18 @@
 </div>
 
 <%# take infos from orders table %>
-<%# if @restaurant.orders.empty? %>
-<%# <h4>No order for <%= @restaurant.name %></h4>
-<%# else %>
-<div class="notification-card mt-3 ">
  <% @restaurant.orders.each do |order| %>
-<p>Customer: <%= order.total_price%></p>
-  <%# end %>
+ <div class="notification-card mt-3 ">
+<div class="notfication-text">
+<% if @restaurant.orders.empty? %>
+<h4>No order for <%= @restaurant.name %></h4>
+<% else %>
+<p>Customer: <%= order.user.first_name %> <%= order.user.last_name %></p>
+<p>Order status: <%= order.status %></p>
+<p>Total: $ <%= order.total_price %></p>
+</div>
+  </div>
   <% end %>
-  <h2>helloo</h2>
+  <% end %>
 <%#= link_to 'Picked up!', restaurants_dashboard_path(@restaurant), method: :patch, class: 'btn-positive' %>
 <%#= change status to DONE %>
-  </div>
