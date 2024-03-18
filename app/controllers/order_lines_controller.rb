@@ -1,21 +1,20 @@
 class OrderLinesController < ApplicationController
   # POST /foods/:food_id/order_lines
   def create
+    @food = Food.find(params[:food_id])
     # ORDER: need to find the existing cart (order) or create it if none
     @order = Order.find_or_create_by(user: current_user, status: :cart)
     # ORDER_LINE: initialize the order_line
+    # Check if exisiting order_line for this food
     # set the quantity to 1
-    @order_line = OrderLine.new(quantity: 1)
+    @order_line = OrderLine.find_by(order: @order, food: @food) || OrderLine.new(order: @order, food: @food, quantity: 0)
     # add the order to the order_line
-    @order_line.order = @order
-    # add the food to the order_line
-    @food = Food.find(params[:food_id])
-    @order_line.food = @food
+    @order_line.quantity += 1
     # save the order_line
     if @order_line.save
-      redirect_to food_path(@food), notice: "Food added successfully to cart"
+      redirect_to cart_path, notice: "Food added successfully to cart"
     else
-      redirect_to food_path(@food), alert: "Something went wrong adding item to cart"
+      redirect_back fallback_path: food_path(@food), alert: "Something went wrong adding item to cart"
     end
   end
 
@@ -48,7 +47,7 @@ class OrderLinesController < ApplicationController
     redirect_to cart_path, status: :see_other
   end
 
-  
+
 
 
 end

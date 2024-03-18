@@ -3,6 +3,5 @@ class CartController < ApplicationController
 
   def cart
     @order = Order.find_or_create_by(user: current_user, status: :cart)
-    @new_order = Order.new
   end
 end
