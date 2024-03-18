@@ -1,10 +1,28 @@
 class FoodsController < ApplicationController
   def index
-    @foods = Food.all
-    @unpublished_foods = Food.where(published: false)
-    @my_restaurant = current_restaurant
-    @foods = @my_restaurant.foods
+    # @foods = Food.all
+    if current_restaurant.present?
+      @unpublished_foods = Food.where(published: false)
+      @my_restaurant = current_restaurant
+      @foods = @my_restaurant.foods
+    elsif user_signed_in?
+      @restaurant = Restaurant.find(params[:restaurant_id])
+      @foods = @restaurant.foods.where(published: true)
+    else
+      redirect_to select_restaurant_path, notice: "You are not signed-in"
+    end
   end
+
+  # def index
+  #   if current_restaurant.present?
+  #     @my_restaurant = current_restaurant
+  #     @foods = @my_restaurant.foods
+  #     @unpublished_foods = @my_restaurant.foods.where(published: false)
+  #   else
+
+  #     redirect_to select_restaurant_path,
+  #   end
+  # end
 
   def new
     @restaurant = Restaurant.find(params[:restaurant_id])

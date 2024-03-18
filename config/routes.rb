@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get 'restaurants/dashboard', to: 'restaurants/dashboard#dashboard'
   get 'restaurants/:id/notification', to: 'restaurants/dashboard#notification', as: :restaurant_notification
   get 'users/dashboard', to: 'users/dashboard#dashboard'
+
   resources :restaurants do
     # Nested routes - foods belonging to restaurant
     resources :foods, only: [:new, :create, :edit, :index, :show]
@@ -33,7 +34,6 @@ Rails.application.routes.draw do
       end
     end
 
-
     # Nested routes - reviews belonging to restaurant
     resources :reviews, only: [:index, :create, :new]
     # Nested routes - orders related to a specific restaurant
@@ -42,7 +42,9 @@ Rails.application.routes.draw do
 
   resources :foods do
     resources :order_lines, only: [:create]
+    patch :published, on: :collection
   end
+
   resources :orders do
     member do
       patch 'checkout'
