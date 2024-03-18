@@ -3,6 +3,7 @@ $yellow: #F9CC63;
 $orange: #F3844C;
 $white: #ffffff;
 $black: #0F0F12;
+$light-yellow: #ffffd5;
 
 .top-text{
   text-align: center;
@@ -10,6 +11,12 @@ $black: #0F0F12;
   margin-top: 30px;
   left: 0px;
   position: relative;
+}
+
+img.logo-img {
+  width: 70vw;
+  position: relative;
+  left: 61px;
 }
 
 div.back {
@@ -50,20 +57,58 @@ div.nav-top {
   --bez: cubic-bezier(0, 0, 0.43, 1.49);
 }
 
-// Search bar
-// form#form-search {
-//   position: relative;
-//   width: 80vw;
-//   left: 9%;
-//   margin-top: 10px;
-//   background: $orange;
-//   border-radius: 20px;
-// }
+.search {
+  width: 80vw;
+  position: relative;
+  display: flex;
+  top: 45px;
+  right: 106px;
+}
+input.searchTerm{
+  background: $light-yellow;
+}
+.searchTerm {
+  width: 100%;
+  border: 3px solid #ffbc7c;
+  border-right: none;
+  padding: 5px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+  height: 37px;
+  border-top-left-radius: 40px;
+  border-bottom-left-radius: 40px;
+}
 
-.fa-angles-left::before {
+.searchTerm:focus{
+  color: rgb(98, 98, 98);
+}
+
+.searchButton {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #ffbc7c;
+  background: $light-yellow;
+  text-align: center;
+  color: $orange;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/*Resize the wrap to see the search bar change!*/
+.wrap{
+  width: 30%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.fa-angle-left {
   content: "\f100";
   font-size: 30px;
   margin: 10px;
+  color: $white;
 }
 
 // input, button {
@@ -103,12 +148,12 @@ div.nav-top {
 //     display: block;
 //   }
 // }
-// label {
-//   position: absolute;
-//   clip: rect(1px, 1px, 1px, 1px);
-//   padding: 0;
-//   border: 0;
-//   height: 1px;
-//   width: 1px;
-//   overflow: hidden;
-// }
+label {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}

@@ -23,6 +23,10 @@ $light-yellow: #ffffd5;
   background: transparent;
 }
 
+.flickity-button {
+  display: none;
+}
+
 .flickity-page-dots {
   display: none;
 }
@@ -96,7 +100,8 @@ div.card.signedin-restaurant {
 }
 
 div.card.restaurant-foodlist {
-border-radius: 20px;
+  border-radius: 20px;
+  margin: 10px;
 }
 
 .restaurant-user-photo {
