@@ -6,7 +6,7 @@ class RestaurantsController < ApplicationController
     # Signed-in restaurant only
     if restaurant_signed_in?
       @my_restaurant = current_restaurant
-
+      @published_foods = @my_restaurant.foods.where(published: true)
       # fetch all other restaurants (excluding signed-in restaurant)
       @other_restaurants = Restaurant.where.not(id: @my_restaurant&.id)
     else

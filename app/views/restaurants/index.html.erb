@@ -177,6 +177,9 @@
           <%# float restaurant name and location onto image %>
           <p><%= restaurant.name %></p>
           <p><%= restaurant.cuisine %></p>
+          <% if restaurant.pickup_start && restaurant.pickup_start %>
+            <p>Pickup time:<%= restaurant.pickup_start.strftime(" %I:%M%p")%> to <%= restaurant.pickup_end.strftime(" %I:%M%p")  %></p>
+          <% end  %>
           <%# cuisine, rating, distance bottom of card image %>
         </div>
       <% end %>
