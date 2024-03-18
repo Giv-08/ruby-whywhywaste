@@ -55,10 +55,10 @@
 <%# user log-in %>
 <% elsif user_signed_in? %>
 
-<h2 class="text-center">Choose any items</h2>
+<h2 class="text-center"></h2>
   <% if @published_foods.empty? %>
-      <p class="text-center">Your menu is currently empty.</p>
-      <p class="text-center">Please use "add more food item" button below to add menus for your restaurant</p>
+      <p class="text-center"><%= @restaurant.name %> menu is currently empty.</p>
+      <p class="text-center">Please try a different restaurant by returning to the homepage</p>
     <% else %>
       <% @published_foods.each do |food| %>
         <div class="food-card">

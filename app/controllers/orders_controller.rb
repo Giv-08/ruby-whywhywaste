@@ -20,7 +20,17 @@ class OrdersController < ApplicationController
 
   def past
     # paid status of orders
-    @orders = current_user.orders.where("created_at < ?", Time.now)
+     @orders = current_user.orders.where("created_at < ?", Time.now)
+
+    # mock_orders = [
+    #   { id: 1, total_price: 50.00, user_id: current_user.id, restaurant_id: 1, created_at: Time.now - 10.days },
+    #   { id: 2, total_price: 75.00, user_id: current_user.id, restaurant_id: 2, created_at: Time.now - 5.days },
+    #   { id: 3, total_price: 60.00, user_id: current_user.id, restaurant_id: 1, created_at: Time.now - 3.days }
+    # ]
+
+    # Assign mock_orders to @orders
+    # @orders = mock_orders.map { |attributes| Order.new(attributes) }
+
   end
 
 end

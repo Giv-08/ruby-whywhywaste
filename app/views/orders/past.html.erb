@@ -10,18 +10,25 @@
 <h1 class="text-center mt-5">Previous Orders</h1>
 
 <div class="container">
-  <% @orders.each do |order| %>
-    <div class="card">
-      <div class="card-body">
-        <%= link_to "Order #{order.id} : #{ordinalize(order.created_at.day)} #{order.created_at.strftime("%B %Y")}", order_path(order) %>
-        <hr>
-        <h5 class="card-title">restaurant name<%#= order.restaurant.name %></h5>
-        <p class="card-text">Total Price: <%= number_to_currency(order.total_price) %></p>
-      </div>
-      <div class="btn">
-        <%= link_to 'Place a Review', class: 'button-secondary' %>
-        <%# <p>new_restaurant_review_path(restaurant_id: @order.restaurant_id)</p> %>
-      </div>
-    </div>
+  <% if @orders.any? %>
+      <% @orders.each do |order| %>
+        <div class="card">
+          <div class="card-body">
+            <%= link_to "Order #{order.id} : #{ordinalize(order.created_at.day)} #{order.created_at.strftime("%B %Y")}", order_path(order) %>
+            <hr>
+            <% if order.restaurant_id.present? && order.restaurant.present? %>
+              <h5 class="card-title"><%= order.restaurant.name %></h5>
+              <p class="card-text">Total Price: <%= number_to_currency(order.total_price) %></p>
+              <div class="btn">
+                <%= link_to 'Place a Review', new_restaurant_review_path(restaurant_id: order.restaurant_id), class: 'button-secondary' %>
+              </div>
+            <% else %>
+              <p class="card-text">Restaurant information unavailable</p>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+  <% else %>
+    <p>No Previous Orders</p>
   <% end %>
 </div>
