@@ -25,6 +25,7 @@ a.btn-positive {
   border-radius: 5px;
 }
 
+
 a.add-cart-btn {
   position: relative;
   left: 76%;
@@ -40,6 +41,6 @@ a.add-cart-btn {
   transition: transform 0.2s cubic-bezier(0.235, 0, 0.05, 0.95);
 }
 
-.add-cart-btn {
+.add-cart-btn:hover {
   transform: perspective(1px) scale3d(1.044, 1.044, 1) translateZ(0) !important;
 }
