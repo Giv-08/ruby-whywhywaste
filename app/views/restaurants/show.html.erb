@@ -1,6 +1,7 @@
 <%= link_to '🡰', 'javascript:history.back()' %>
 <h1 class="show-restaurant-title text-center mt-5">Welcome to <%= @restaurant.name %>'s Page</h1>
 
+<%# RESTAURANT OWNER SIGNED IN %>
 <% if restaurant_signed_in? %>
 <h2 class="text-center">To be published Food items</h2>
   <br>
@@ -44,6 +45,7 @@
 </div>
 <%# add "are you sure" %>
 <br>
+
 <%# user log-in %>
 <% elsif user_signed_in? %>
 
