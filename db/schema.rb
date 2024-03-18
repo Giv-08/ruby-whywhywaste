@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_18_010822) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_18_045906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_18_010822) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["restaurant_id"], name: "index_foods_on_restaurant_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.bigint "restaurant_id", null: false
+    t.bigint "order_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["order_id"], name: "index_notifications_on_order_id"
+    t.index ["restaurant_id"], name: "index_notifications_on_restaurant_id"
   end
 
   create_table "order_lines", force: :cascade do |t|
@@ -125,6 +134,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_18_010822) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "foods", "restaurants"
+  add_foreign_key "notifications", "orders"
+  add_foreign_key "notifications", "restaurants"
   add_foreign_key "order_lines", "foods"
   add_foreign_key "order_lines", "orders"
   add_foreign_key "orders", "restaurants"
