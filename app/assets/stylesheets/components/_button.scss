@@ -12,3 +12,34 @@ a.btn-positive {
   border: 1px solid #FFC107;
   border-radius: 5px;
 }
+
+.add-cart-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  backface-visibility: hidden;
+  border: 0.3rem solid transparent;
+  border-radius: 5px;
+}
+
+a.add-cart-btn {
+  position: relative;
+  left: 76%;
+  bottom: 8px;
+  font-size: 1rem;
+  color: $white;
+}
+
+.add-cart-btn {
+  border-color: transparent;
+  background-color: $orange;
+  color: $white;
+  transition: transform 0.2s cubic-bezier(0.235, 0, 0.05, 0.95);
+}
+
+.add-cart-btn {
+  transform: perspective(1px) scale3d(1.044, 1.044, 1) translateZ(0) !important;
+}

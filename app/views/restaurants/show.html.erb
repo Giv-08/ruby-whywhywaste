@@ -62,19 +62,13 @@
     <% else %>
       <% @published_foods.each do |food| %>
         <div class="food-card">
-
-      <%# add icon %>
-      <%#= link_to foods_path(food) do %>
-          <%#= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
-             <%# end %>
-
           <%# add to cart link %>
-          <%= link_to food_order_lines_path(food), data: { turbo_method: :post } do %>
-            <%= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
-          <% end %>
+          <%#= link_to food_order_lines_path(food), data: { turbo_method: :post } do %>
+            <%#= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
+          <%# end %>
           <div class="card-product-infos">
             <% if food.photo.attached? %>
-              <%= cl_image_tag food.photo.key, height: 120, width: 100, crop: :fill %>
+              <%= cl_image_tag food.photo.key, height: 120, width: 100, crop: :fill, class: "food-img" %>
             <% else %>
               <img style="width: 150px" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
             <% end %>
@@ -82,15 +76,16 @@
               <li id="food-name"><%= food.name %> </li>
               <li id="food-price"><%= number_to_currency(food.price) %> </li>
               <li id="food-description"><%= food.description %> </li>
-
-<%= link_to "add to cart", food_order_lines_path(food), data: { turbo_method: :post } %>
-
+              <li id="food-description">qty left: <%= food.quantity %> </li>
+                <%= link_to "Add to cart", food_order_lines_path(food), data: { turbo_method: :post }, class: "add-cart-btn" %>
             </div>
           </div>
         </div>
       <% end %>
     <% end %>
 <% end %>
+<br>
+
 <h3 class="text-center"><%= @restaurant.name %>'s details</h3>
 <div class="container restaurant-info">
   <ul>
@@ -132,4 +127,4 @@
   <% end %>
 </ul>
 </div>
-<br>
+<br><br><br><br>
