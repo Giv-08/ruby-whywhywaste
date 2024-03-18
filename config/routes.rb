@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   get 'users/:id/notification', to: 'users/dashboard#notification', as: :user_notification
 
   resources :restaurants do
+    resources :reviews
     # Nested routes - foods belonging to restaurant
     resources :foods, only: [:new, :create, :edit, :index, :show]
     resources :foods, only: [:new, :create, :index, :show] do
@@ -50,7 +51,14 @@ Rails.application.routes.draw do
     member do
       patch 'checkout'
     end
+    collection do
+      get 'past'
+    end
   end
+
+
+
+  resources :foods, only: [:edit, :update, :destroy, :show]
 
   # resources :orders do
   #   collection do
@@ -58,11 +66,10 @@ Rails.application.routes.draw do
   #   end
   # end
 
-  resources :foods, only: [:edit, :update, :destroy, :show]
+
 
   get '/search', to: 'search#list', as: :search
   get '/search/map', to: 'search#map', as: :search_map
-
 
   # routes related to orders and carts
   get '/cart', to: 'cart#cart', as: :cart
