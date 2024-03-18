@@ -1,17 +1,17 @@
 <%# SIGNED IN AS RESTAURANT %>
 <%# SEARCH BAR? OR BUTTON? %>
-<div class="search">
+<div class="nav-top">
 <div class="back"><%= link_to 'javascript:history.back()' do %>
 <i class="fa-solid fa-angles-left" style="color: #F3844C;"></i>
 <% end %></div>
 <h1 class="top-text">WHY WHY WASTE</h1>
 <%# <img src="/app/assets/images/logo1.png" alt=""> need to add logo %>
 <%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
-<form id="form-search" onsubmit="event.preventDefault();" role="search">
+<%# <form id="form-search" onsubmit="event.preventDefault();" role="search">
   <label for="search">Search for stuff</label>
   <input id="search" type="search" placeholder="Search..." autofocus required />
   <button type="submit">Go</button>
-</form>
+</form> %>
 </div>
 <%# -------------------------------------------------------------- %>
 <%# RESTAURANT SIGN-IN %>
@@ -87,6 +87,7 @@
       <% end %>
     <% end %>
   </div>
+  <br><br><br>
 
 
 <% elsif user_signed_in? %>
