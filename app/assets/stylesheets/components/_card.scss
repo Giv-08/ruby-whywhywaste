@@ -247,6 +247,13 @@ border-top-left-radius: 20px;
 border-bottom-left-radius: 20px;
 }
 
+.object-fit-cover-restaurant {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  position: relative;
+  width: 94vw;
+}
+
 div.restaurant-card-info {
   padding: 0px 20px;
   display: flex;
