@@ -33,7 +33,7 @@
             <% end %>
             <div class="text-infos">
               <li id="food-name"><%= food.name %> </li>
-              <li id="food-price">$<%= food.price %> </li>
+              <li id="food-price"><%= number_to_currency(food.price) %> </li>
               <li id="food-description"><%= food.description %> </li>
               <%# edit icon %>
               <%= link_to edit_food_path(food) do %>
@@ -74,15 +74,18 @@
             <% end %>
             <div class="text-infos">
               <li id="food-name"><%= food.name %> </li>
-              <li id="food-price">$<%= food.price %> </li>
+              <li id="food-price"><%= number_to_currency(food.price) %> </li>
               <li id="food-description"><%= food.description %> </li>
-              <%= link_to "add to cart", food_order_lines_path(food), data: { turbo_method: :post }, class: "add-cart-btn" %>
+              <li id="food-description">qty left: <%= food.quantity %> </li>
+                <%= link_to "Add to cart", food_order_lines_path(food), data: { turbo_method: :post }, class: "add-cart-btn" %>
             </div>
           </div>
         </div>
       <% end %>
     <% end %>
 <% end %>
+<br>
+
 <h3 class="text-center"><%= @restaurant.name %>'s details</h3>
 <div class="container restaurant-info">
   <ul>

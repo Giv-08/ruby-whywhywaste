@@ -25,7 +25,7 @@
             <% end %>
             <div class="text-infos">
               <li id="food-name"><%= food.name %> </li>
-              <li id="food-price">$  <%= food.price %> </li>
+              <li id="food-price">  <%= number_to_currency(food.price) %> </li>
               <li id="food-description"><%= food.description %> </li>
               <li id="food-quantity">qty: <%= food.quantity %> </li>
               <div class="sale-icon">

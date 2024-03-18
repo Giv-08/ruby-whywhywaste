@@ -19,7 +19,7 @@
     <% end %>
 <ul>
     <li>Name: <%= @food.name %></li>
-    <li>Price: <%= @food.price %></li>
+    <li>Price: <%= number_to_currency(@food.price) %></li>
     <li>Description: <%= @food.description %></li>
     <li>Allergen: <%= @food.allergen%></li>
     <li>Quantity: <%= @food.quantity %></li>

@@ -34,7 +34,7 @@
             <% end %>
             <div class="card-text">
               <p class="text-top"><%= food.name %></p>
-              <p class="text">$  <%= food.price %></p>
+              <p class="text">  <%= number_to_currency(food.price) %></p>
               <p class="text">qty:  <%= food.quantity %></p>
               <p class="text-description"><%= food.description %></p>
             </div>
@@ -173,7 +173,7 @@
         <div class="card card-product restaurants-main-card-user">
           <div class="card-img">
             <% if restaurant.photo.attached? %>
-              <%= cl_image_tag(restaurant.photo.key, width:200, height:200, class: "object-fit-cover-restaurant", crop: :fill, gravity: :face) %>
+              <%= cl_image_tag(restaurant.photo.key, width:200, height:200, class: "cover-restaurant", crop: :fill, gravity: :face) %>
             <% else %>
               <%# <p>No images available for <%= restaurant.name %></p>
               <img class="restaurant-photo" src="https://img.delicious.com.au/MYhAwMVF/del/2023/01/sandoitchi-181514-1.jpg" alt="cafe-photo">

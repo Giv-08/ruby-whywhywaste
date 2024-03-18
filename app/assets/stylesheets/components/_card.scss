@@ -166,6 +166,12 @@ div.card.restaurant-foodlist {
   margin: 10px;
 }
 
+.food-img {
+  border-radius: 5px;
+  position: relative;
+  top: -5px;
+}
+
 .card-product-infos {
   display: flex;
   align-items: center;
@@ -241,7 +247,7 @@ p.text-description {
 }
 
 // my restaurant
-img.object-fit-cover-my-restaurant {
+img.cover-my-restaurant {
   max-width: -webkit-fill-available;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -254,11 +260,12 @@ border-top-left-radius: 20px;
 border-bottom-left-radius: 20px;
 }
 
-.object-fit-cover-restaurant {
+.cover-restaurant {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   position: relative;
   width: 94vw;
+  height: 200px;
 }
 
 div.restaurant-card-info {

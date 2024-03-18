@@ -24,7 +24,7 @@
 
           </li>
         <li><strong>Description: </strong><%= ol.food.description %> </li>
-        <li><strong>Price: </strong> <%= ol.food.price * ol.quantity%></li>
+        <li><strong>Price: </strong><%= number_to_currency(ol.food.price * ol.quantity) %></li>
         <% total_price +=  ol.food.price * ol.quantity %>
         <%= link_to "Delete",
                 order_lines_path(ol),

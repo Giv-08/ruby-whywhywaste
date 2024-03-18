@@ -1,6 +1,6 @@
 <%= link_to '🡰', 'javascript:history.back()' %>
 <p><strong>checkout</strong></p>
-<%= @order.total_price %>
+<%= number_to_currency(@order.total_price) %>
 
 <p>Payment Options:</p>
 <button>Cash</button>
