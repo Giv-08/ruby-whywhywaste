@@ -10,7 +10,7 @@
             <% end %>
           </li>
           <li class="nav-item">
-            <%= link_to "#", class: "nav-link px-3" do %>
+            <%= link_to user_notification_path(current_user), class: "nav-link px-3" do %>
               <i class="fa-solid fa-bell"></i>
             <% end %>
           </li>
@@ -37,11 +37,11 @@
                 <i class="fa-solid fa-bell"></i>
               <% end %>
             </li>
-            <%# <li class="nav-item">
+            <li class="nav-item">
               <%= link_to new_restaurant_food_path(current_restaurant), class: "nav-link px-3" do %> <%# change path > new_restaurant_food_path %>
-                <%# <i class="fa-solid fa-plus"></i> %>
-              <%# end %>
-            <%# </li>  %>
+                <i class="fa-solid fa-plus"></i>
+              <% end %>
+            </li>
             <li class="nav-item">
               <%= link_to restaurants_dashboard_path, class: "nav-link px-3" do %>
                 <i class="fa-solid fa-user"></i>
