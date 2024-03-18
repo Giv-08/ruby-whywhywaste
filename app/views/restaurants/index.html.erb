@@ -16,17 +16,15 @@
 <%# -------------------------------------------------------------- %>
 <%# RESTAURANT SIGN-IN %>
 <% if restaurant_signed_in? %>
-  <%# CURRENTLY SIGNED-IN RESTAURANT FOOD CARDS - random display %>
+  <%# CURRENTLY SIGNED-IN RESTAURANT PUBLISHED FOOD CARDS %>
   <h3 class="index-head">My Published Menu</h3>
-<!-- Flickity HTML init -->
-<div class="carousel"
-  data-flickity='{ "wrapAround": true }'>
-   <% @published_foods.each do |food| %>
+  <div class="carousel" data-flickity='{ "wrapAround": true }'>
+    <% @published_foods.each do |food| %>
       <div class="carousel-cell">
-    <div class="card restaurants-list">
-      <div class="card-img-top">
-        <% if food.photo.attached? %>
-              <%= cl_image_tag(food.photo.key, width:220, height:200, class: "object-fit-cover", crop: :fill, gravity: :center) %>
+        <div class="card restaurant-foodlist">
+          <div class="card-img-top">
+            <% if food.photo.attached? %>
+              <%= cl_image_tag(food.photo.key, width:200, height:200, class: "object-fit-cover", crop: :fill, gravity: :center) %>
             <% else %>
           <img class="restaurant-photo" src="https://img.delicious.com.au/MYhAwMVF/del/2023/01/sandoitchi-181514-1.jpg" alt="cafe-photo">
             <% end %>

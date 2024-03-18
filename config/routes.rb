@@ -35,7 +35,6 @@ Rails.application.routes.draw do
       end
     end
 
-
     # Nested routes - reviews belonging to restaurant
     resources :reviews, only: [:index, :create, :new]
     # Nested routes - orders related to a specific restaurant
@@ -44,7 +43,9 @@ Rails.application.routes.draw do
 
   resources :foods do
     resources :order_lines, only: [:create]
+    patch :published, on: :collection
   end
+
   resources :orders do
     member do
       patch 'checkout'
