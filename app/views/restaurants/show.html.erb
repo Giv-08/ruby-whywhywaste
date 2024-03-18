@@ -17,10 +17,11 @@
     <% else %>
       <% @published_foods.each do |food| %>
         <div class="food-card">
-      <%# add icon %>
-      <%#= link_to foods_path do %>
-          <%#= image_tag "https://www.svgrepo.com/show/2087/plus.svg", width: 20%>
-            <%# end %>
+          <%# add to cart link %>
+          <%= link_to food_order_lines_path(food), data: { turbo_method: :post } do %>
+            <%= image_tag "https://www.svgrepo.com/show/2087/plus.svg", width: 20%>
+          <% end %>
+
           <div class="card-product-infos">
 
             <% if food.photo.attached? %>
@@ -58,10 +59,11 @@
     <% else %>
       <% @published_foods.each do |food| %>
         <div class="food-card">
-      <%# add icon %>
-      <%= link_to foods_path(food) do %>
-          <%= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
-             <% end %>
+          <%# add to cart link %>
+          <%= link_to food_order_lines_path(food), data: { turbo_method: :post } do %>
+            <%= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
+          <% end %>
+
           <div class="card-product-infos">
             <% if food.photo.attached? %>
               <%= cl_image_tag food.photo.key, height: 120, width: 100, crop: :fill %>

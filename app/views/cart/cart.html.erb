@@ -25,8 +25,8 @@
               %>
       <% end %>
       <br>
-      
-      <%= link_to "Proceed to checkout",  orders_path(total_price: total_price), data: { turbo_method: :post } %>
+
+      <%= link_to "Proceed to checkout",  order_path(@order) %>
 
     </ul>
   </div>
