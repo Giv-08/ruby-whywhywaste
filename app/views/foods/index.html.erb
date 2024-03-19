@@ -19,8 +19,13 @@
               <%= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
                 <% end %>
               <div class="card-product-infos">
+                  <div class="edit-icon">
+                  <%= link_to edit_food_path(food) do %>
+                    <i class="fa-solid fa-pen-to-square" style="color: #F3844C;"></i>
+                  <% end %>
+                  </div>
                 <% if food.photo.attached? %>
-                  <%= cl_image_tag food.photo.key, height: 180, width: 150, crop: :fill %>
+                  <%= cl_image_tag food.photo.key, height: 180, width: 150, crop: :fill, class: "food-index" %>
                 <% else %>
                   <img style="width: 150px" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
                 <% end %>
@@ -30,12 +35,8 @@
                   <li id="food-description"><%= food.description %> </li>
                   <li id="food-price">Quantity: <%= food.quantity %> </li>
                   <%# <li>Restaurant : <strong><%= food.restaurant.name%> </strong></li>
-
                   <%# edit icon %>
                   <br>
-                  <%= link_to edit_food_path(food) do %>
-                    <%= image_tag "https://w7.pngwing.com/pngs/944/137/png-transparent-pen-computer-icons-pen-angle-pencil-black-thumbnail.png", width: 20%>
-                  <% end %>
                   <%# Button to view food (food show page) %>
                   <div class="card-footer text-center">
                     <%= link_to 'View', food_path(food), class: 'button-positive' %>

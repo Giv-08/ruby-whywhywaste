@@ -8,7 +8,7 @@ $light-yellow: #ffffd5;
 // restaurant index
 .restaurant-photo {
   width: 95vw;
-  height: 200px;
+  height: 170px;
   position: relative;
   bottom: 17px;
   left: -3px;
@@ -30,18 +30,7 @@ $light-yellow: #ffffd5;
 .flickity-page-dots {
   display: none;
 }
-// .carousel-cell {
-//   // width: 66%;
-//   min-width: 40vw;
-//   height: 200px;
-//   margin-right: 10px;
-//   background-color: transparent;
-//   border-radius: 5px;
-//   counter-increment: carousel-cell;
-//   display: flex;
-//   align-items: center;
-//   justify-content: center;
-// }
+// ----------------------------------------------
 .card.card-product.restaurants-main-card {
   background-color: $light-yellow;
   border-radius: 20px;
@@ -54,11 +43,18 @@ $light-yellow: #ffffd5;
 }
 
 .card.card-product.restaurants-second-card {
-  background-color: $light-yellow;
+  background-color: #ffffd5;
   border-radius: 20px;
-  height: 300px;
+  height: 250px;
   margin-bottom: 20px;
+  width: 94vw;
+  position: relative;
+  left: 10px;
 }
+// div.available-restaurant {
+//   position: relative;
+//   left: 10px;
+// }
 
 div.card.restaurants-list {
   width: 98vw;
@@ -158,12 +154,6 @@ div.card.restaurant-foodlist {
   display: none;
 }
 
-// .best-seller-show {
-//   display: none;
-//   justify-content: flex-end;
-//   font-size: 14px;
-// }
-
 .food-card {
   list-style: none;
   position: relative;
@@ -174,7 +164,6 @@ div.card.restaurant-foodlist {
   background-color: #ffffd5;
   border: 1px solid #d2b763;
   border-radius: 10px;
-  margin: 10px;
 }
 
 .food-card-restaurant {
@@ -202,16 +191,45 @@ img.minus-icon {
   top: -5px;
 }
 
+.food-index {
+  width: 40vw;
+  height: 12vh;
+  border-radius: 10px;
+}
 .card-product-infos {
   display: flex;
   align-items: center;
+  position: relative;
+  top: -27px;
   justify-content: space-between;
   margin: 10px;
+  height: 16vh;
+}
+
+div.mask {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: -18px;
 }
 
 .text-infos {
   flex-grow: 1;
   padding: 0px 15px;
+  height: 14vh;
+}
+
+.fa-pen-to-square::before {
+  position: relative;
+  bottom: 65px;
+  left: 350px;
+  font-size: 20px;
+}
+
+div.card-footer.text-center {
+  position: relative;
+  bottom: 35px;
+  left: 100px;
 }
 
 li#food-name {

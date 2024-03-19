@@ -1,7 +1,16 @@
-<%= link_to '🡰', 'javascript:history.back()' %>
+<div class="nav-top-map">
+<%# go-back-icon %>
+<div class="back"><%= link_to 'javascript:history.back()' do %>
+<i class="fa-solid fa-angle-left"></i>
+<% end %></div>
+<%= image_tag "logo1.png", alt: "Logo", class: "logo-img" %>
+<%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
+</div>
 
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+<div id="map">
+  <div style="width: 100%; height: 600px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+</div>

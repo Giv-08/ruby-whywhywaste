@@ -58,7 +58,7 @@
 <%# ------------------------------------------------------------- %>
   <%# LIST OF OTHER RESTAURANTS %>
   <h3 class="index-head">List of available Restaurants</h3>
-  <div class="container mx-auto card-container-restaurants">
+  <div class="available-restaurant">
     <% @other_restaurants.each do |restaurant| %>
       <%# EACH CARD OF RESTUARANT %>
       <%= link_to restaurant_path(restaurant) do %>
@@ -66,7 +66,7 @@
           <div class="card-img">
             <h5 class="card-img-name "><%= restaurant.name %></h5>
             <% if restaurant.photo.attached? %>
-              <%= cl_image_tag(restaurant.photo.key, width:200, height:200, class: "cover-my-restaurant-owner", crop: :fill, gravity: :face) %>
+              <%= cl_image_tag(restaurant.photo.key, width:200, height:170, class: "cover-my-restaurant-owner", crop: :fill, gravity: :face) %>
             <% else %>
               <%# <p>No images available for <%= restaurant.name %></p>
               <img class="restaurant-photo" src="https://img.delicious.com.au/MYhAwMVF/del/2023/01/sandoitchi-181514-1.jpg" alt="cafe-photo">
@@ -83,9 +83,7 @@
           <% end %>
           </div>
           </div>
-
            </div>
-
         </div>
       <% end %>
     <% end %>

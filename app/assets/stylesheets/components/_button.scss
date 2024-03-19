@@ -25,7 +25,6 @@ a.btn-positive {
   border-radius: 5px;
 }
 
-
 a.add-cart-btn {
   font-size: 1rem;
   color: $white;
@@ -40,4 +39,12 @@ a.add-cart-btn {
 
 .add-cart-btn:hover {
   transform: perspective(1px) scale3d(1.044, 1.044, 1) translateZ(0) !important;
+}
+
+#btn-put-back {
+  position: relative;
+  top: -40px;
+  left: 307px;
+  font-size: 15px;
+  color: $orange;
 }

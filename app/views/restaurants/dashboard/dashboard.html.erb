@@ -31,8 +31,9 @@
 
           <%= link_to unpublished_restaurant_food_path(food.restaurant, food), data: { turbo_method: :patch } do %> <%# for published published_restaurant_path %>
           <%# minus icon %>
-          <%= image_tag "https://cdn-icons-png.flaticon.com/512/262/262039.png", width: 20, class: "minus-icon" %>
-     <% end %>
+          <%#= image_tag "https://cdn-icons-png.flaticon.com/512/262/262039.png", width: 20, class: "minus-icon" %>
+          <h4 id="btn-put-back">Put it back</h4>
+          <% end %>
 
             <% if food.photo.attached? %>
               <%= cl_image_tag food.photo.key, height: 80, width: 80, crop: :fill %>
@@ -53,7 +54,7 @@
   </ul>
 <br>
 <%= simple_form_for(@restaurant) do |f| %>
-  
+
   <%= f.input :pickup_start,
             as: :string,
             input_html: { data: { controller: "datepicker", datepicker_time_value: true } } %>
