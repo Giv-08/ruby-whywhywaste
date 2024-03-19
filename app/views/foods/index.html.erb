@@ -16,7 +16,8 @@
       <div class="food-card">
           <%# add icon %>
           <%= link_to published_restaurant_food_path(food.restaurant, food), data: { turbo_method: :patch } do %> <%# for published published_restaurant_path %>
-              <%= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
+              <%#= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
+                <h4 class="btn-publish">Add to published menu</h4>
                 <% end %>
               <div class="card-product-infos">
                   <div class="edit-icon">
@@ -68,7 +69,6 @@
               <br>
               <div class="btn">
                 <%= link_to "add to cart", food_order_lines_path(food), data: { turbo_method: :post } %><%# fix message%>
-
                 <%#= link_to "add to cart", food_order_lines_path(food), data: { turbo_method: :post, turbo_confirm: "Are you sure you want to submit this form?" } %>
               </div>
             </div>
