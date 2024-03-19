@@ -15,11 +15,11 @@
                 required: true,
                 input_html: { autocomplete: "cuisine" } %>
     <%= f.input :phone_no,
-                placeholder: "phone",
+                placeholder: "Contact number",
                 required: true,
                 input_html: { autocomplete: "phone_no" } %>
     <%= f.input :email,
-                placeholder: "email",
+                placeholder: "Email",
                 required: true,
                 input_html: { autocomplete: "email" }%>
 
@@ -42,10 +42,12 @@
 
 
     <%= f.input :password,
+                placeholder: "Create new password",
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :password_confirmation,
+                placeholder: "Confirm password",
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
 
