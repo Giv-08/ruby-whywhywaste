@@ -77,8 +77,8 @@
               <li id="food-price"><%= number_to_currency(food.price) %> </li>
               <li id="food-description"><%= food.description %> </li>
               <li id="food-description">qty left: <%= food.quantity %> </li>
-                <%= link_to "Add to cart", food_order_lines_path(food), data: { turbo_method: :post }, class: "add-cart-btn" %>
             </div>
+            <%= link_to "Add to cart", food_order_lines_path(food), data: { turbo_method: :post }, class: "add-cart-btn" %>
           </div>
         </div>
       <% end %>

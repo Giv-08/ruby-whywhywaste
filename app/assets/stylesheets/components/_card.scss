@@ -156,8 +156,6 @@ div.card.restaurant-foodlist {
 
 .food-card {
   list-style: none;
-  height: 16vh;
-  width: 95vw;
   font-size: 12px;
   background-color: #ffffd5;
   border: 1px solid #d2b763;
@@ -175,10 +173,12 @@ div.card.restaurant-foodlist {
 .card-product-infos {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin: 10px;
 }
 
 .text-infos {
+  flex-grow: 1;
   padding: 0px 15px;
 }
 
