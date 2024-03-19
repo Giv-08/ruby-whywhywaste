@@ -1,3 +1,12 @@
+<div class="nav-top">
+<%# go-back-icon %>
+<div class="back"><%= link_to 'javascript:history.back()' do %>
+<i class="fa-solid fa-angle-left"></i>
+<% end %></div>
+<%= image_tag "logo1.png", alt: "Logo", class: "logo-img" %>
+<%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
+</div>
+
 <div class="container p-3">
   <h1>Authentication page</h1>
   <%= link_to "sign in as user",  new_user_session_path, class:"btn btn-primary"%><br>

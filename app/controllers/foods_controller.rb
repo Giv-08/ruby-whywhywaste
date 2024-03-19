@@ -71,7 +71,10 @@ class FoodsController < ApplicationController
     @restaurant = @food.restaurant
     @food.update(food_params)
     # redirect_to restaurant_path(@restaurant)
-    redirect_to restaurant_foods_path(@restaurant)
+    respond_to do |format|
+      format.html { redirect_to restaurant_foods_path(@restaurant) }
+      format.json { render json: @food.to_json }
+    end
   end
 
   def destroy
@@ -85,6 +88,6 @@ class FoodsController < ApplicationController
   private
 
   def food_params
-    params.require(:food).permit(:name, :price, :description, :allergen, :quantity, :restaurant_id, :user_id, :photo, :published)
+    params.require(:food).permit(:name, :price, :description, :allergen, :quantity, :restaurant_id, :user_id, :photo, :published, :bestseller)
   end
 end

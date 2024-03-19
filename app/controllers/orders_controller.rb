@@ -4,6 +4,9 @@ class OrdersController < ApplicationController
     @order.total_price = params[:total_price]
     @order.user = current_user
     
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @order.restaurant = @restaurant
+
     @order.save
     redirect_to order_path(@order)
   end
