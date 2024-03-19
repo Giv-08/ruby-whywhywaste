@@ -96,9 +96,19 @@
         <div class="card-product-infos">
 
         <%# best seller IF ELSE STATEMENT %>
-             <div data-bestseller-target="hideme" id="stuff_to_hide">
-                <h1>best seller</h1>
-            </div>
+          <div>
+            <% if food.bestseller == true %>
+              <form action="<%= food_path(food) %>" data-controller="bestseller">
+                <input name="food[bestseller]" <%= checked="checked" if food.bestseller? %> data-action="input->bestseller#toggle" data-bestseller-target="input" type="checkbox" >
+                <div data-bestseller-target="hideme" id="stuff_to_hide">
+                <small>Best seller</small>
+                </div>
+              </form>
+            <% end %>
+          </div>
+
+
+
 
           <% if food.photo.attached? %>
             <%= cl_image_tag food.photo.key, height: 120, width: 100, crop: :fill, class: "food-img" %>
