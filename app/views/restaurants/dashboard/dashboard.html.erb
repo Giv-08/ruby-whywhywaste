@@ -20,12 +20,12 @@
 
 
           <%# check-box %>
-            <div data-controller="bestseller">
-              <input data-action="input->bestseller#toggle" data-bestseller-target="input" type="checkbox" >
+            <form action="<%= food_path(food) %>" data-controller="bestseller">
+              <input name="food[bestseller]" <%= checked="checked" if food.bestseller? %> data-action="input->bestseller#toggle" data-bestseller-target="input" type="checkbox" >
               <div data-bestseller-target="hideme" id="stuff_to_hide">
                 <h1>best seller</h1>
-            </div>
-            </div>
+              </div>
+            </form>
 
 
           <%= link_to unpublished_restaurant_food_path(food.restaurant, food), data: { turbo_method: :patch } do %> <%# for published published_restaurant_path %>
@@ -63,7 +63,7 @@
 <%# publish button %>
 <div class="btn">
 <%#= link_to 'Add more food item', restaurant_foods_path(@restaurant), class: 'btn-positive' %>
-<%= link_to 'Go back to main page', restaurants_path, class: 'btn-positive mt-3',  data: {turbo_method: :post, turbo_confirm: "Are you sure you want to go back?" } %>
+<%= link_to 'Go back to Home', restaurants_path, class: 'btn-positive mt-3',  data: {turbo_method: :post, turbo_confirm: "Are you sure you want to leave this page?" } %>
 </div>
 
 
