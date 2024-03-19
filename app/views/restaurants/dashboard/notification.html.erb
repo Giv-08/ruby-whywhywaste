@@ -12,13 +12,13 @@
 
 <% current_restaurant.notifications.each do |notification| %>
   <% order = notification.order %>
+  <% total_price = order.order_lines.sum { |order_line| order_line.food.price * order_line.quantity } %>
   <div class="notification-card mt-3 ">
     <div class="notfication-text">
       <p>Customer: <%= order.user.first_name %> <%= order.user.last_name %></p>
       <p>Order status: <%= order.status %></p>
-      <p>Total: $ <%= order.total_price %></p>
       <p>Collection time: <%= current_restaurant.pickup_start.strftime(" %I:%M%p") %> - <%= current_restaurant.pickup_end.strftime(" %I:%M%p") %></p>
-
+      <p>Total: $ <%= number_with_precision(total_price, precision: 2) %></p>
       <%# Display all food items for this restaurant in the order %>
       <ul>
         <% order.order_lines.each do |order_line| %>
