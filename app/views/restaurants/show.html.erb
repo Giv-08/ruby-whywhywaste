@@ -1,18 +1,20 @@
 <div class="nav-top">
-<%# go-back-icon %>
-<div class="back"><%= link_to 'javascript:history.back()' do %>
-<i class="fa-solid fa-angle-left"></i>
-<% end %></div>
-<%# <h1 class="top-text">WHY WHY WASTE</h1> %>
-<%= image_tag "logo1.png", alt: "Logo", class: "logo-img" %>  <%# need to add logo %>
-<%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
+  <%# go-back-icon %>
+  <div class="back"><%= link_to 'javascript:history.back()' do %>
+    <i class="fa-solid fa-angle-left"></i>
+    <% end %>
+  </div>
+  <%# <h1 class="top-text">WHY WHY WASTE</h1> %>
+  <%= image_tag "logo1.png", alt: "Logo", class: "logo-img" %>  <%# need to add logo %>
+  <%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
 </div>
 
 
 <%# RESTAURANT OWNER SIGNED IN %>
 <% if restaurant_signed_in? %>
-<h2 class="text-center">To be published Food items</h2>
-  <br>
+  <% if current_restaurant == @restaurant %>
+    <h2 class="text-center">Food Items to be Published</h2>
+    <br>
     <% if @published_foods.empty? %>
       <p class="text-center">Your menu is currently empty.</p>
       <p class="text-center">Please use "add more food item" button below to add menus for your restaurant</p>
@@ -25,7 +27,6 @@
           <% end %>
 
           <div class="card-product-infos">
-
             <% if food.photo.attached? %>
               <%= cl_image_tag food.photo.key, height: 80, width: 80, crop: :fill %>
             <% else %>
@@ -37,38 +38,28 @@
               <li id="food-description"><%= food.description %> </li>
               <%# edit icon %>
               <%= link_to edit_food_path(food) do %>
-                <%= image_tag "https://w7.pngwing.com/pngs/944/137/png-transparent-pen-computer-icons-pen-angle-pencil-black-thumbnail.png", width: 20%>
+                <%= image_tag "https://w7.pngwing.com/pngs/944/137/png-transparent-pen-computer-icons-pen-angle-pencil-black-thumbnail.png", width: 20 %>
               <% end %>
             </div>
           </div>
         </div>
       <% end %>
     <% end %>
-<br>
-<div class="btn">
-<%#= link_to 'Add more food item', restaurant_foods_path(@restaurant), class: 'btn-positive' %>
-<%= link_to 'Publish', restaurants_path, class: 'btn-positive mt-3' , method: :patch, data: { turbo_confirm: 'Are you sure?' }%>
-</div>
-<%# add "are you sure" %>
-<br>
-
-<%# user log-in %>
-<% elsif user_signed_in? %>
-
-<h2 class="text-center"></h2>
-  <% if @published_foods.empty? %>
-      <p class="text-center"><%= @restaurant.name %> menu is currently empty.</p>
-      <p class="text-center">Please try a different restaurant by returning to the homepage</p>
+    <br>
+    <div class="btn">
+      <%#= link_to 'Add more food item', restaurant_foods_path(@restaurant), class: 'btn-positive' %>
+      <%= link_to 'Publish', restaurants_path, class: 'btn-positive mt-3' , method: :patch, data: { turbo_confirm: 'Are you sure?' }%>
+    </div>
+    <br>
+  <% else %>
+    <% if @published_foods.empty? %>
+      <p class="text-center">Currently there is no menu available</p>
     <% else %>
       <% @published_foods.each do |food| %>
         <div class="food-card">
-          <%# add to cart link %>
-          <%#= link_to food_order_lines_path(food), data: { turbo_method: :post } do %>
-            <%#= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
-          <%# end %>
           <div class="card-product-infos">
             <% if food.photo.attached? %>
-              <%= cl_image_tag food.photo.key, height: 120, width: 100, crop: :fill, class: "food-img" %>
+              <%= cl_image_tag food.photo.key, height: 80, width: 80, crop: :fill %>
             <% else %>
               <img style="width: 150px" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
             <% end %>
@@ -76,55 +67,78 @@
               <li id="food-name"><%= food.name %> </li>
               <li id="food-price"><%= number_to_currency(food.price) %> </li>
               <li id="food-description"><%= food.description %> </li>
-              <li id="food-description">qty left: <%= food.quantity %> </li>
-                <%= link_to "Add to cart", food_order_lines_path(food), data: { turbo_method: :post }, class: "add-cart-btn" %>
             </div>
           </div>
         </div>
       <% end %>
     <% end %>
+  <% end %>
+<%# user log-in %>
+<% elsif user_signed_in? %>
+
+  <h2 class="text-center"></h2>
+  <% if @published_foods.empty? %>
+    <p class="text-center"><%= @restaurant.name %> menu is currently empty.</p>
+    <p class="text-center">Please try a different restaurant by returning to the homepage</p>
+  <% else %>
+    <% @published_foods.each do |food| %>
+      <div class="food-card">
+        <%# add to cart link %>
+        <%#= link_to food_order_lines_path(food), data: { turbo_method: :post } do %>
+          <%#= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
+        <%# end %>
+        <div class="card-product-infos">
+          <% if food.photo.attached? %>
+            <%= cl_image_tag food.photo.key, height: 120, width: 100, crop: :fill, class: "food-img" %>
+          <% else %>
+            <img style="width: 150px" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+          <% end %>
+          <div class="text-infos">
+            <li id="food-name"><%= food.name %> </li>
+            <li id="food-price"><%= number_to_currency(food.price) %> </li>
+            <li id="food-description"><%= food.description %> </li>
+            <li id="food-description">qty left: <%= food.quantity %> </li>
+            <%= link_to "Add to cart", food_order_lines_path(food), data: { turbo_method: :post }, class: "add-cart-btn" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 <% end %>
 <br>
 
 <h3 class="text-center"><%= @restaurant.name %>'s details</h3>
 <div class="container restaurant-info">
   <ul>
-      <li>Restaurant name : <%= @restaurant.name %> </li>
-      <li>Cuisine : <%= @restaurant.cuisine %> </li>
-      <li>Phone no : <%= @restaurant.phone_no %> </li>
-      <li>Address : <%= @restaurant.address %> </li>
-      <div class="d-flex">
-        <li class="d-flex text-center">Rating: <% @restaurant.rating.to_i.times do %></p>
+    <li>Restaurant name : <%= @restaurant.name %> </li>
+    <li>Cuisine : <%= @restaurant.cuisine %> </li>
+    <li>Phone no : <%= @restaurant.phone_no %> </li>
+    <li>Address : <%= @restaurant.address %> </li>
+    <div class="d-flex">
+      <li class="d-flex text-center">
+        Rating:
+        <% @restaurant.rating.to_i.times do %>
           <i class="fa-regular fa-star fa-xs" style="color: #ffba24;"></i>
-        <% end %></li>
-      </div>
+        <% end %>
+      </li>
+    </div>
   </ul>
 </div>
 <hr>
 
-
-
-<%# IF STATEMENT - list items, else say its empty %>
-<%# <div class="container"> %>
-  <%# <div class="card food-items-card"> %>
-  <%# list all food items %>
-    <%# <% if @restaurant.foods.any? %>
-      <%# <%= @restaurant.foods.each do |food| %>
-      <%# <% end %>
-    <%# <% else %>
-      <%# <p>Your menu is empty</p> %>
-    <%# <% end %>
-  <%# </div> %>
-<%# </div> %>
-
 <h3 class="text-center">All reviews for <%= @restaurant.name %>:</h3>
-<div class="review-card">
-
-<ul>
-  <% @restaurant.reviews.each do |review| %>
-    <li>"<%= review.content %>"</li>
-    <li>From: <%= review.user.first_name%> <%= review.user.last_name%></li>
-  <% end %>
-</ul>
+<div class="container">
+  <div class="review-card">
+    <% if @restaurant.reviews.empty? %>
+      <p class="text-center">No reviews available</p>
+    <% else %>
+      <ul>
+        <% @restaurant.reviews.each do |review| %>
+          <li>"<%= review.content %>"</li>
+          <li>From: <%= review.user.first_name%> <%= review.user.last_name%></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
 </div>
 <br><br><br><br>
