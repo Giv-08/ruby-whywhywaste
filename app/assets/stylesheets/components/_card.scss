@@ -37,9 +37,10 @@ $light-yellow: #ffffd5;
 }
 
 .card.card-product.restaurants-main-card-user {
-  background-color: $light-yellow;
+  background-color: #ffffd5;
   border-radius: 20px;
   margin-bottom: 20px;
+  height: 30vh;
 }
 
 .card.card-product.restaurants-second-card {
@@ -214,6 +215,16 @@ img.minus-icon {
   height: 16vh;
 }
 
+.card-product-infos-restaurants {
+  display: flex;
+  align-items: center;
+  position: relative;
+  top: -20px;
+  justify-content: space-between;
+  margin: 10px;
+  height: 16vh;
+}
+
 div.mask {
   display: flex;
   flex-direction: column;
@@ -222,6 +233,14 @@ div.mask {
 }
 
 .text-infos {
+  flex-grow: 1;
+  padding: 0px 15px;
+  height: 14vh;
+  position: relative;
+  top: 20px;
+}
+
+.text-infos-restaurants {
   flex-grow: 1;
   padding: 0px 15px;
   height: 14vh;
@@ -381,4 +400,22 @@ img#food-icon {
 
 div.rating.d-flex {
   justify-content: center;
+}
+
+div.card-infos-user {
+  position: relative;
+  bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  p {
+    margin: 0px;
+  }
+}
+
+.cover-restaurant-user {
+  width: 94vw;
+  height: 170px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
 }

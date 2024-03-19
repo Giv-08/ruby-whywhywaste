@@ -31,7 +31,7 @@
             <% else %>
               <img style="width: 150px" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
             <% end %>
-            <div class="text-infos">
+            <div class="text-infos-restaurants">
               <li id="food-name"><%= food.name %> </li>
               <li id="food-price"><%= number_to_currency(food.price) %> </li>
               <li id="food-description"><%= food.description %> </li>
@@ -85,7 +85,7 @@
     <p class="text-center"><%= @restaurant.name %>'s menu is currently empty.</p>
     <p class="text-center">Please try a different restaurant by returning to the homepage</p>
   <% else %>
-      <h3 class="choose-items text-center"> Choose any food item below</h3>
+      <h3 class="choose-items"> Choose any food item below</h3>
     <% @published_foods.each do |food| %>
       <div class="food-card-user">
         <%# add to cart link %>

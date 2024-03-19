@@ -15,19 +15,17 @@
 <%# Loop through all published %>
   <ul>
     <% @published_foods.each do |food| %>
-
      <div class="food-card-restaurant d-flex">
-          <div class="card-product-infos">
-
-
+          <div class="card-product-infos-restaurants">
           <%# check-box %>
-            <form action="<%= food_path(food) %>" data-controller="bestseller">
-              <input name="food[bestseller]" <%= checked="checked" if food.bestseller? %> data-action="input->bestseller#toggle" data-bestseller-target="input" type="checkbox" >
-              <div data-bestseller-target="hideme" id="stuff_to_hide">
-                <h1>best seller</h1>
-              </div>
-            </form>
-
+          <div>
+            <small>best seller</small>
+              <form action="<%= food_path(food) %>" data-controller="bestseller">
+                <input name="food[bestseller]" <%= checked="checked" if food.bestseller? %> data-action="input->bestseller#toggle" data-bestseller-target="input" type="checkbox" >
+                <%# <div data-bestseller-target="hideme" id="stuff_to_hide">
+                </div> %>
+              </form>
+          </div>
 
           <%= link_to unpublished_restaurant_food_path(food.restaurant, food), data: { turbo_method: :patch } do %> <%# for published published_restaurant_path %>
           <%# minus icon %>

@@ -132,18 +132,20 @@
         <div class="card card-product restaurants-main-card-user">
           <div class="card-img">
             <% if restaurant.photo.attached? %>
-              <%= cl_image_tag(restaurant.photo.key, width:200, height:200, class: "cover-restaurant", crop: :fill, gravity: :face) %>
+              <%= cl_image_tag(restaurant.photo.key, class: "cover-restaurant-user", crop: :fill, gravity: :face) %>
             <% else %>
               <%# <p>No images available for <%= restaurant.name %></p>
               <img class="restaurant-photo" src="https://img.delicious.com.au/MYhAwMVF/del/2023/01/sandoitchi-181514-1.jpg" alt="cafe-photo">
             <% end %>
           </div>
           <%# float restaurant name and location onto image %>
-          <p><%= restaurant.name %></p>
-          <p><%= restaurant.cuisine %></p>
+          <div class="card-infos-user">
+          <p class="user-restaurant-name"><strong><%= restaurant.name %></strong></p>
+          <p class="user-restaurant-cuisine"><%= restaurant.cuisine %></p>
           <% if restaurant.pickup_start && restaurant.pickup_start %>
-            <p>Pickup time:<%= restaurant.pickup_start.strftime(" %I:%M%p")%> to <%= restaurant.pickup_end.strftime(" %I:%M%p")  %></p>
+            <p class="user-restaurant-pickup">Pickup time:<%= restaurant.pickup_start.strftime(" %I:%M%p")%> to <%= restaurant.pickup_end.strftime(" %I:%M%p")  %></p>
           <% end  %>
+          </div>
           <%# cuisine, rating, distance bottom of card image %>
         </div>
       <% end %>
