@@ -10,6 +10,13 @@ class Order < ApplicationRecord
 
   # Callback when updated to paid, create a notification for all restaurants associated with order
   after_update :create_restaurant_notifications
+  after_update :set_total_price
+
+  def calculate_total_price
+    order_lines.sum do |ol|
+      ol.quantity * ol.food.price
+    end
+  end
 
   private
 
@@ -26,5 +33,13 @@ class Order < ApplicationRecord
     end
   rescue
     self.errors.add(:base, "Something went wrong when creating notifications for restaurant")
+  end
+
+  def set_total_price
+    # Check if the status is "paid"
+    if self.paid?
+      # If paid, then set the total price of the order
+      self.update_column(:total_price, calculate_total_price) # Doesn't re-trigger callbacks
+    end
   end
 end
