@@ -1,4 +1,11 @@
-<%= link_to '🡰', 'javascript:history.back()' %>
+<div class="nav-top">
+<%# go-back-icon %>
+<div class="back"><%= link_to 'javascript:history.back()' do %>
+<i class="fa-solid fa-angle-left"></i>
+<% end %></div>
+<%= image_tag "logo1.png", alt: "Logo", class: "logo-img" %>
+</div>
+
 <h1><%= @restaurant.name %>'s menu</h1>
 
 <%# card for each food items %>
