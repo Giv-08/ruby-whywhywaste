@@ -156,13 +156,14 @@ div.card.restaurant-foodlist {
 
 .food-card {
   list-style: none;
+  position: relative;
+  left: 0px;
   height: 16vh;
   width: 95vw;
   font-size: 12px;
   background-color: #ffffd5;
   border: 1px solid #d2b763;
   border-radius: 10px;
-  margin-bottom: 10px;
   margin: 10px;
 }
 
