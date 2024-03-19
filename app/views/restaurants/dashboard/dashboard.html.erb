@@ -22,8 +22,9 @@
             <small>best seller</small>
               <form action="<%= food_path(food) %>" data-controller="bestseller">
                 <input name="food[bestseller]" <%= checked="checked" if food.bestseller? %> data-action="input->bestseller#toggle" data-bestseller-target="input" type="checkbox" >
-                <%# <div data-bestseller-target="hideme" id="stuff_to_hide">
-                </div> %>
+                <div data-bestseller-target="hideme" id="stuff_to_hide">
+                <p>hello</p>
+                </div>
               </form>
           </div>
 

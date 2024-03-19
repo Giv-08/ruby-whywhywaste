@@ -89,17 +89,16 @@
       <h3 class="choose-items"> Choose any food item below</h3>
     <% @published_foods.each do |food| %>
       <div class="food-card-user">
+
+
+      <%# show best-seller %>
+
+
         <%# add to cart link %>
         <%#= link_to food_order_lines_path(food), data: { turbo_method: :post } do %>
           <%#= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
         <%# end %>
         <div class="card-product-infos">
-
-        <%# best seller IF ELSE STATEMENT %>
-             <div data-bestseller-target="hideme" id="stuff_to_hide">
-                <h1>best seller</h1>
-            </div>
-
           <% if food.photo.attached? %>
             <%= cl_image_tag food.photo.key, height: 120, width: 100, crop: :fill, class: "food-img" %>
           <% else %>
