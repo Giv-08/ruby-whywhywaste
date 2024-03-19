@@ -4,3 +4,9 @@ import "controllers"
 import "@popperjs/core"
 import "bootstrap"
 
+// flickity
+var flkty = new Flickity( '.main-gallery', {
+  // options
+  cellAlign: 'left',
+  contain: true
+});

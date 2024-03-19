@@ -1,11 +1,12 @@
-import { Controller } from "stimulus"
+import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = [ "input", "hideme" ];
+  static targets = [ "input", "hideme" ]
 
   connect() {
     this.toggle();
   }
+
   toggle() {
     if (this.inputTarget.checked) {
       this.hidemeTarget.style.display = "block";
@@ -13,5 +14,4 @@ export default class extends Controller {
       this.hidemeTarget.style.display = "none";
     }
   }
-
 }

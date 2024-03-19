@@ -59,8 +59,14 @@
       <% @published_foods.each do |food| %>
         <div class="food-card">
           <div class="card-product-infos">
+
+
           <%# show/hide text %>
-            <h1 class="best-seller-show">Best seller!</h1>
+            <div data-target="show-besteller.hideme" id="stuff_to_hide">
+                <h1>best seller</h1>
+            </div>
+
+
             <% if food.photo.attached? %>
               <%= cl_image_tag food.photo.key, height: 80, width: 80, crop: :fill %>
             <% else %>
@@ -83,7 +89,7 @@
 
   <h2 class="text-center"></h2>
   <% if @published_foods.empty? %>
-    <p class="text-center"><%= @restaurant.name %> menu is currently empty.</p>
+    <p class="text-center"><%= @restaurant.name %> The menu is currently empty.</p>
     <p class="text-center">Please try a different restaurant by returning to the homepage</p>
   <% else %>
     <% @published_foods.each do |food| %>

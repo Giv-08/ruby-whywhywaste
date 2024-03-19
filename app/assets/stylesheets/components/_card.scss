@@ -154,11 +154,15 @@ div.card.restaurant-foodlist {
   border-radius: 10px;
 }
 
-.best-seller-show {
+#stuff_to_hide {
   display: none;
-  justify-content: flex-end;
-  font-size: 14px;
 }
+
+// .best-seller-show {
+//   display: none;
+//   justify-content: flex-end;
+//   font-size: 14px;
+// }
 
 .food-card {
   list-style: none;
