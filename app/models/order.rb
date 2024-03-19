@@ -18,6 +18,12 @@ class Order < ApplicationRecord
     end
   end
 
+  def calculate_total_price
+    order_lines.sum do |ol|
+      ol.quantity * ol.food.price
+    end
+  end
+
   private
 
   def create_restaurant_notifications

@@ -1,9 +1,3 @@
-<h1>Search map</h1>
-<%# TABS (LIST/MAP) %>
-<div class="d-flex align-items-center border">
-  <%= link_to 'List', search_path(query: params[:query]), class: 'btn btn-secondary' %>
-  <%= link_to 'Map', '#', class: 'btn btn-primary' %>
-</div>
-<div class="container">
+<div class="container my-3">
   <%= render "restaurants/map", markers: @markers %>
 </div>

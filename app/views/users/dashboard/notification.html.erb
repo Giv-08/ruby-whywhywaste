@@ -14,21 +14,21 @@
 <%# <img src="/app/assets/images/logo1.png" alt=""> need to add logo %>
 <%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
 </div>
-<h1 class="text-center">Welcome to <%= current_user.first_name %> <%= current_user.last_name %>'s notifications</h1>
+<h2 class="text-center">Welcome to <%= current_user.first_name %> <%= current_user.last_name %>'s notifications</h2>
 
 <%# take infos from orders table %>
 <% current_user.orders.each do |order| %>
+  <div class="notification-card mt-3 ">
+    <div class="notfication-text">
+      <p>Restaurant:<%#= order.restautant_id%></p>
+      <p>Order id: <%= order.id %></p>
+      <p>Customer: <%= order.user.first_name%> <%= order.user.last_name%>
+      <p>Total price: <%= order.calculate_total_price %></p>
 
-<div class="notification-card mt-3 ">
-<div class="notfication-text">
-<p>Restaurant: <%= order.restaurant_id %></p>
-<p>Order id: <%= order.id %></p>
-<p>Customer: <%= order.user.first_name%>  <%= order.user.last_name%>
-<p>Total price: <%= order.total_price %></p>
+    </div>
   </div>
-  </div>
-   <% end %></p>
-   <br><br>
+  <% end %></p>
+  <br><br>
 
 <%#= link_to 'Picked up!', restaurants_dashboard_path(@restaurant), method: :patch, class: 'btn-positive' %>
 <%#= change status to DONE %>

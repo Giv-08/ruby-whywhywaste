@@ -7,14 +7,13 @@
 <%# <h1 class="top-text">WHY WHY WASTE</h1> %>
 <%= image_tag "logo1.png", alt: "Logo", class: "logo-img" %>  <%# need to add logo %>
 <%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
-<div class="wrap">
-   <div class="search">
-      <input type="text" class="searchTerm" placeholder="  What are you looking for?">
-      <button type="submit" class="searchButton">
-        <i class="fa fa-search"></i>
-     </button>
-   </div>
 </div>
+</div>
+
+<div class="container">
+  <%= link_to (search_map_path) do %>
+    <div class="view-map">View map  <i class="fa-solid fa-map"></i></div>
+  <% end  %>
 </div>
 <%# -------------------------------------------------------------- %>
 <%# RESTAURANT SIGN-IN %>
@@ -81,9 +80,12 @@
           <div class="rating d-flex">
           <p class="text-center"><% restaurant.rating.to_i.times do %></p>
               <i class="fa-solid fa-star" style="color: #FFD43B; margin: 0px;"></i>
-           <% end %>
+          <% end %>
           </div>
+          </div>
+
            </div>
+
         </div>
       <% end %>
     <% end %>
@@ -123,25 +125,7 @@
   <% end %>
 </div>
 
-  <%# <div class="container mx-auto fav-restaurants row">
-    <% @restaurants.shuffle.each do |restaurant| %>
-      <%# <div class="col-sm-6 col-md-3 justify-content-center"> %>
-        <%# <div class="card restaurants-list"> %>
-          <%# <div class="card-img-top"> %>
-            <%# if restaurant.photo.attached? %>
-                <%#= cl_image_tag(restaurant.photo.key, width:200, height:150, class: "object-fit-cover", crop: :fill, gravity: :face) %>
-            <%# else %>
-            <%# <img class="restaurant-photo" src="https://img.delicious.com.au/MYhAwMVF/del/2023/01/sandoitchi-181514-1.jpg" alt="cafe-photo"> %>
-              <%# <p>No images available for <%= restaurant.name %></p>
-            <%# <% end %>
-          <%# </div> %>
-          <%# float food name onto image %>
-          <%# <h5><%= restaurant.name %></h5>
-          <%# <p><%= restaurant.cuisine %></p>
-        <%# </div> %>
-      <%# </div> %>
-    <%# <% end %>
-  <%# </div> %>
+
 
   <%# LIST OF ALL RESTAURANTS %>
   <h3 class="index-head">List of available Restaurants</h3>

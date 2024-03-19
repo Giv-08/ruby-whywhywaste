@@ -6,26 +6,29 @@
 <%= image_tag "logo1.png", alt: "Logo", class: "logo-img" %>
 <%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
 </div>
-
-
 <%# food item photo %>
+<div class="container food-show-page">
+<h2 class="text-center"> <%= @food.name %> details </h2>
 
-<h1 class="text-center"> <%= @food.name %> details </h1>
-<div class="detail-box d-flex justify-content-center">
-    <% if @food.photo.attached? %>
-      <%= cl_image_tag @food.photo.key, height: 180, width: 150, crop: :fill %>
-    <% else %>
-      <img style="width: 150px" src="https://hips.hearstapps.com/hmg-prod/images/delish-200511-seo-club-sandwich-h-14383-eb-1590780714.jpg?crop=0.671xw:1.00xh;0.123xw,0&resize=1200:*" />
-    <% end %>
-<ul>
-    <li>Name: <%= @food.name %></li>
-    <li>Price: <%= number_to_currency(@food.price) %></li>
-    <li>Description: <%= @food.description %></li>
-    <li>Allergen: <%= @food.allergen%></li>
-    <li>Quantity: <%= @food.quantity %></li>
-</ul>
+  <% if @food.photo.attached? %>
+    <%= cl_image_tag @food.photo.key, height: 200, width: 200, crop: :fill %>
+  <% else %>
+    <img style="width: 150px" src="https://hips.hearstapps.com/hmg-prod/images/delish-200511-seo-club-sandwich-h-14383-eb-1590780714.jpg?crop=0.671xw:1.00xh;0.123xw,0&resize=1200:*" />
+  <% end %>
 
+  <div class="detail-box d-flex justify-content-center">
+  <ul>
+      <li>Name: <%= @food.name %></li>
+      <li>Price: <%= number_to_currency(@food.price) %></li>
+      <li>Description: <%= @food.description %></li>
+      <li>Allergen: <%= @food.allergen%></li>
+      <li>Quantity: <%= @food.quantity %></li>
+  </ul>
+
+  </div>
+  <div class="btn-link" >
+  <% if user_signed_in? %>
+    <%= link_to "add to cart", food_order_lines_path(@food), data: { turbo_method: :post } %>
+  <% end %>
 </div>
-<% if user_signed_in? %>
-  <%= link_to "add to cart", food_order_lines_path(@food), data: { turbo_method: :post } %>
-<% end %>
+</div>

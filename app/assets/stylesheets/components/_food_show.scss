@@ -1,0 +1,17 @@
+.food-show-page{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 16px;
+  padding: 6px 48px;
+  background-color: #e3ebe08f;
+  border-radius: 0 0 62px 62px;
+
+}
+.btn-link{
+  text-decoration: none;
+  padding: 8px 14px;
+  color: black;
+  border-radius: 6px;
+  // background: radial-gradient(circle, rgb(225 185 92) 0, rgb(243 132 76) 0.100);
+}
