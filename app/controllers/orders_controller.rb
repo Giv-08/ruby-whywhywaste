@@ -3,6 +3,7 @@ class OrdersController < ApplicationController
     @order = Order.new
     @order.total_price = params[:total_price]
     @order.user = current_user
+    
     @order.save
     redirect_to order_path(@order)
   end
@@ -17,12 +18,9 @@ class OrdersController < ApplicationController
     redirect_to cart_path, notice: 'Order checked out successfully.'
   end
 
-
   def past
     # paid status of orders
-
-     @orders = current_user.orders.where(status: "paid")
-
+    @orders = current_user.orders.where(status: "paid")
 
     # mock_orders = [
     #   { id: 1, total_price: 50.00, user_id: current_user.id, restaurant_id: 1, created_at: Time.now - 10.days },

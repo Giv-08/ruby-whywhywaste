@@ -68,17 +68,11 @@
             <% end %>
             <div class="text-infos">
               <li id="food-name"><%= food.name %> </li>
-
               <li id="food-price">Price:<%= number_to_currency(food.price) %> </li>
               <li id="food-description">Quantity: <%= food.quantity %> </li>
               <li id="food-description">Description: <%= food.description%> </li>
-              
-
-                <%= link_to "Add to cart", food_order_lines_path(food), data: { turbo_method: :post }, class: "add-cart-btn" %>
-                <%= link_to "Show full details", food_path(food) %>
-
-              
-
+              <li><%= link_to "Add to cart", food_order_lines_path(food), data: { turbo_method: :post }, class: "add-cart-btn" %></li>
+              <li><%= link_to "Show full details", food_path(food), class: "add-cart-btn" %></li>
             </div>
           </div>
         </div>
@@ -111,6 +105,7 @@
             <li id="food-description"><%= food.description %> </li>
             <li id="food-description">qty left: <%= food.quantity %> </li>
             <%= link_to "Add to cart", food_order_lines_path(food), data: { turbo_method: :post }, class: "add-cart-btn" %>
+            <%= link_to "Show full details", food_path(food), class: "add-cart-btn" %>
           </div>
         </div>
       </div>
@@ -130,8 +125,7 @@
       <li>Address : <%= @restaurant.address %> </li>
       <div class="d-flex">
         <li class="d-flex text-center">Rating: <% @restaurant.rating.to_i.times do %></p>
-
-          <i class="fa-regular fa-star fa-xs" style="color: #ffba24;"></i>
+        <i class="fa-regular fa-star fa-xs" style="color: #ffba24;"></i>
         <% end %>
       </li>
     </div>

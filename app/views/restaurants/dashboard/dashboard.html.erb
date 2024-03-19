@@ -47,13 +47,14 @@
   </ul>
 <br>
 <%= simple_form_for(@restaurant) do |f| %>
-  
+
   <%= f.input :pickup_start,
             as: :string,
             input_html: { data: { controller: "datepicker", datepicker_time_value: true } } %>
   <%= f.input :pickup_end,
             as: :string,
             input_html: { data: { controller: "datepicker", datepicker_time_value: true } } %>
+  <%= f.submit :publish %>
 <% end %>
 
 

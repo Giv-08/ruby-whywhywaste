@@ -20,11 +20,10 @@
 <% current_user.orders.each do |order| %>
   <div class="notification-card mt-3 ">
     <div class="notfication-text">
-      <p>Restaurant:<%#= order.restautant_id%></p>
+      <p>Restaurant: <%= order.restaurant_id %></p>
       <p>Order id: <%= order.id %></p>
       <p>Customer: <%= order.user.first_name%> <%= order.user.last_name%>
       <p>Total price: <%= order.calculate_total_price %></p>
-
     </div>
   </div>
   <% end %></p>
