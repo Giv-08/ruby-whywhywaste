@@ -201,10 +201,12 @@ img.minus-icon {
 .card-product-infos {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin: 10px;
 }
 
 .text-infos {
+  flex-grow: 1;
   padding: 0px 15px;
 }
 
