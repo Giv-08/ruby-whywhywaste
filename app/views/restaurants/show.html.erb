@@ -69,6 +69,7 @@
               <li id="food-price"><%= number_to_currency(food.price) %> </li>
               <li id="food-description">Quantity: <%= food.quantity %> </li>
               <li id="food-description">Description: <%= food.description%> </li>
+
                 <%= link_to "Add to cart", food_order_lines_path(food), data: { turbo_method: :post }, class: "add-cart-btn" %>
                 <%= link_to "Show full details", food_path(food) %>
             </div>
@@ -109,7 +110,9 @@
             <li id="food-price"><%= number_to_currency(food.price) %> </li>
             <li id="food-description"><%= food.description %> </li>
             <li id="food-description">qty left: <%= food.quantity %> </li>
+
               <%= link_to "Add to cart", food_order_lines_path(food), data: { turbo_method: :post }, class: "add-cart-btn" %>
+            <%#= link_to "Add to Cart", food_order_lines_path(food_id: food.id, restaurant_id: food.restaurant_id), data: { turbo_method: :post }, class: "add-cart-btn" %>
           </div>
         </div>
       </div>
