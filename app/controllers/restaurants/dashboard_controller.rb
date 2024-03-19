@@ -7,6 +7,5 @@ class Restaurants::DashboardController < ApplicationController
 
   def notification
     @restaurant = Restaurant.find(current_restaurant.id)
-    
   end
 end

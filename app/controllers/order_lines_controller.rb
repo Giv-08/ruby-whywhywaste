@@ -46,4 +46,5 @@ class OrderLinesController < ApplicationController
     @order_line.destroy
     redirect_to cart_path, status: :see_other
   end
+
 end

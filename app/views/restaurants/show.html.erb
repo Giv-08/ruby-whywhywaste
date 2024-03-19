@@ -45,6 +45,7 @@
         </div>
       <% end %>
     <% end %>
+
     <br>
     <div class="btn">
       <%#= link_to 'Add more food item', restaurant_foods_path(@restaurant), class: 'btn-positive' %>
@@ -58,6 +59,8 @@
       <% @published_foods.each do |food| %>
         <div class="food-card">
           <div class="card-product-infos">
+          <%# show/hide text %>
+            <h1 class="best-seller-show">Best seller!</h1>
             <% if food.photo.attached? %>
               <%= cl_image_tag food.photo.key, height: 80, width: 80, crop: :fill %>
             <% else %>
@@ -67,6 +70,8 @@
               <li id="food-name"><%= food.name %> </li>
               <li id="food-price"><%= number_to_currency(food.price) %> </li>
               <li id="food-description"><%= food.description %> </li>
+              <li id="food-quantity">$<%= food.quantity %> </li>
+              <%= link_to "Add to cart", food_order_lines_path(food), data: { turbo_method: :post }, class: "add-cart-btn" %>
             </div>
           </div>
         </div>
@@ -105,8 +110,6 @@
     <% end %>
   <% end %>
 <% end %>
-<br>
-
 <h3 class="text-center"><%= @restaurant.name %>'s details</h3>
 <div class="container restaurant-info">
   <ul>

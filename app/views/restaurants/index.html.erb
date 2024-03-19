@@ -1,5 +1,4 @@
 <%# SIGNED IN AS RESTAURANT %>
-<%# SEARCH BAR? OR BUTTON? %>
 <div class="nav-top">
 <%# go-back-icon %>
 <div class="back"><%= link_to 'javascript:history.back()' do %>
@@ -68,7 +67,7 @@
           <div class="card-img">
             <h5 class="card-img-name "><%= restaurant.name %></h5>
             <% if restaurant.photo.attached? %>
-              <%= cl_image_tag(restaurant.photo.key, width:200, height:200, class: "object-fit-cover-restaurant", crop: :fill, gravity: :face) %>
+              <%= cl_image_tag(restaurant.photo.key, width:200, height:200, class: "cover-my-restaurant-owner", crop: :fill, gravity: :face) %>
             <% else %>
               <%# <p>No images available for <%= restaurant.name %></p>
               <img class="restaurant-photo" src="https://img.delicious.com.au/MYhAwMVF/del/2023/01/sandoitchi-181514-1.jpg" alt="cafe-photo">
@@ -85,8 +84,6 @@
            <% end %>
           </div>
            </div>
-          <%# <p><%= restaurant.rating %></p>
-          <%# <p><%= restaurant.distance</p> %>
         </div>
       <% end %>
     <% end %>
@@ -97,6 +94,7 @@
 <% elsif user_signed_in? %>
 
 <%# SIGNED IN AS USER %>
+
 
 <%# RESTAURANTS CARDS - random display %>
 <h3 class="index-head">My Favourite Restaurants</h3>
@@ -125,7 +123,6 @@
   <% end %>
 </div>
 
-<br><br>
   <%# <div class="container mx-auto fav-restaurants row">
     <% @restaurants.shuffle.each do |restaurant| %>
       <%# <div class="col-sm-6 col-md-3 justify-content-center"> %>
@@ -173,3 +170,4 @@
     <% end %>
   </div>
 <% end %>
+<br><br><br>
