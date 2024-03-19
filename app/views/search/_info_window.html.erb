@@ -1,2 +1,4 @@
-<h2><%= restaurant.name %></h2>
+<%= link_to restaurant_path(restaurant.id) do %>
+  <h2><%= restaurant.name %></h2>
+<% end  %>
 <p><%= restaurant.address %></p>

@@ -13,9 +13,9 @@
 <%# Loop through all published %>
   <ul>
     <% @published_foods.each do |food| %>
-     <div class="food-card d-flex">
+    <div class="food-card d-flex">
           <div class="card-product-infos">
-         <%= link_to unpublished_restaurant_food_path(food.restaurant, food), data: { turbo_method: :patch } do %> <%# for published published_restaurant_path %>
+        <%= link_to unpublished_restaurant_food_path(food.restaurant, food), data: { turbo_method: :patch } do %> <%# for published published_restaurant_path %>
           <%= image_tag "https://cdn-icons-png.flaticon.com/512/262/262039.png", width: 20%>
             <% end %>
             <% if food.photo.attached? %>
@@ -38,16 +38,15 @@
         </div>
     <% end %>
   </ul>
-
+<br>
 <%= simple_form_for(@restaurant) do |f| %>
+  
   <%= f.input :pickup_start,
             as: :string,
             input_html: { data: { controller: "datepicker", datepicker_time_value: true } } %>
-
   <%= f.input :pickup_end,
             as: :string,
             input_html: { data: { controller: "datepicker", datepicker_time_value: true } } %>
-
 <% end %>
 
 

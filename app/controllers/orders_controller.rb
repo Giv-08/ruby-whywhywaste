@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
 
   def past
     # paid status of orders
-     @orders = current_user.orders.where("created_at < ?", Time.now)
+    @orders = current_user.orders.where("created_at < ?", Time.now)
 
     # mock_orders = [
     #   { id: 1, total_price: 50.00, user_id: current_user.id, restaurant_id: 1, created_at: Time.now - 10.days },

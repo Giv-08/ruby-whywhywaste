@@ -1,9 +1,12 @@
 <%= link_to '🡰', 'javascript:history.back()' %>
-<p><strong>checkout</strong></p>
-<%= number_to_currency(@order.total_price) %>
+<div class="container">
+  <p><strong>checkout</strong></p>
 
-<p>Payment Options:</p>
-<button>Cash</button>
-<% if @order.status == "cart" %>
-  <%= button_to "Checkout Order", checkout_order_path(@order), method: :patch, data: { confirm: "Are you sure you want to checkout this order?" }, class: "btn btn-primary" %>
-<% end %>
+  <p> Total price:  <%= @order.calculate_total_price %></p>
+
+  <p>Payment Options:</p>
+  <button>Cash</button>
+  <% if @order.status == "cart" %>
+    <%= button_to "Checkout Order", checkout_order_path(@order), method: :patch, data: { confirm: "Are you sure you want to checkout this order?" }, class: "btn btn-primary" %>
+  <% end %>
+</div>

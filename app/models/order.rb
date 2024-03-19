@@ -1,6 +1,6 @@
 class Order < ApplicationRecord
   belongs_to :user
-  belongs_to :restaurant
+  belongs_to :restaurant, optional: true
   has_many :order_lines, dependent: :destroy
   has_many :foods, through: :order_lines
   has_many :restaurants, -> { distinct }, through: :foods
@@ -10,6 +10,12 @@ class Order < ApplicationRecord
 
   # Callback when updated to paid, create a notification for all restaurants associated with order
   after_update :create_restaurant_notifications
+
+  def calculate_total_price
+    order_lines.sum do |ol|
+      ol.quantity * ol.food.price
+    end
+  end
 
   private
 
