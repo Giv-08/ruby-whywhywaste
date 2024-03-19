@@ -92,14 +92,6 @@
 
 
       <%# show best-seller %>
-      <div>
-        <form action="<%= food_path(food) %>" data-controller="bestseller">
-          <input name="food[bestseller]" <%= checked="checked" if food.bestseller? %> data-action="input->bestseller#toggle" data-bestseller-target="input" type="checkbox" >
-          <div data-bestseller-target="hideme" id="stuff_to_hide">
-            <small>best seller</small>
-          </div>
-        </form>
-      </div>
 
 
         <%# add to cart link %>
@@ -113,6 +105,11 @@
             <img style="width: 150px" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
           <% end %>
           <div class="text-infos">
+          <% if food.bestseller? %>
+          <div>
+            <p>best seller</p>
+          </div>
+          <% end %>
             <li id="food-name"><%= food.name %> </li>
             <li id="food-price"><%= number_to_currency(food.price) %> </li>
             <li id="food-description"><%= food.description %> </li>
