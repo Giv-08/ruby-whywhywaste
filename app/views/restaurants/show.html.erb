@@ -61,11 +61,9 @@
     <% else %>
       <% @published_foods.each do |food| %>
         <div class="food-card">
-          <%# add to cart link %>
-          <%#= link_to food_order_lines_path(food), data: { turbo_method: :post } do %>
-            <%#= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
-          <%# end %>
           <div class="card-product-infos">
+          <%# show/hide text %>
+            <h1 class="best-seller-show">Best seller!</h1>
             <% if food.photo.attached? %>
               <%= cl_image_tag food.photo.key, height: 120, width: 100, crop: :fill, class: "food-img" %>
             <% else %>

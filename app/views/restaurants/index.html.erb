@@ -1,5 +1,4 @@
 <%# SIGNED IN AS RESTAURANT %>
-<%# SEARCH BAR? OR BUTTON? %>
 <div class="nav-top">
 <%# go-back-icon %>
 <div class="back"><%= link_to 'javascript:history.back()' do %>
@@ -85,8 +84,6 @@
            <% end %>
           </div>
            </div>
-          <%# <p><%= restaurant.rating %></p>
-          <%# <p><%= restaurant.distance</p> %>
         </div>
       <% end %>
     <% end %>
@@ -115,6 +112,7 @@
       <%# </div> %>
     <%# <% end %>
   <%# </div> %>
+  <br>
 
    <%# RESTAURANTS CARDS - random display %>
   <h3 class="index-head">My Favourite Restaurants</h3>
@@ -143,7 +141,6 @@
   <% end %>
 </div>
 
-<br><br>
   <%# <div class="container mx-auto fav-restaurants row">
     <% @restaurants.shuffle.each do |restaurant| %>
       <%# <div class="col-sm-6 col-md-3 justify-content-center"> %>

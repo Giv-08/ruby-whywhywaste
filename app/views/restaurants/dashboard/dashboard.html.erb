@@ -9,16 +9,21 @@
 </div>
 
 <ul class="nav-menu">
-  <li><h2 class="text-center">To be published menu</h2></li>
+  <li><h2 class="text-center">Published menu items</h2></li>
 <%# Loop through all published %>
   <ul>
     <% @published_foods.each do |food| %>
      <div class="food-card-restaurant d-flex">
           <div class="card-product-infos">
-         <%= link_to unpublished_restaurant_food_path(food.restaurant, food), data: { turbo_method: :patch } do %> <%# for published published_restaurant_path %>
+          <div>
+          <p>best seller</p>
+          <%# check-box %>
+          <%= check_box_tag "best-seller", 'yes', id:"best-seller" %>
+          </div>
+          <%= link_to unpublished_restaurant_food_path(food.restaurant, food), data: { turbo_method: :patch } do %> <%# for published published_restaurant_path %>
           <%# minus icon %>
-          <%= image_tag "https://cdn-icons-png.flaticon.com/512/262/262039.png", width: 20%>
-            <% end %>
+          <%= image_tag "https://cdn-icons-png.flaticon.com/512/262/262039.png", width: 20, class: "minus-icon" %>
+     <% end %>
             <% if food.photo.attached? %>
               <%= cl_image_tag food.photo.key, height: 80, width: 80, crop: :fill %>
             <% else %>
@@ -52,8 +57,7 @@
 <%# publish button %>
 <div class="btn">
 <%#= link_to 'Add more food item', restaurant_foods_path(@restaurant), class: 'btn-positive' %>
-
-<%= link_to 'Publish', restaurants_path, class: 'btn-positive mt-3' ,  data: {turbo_method: :post,turbo_confirm: "Would you like to post these food items?" } %>
+<%= link_to 'Go back to main page', restaurants_path, class: 'btn-positive mt-3' ,  data: {turbo_method: :post,turbo_confirm: "Are you sure you want to go back?" } %>
 </div>
 <%# <li><h2>Your menu (unpublished)</h2></li>
 <% @unpublished_foods.each do |food| %>

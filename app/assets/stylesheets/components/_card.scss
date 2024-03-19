@@ -154,6 +154,12 @@ div.card.restaurant-foodlist {
   border-radius: 10px;
 }
 
+.best-seller-show {
+  display: none;
+  justify-content: flex-end;
+  font-size: 14px;
+}
+
 .food-card {
   list-style: none;
   position: relative;
@@ -178,6 +184,12 @@ div.card.restaurant-foodlist {
   border: 1px solid #d2b763;
   border-radius: 10px;
   margin: 10px;
+}
+
+img.minus-icon {
+  position: relative;
+  top: -60px;
+  left: 300px;
 }
 
 .food-img {
