@@ -3,6 +3,8 @@ class OrdersController < ApplicationController
     @order = Order.new
     @order.total_price = params[:total_price]
     @order.user = current_user
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @order.restaurant = @restaurant
     @order.save
     redirect_to order_path(@order)
   end
@@ -20,7 +22,7 @@ class OrdersController < ApplicationController
 
   def past
     # paid status of orders
-     @orders = current_user.orders.where("created_at < ?", Time.now)
+    @orders = current_user.orders.where(status: "paid")
 
     # mock_orders = [
     #   { id: 1, total_price: 50.00, user_id: current_user.id, restaurant_id: 1, created_at: Time.now - 10.days },
@@ -30,7 +32,5 @@ class OrdersController < ApplicationController
 
     # Assign mock_orders to @orders
     # @orders = mock_orders.map { |attributes| Order.new(attributes) }
-
   end
-
 end

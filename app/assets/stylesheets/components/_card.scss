@@ -154,14 +154,42 @@ div.card.restaurant-foodlist {
   border-radius: 10px;
 }
 
+.best-seller-show {
+  display: none;
+  justify-content: flex-end;
+  font-size: 14px;
+}
+
 .food-card {
   list-style: none;
+  position: relative;
+  left: 0px;
+  height: 16vh;
+  width: 95vw;
   font-size: 12px;
   background-color: #ffffd5;
   border: 1px solid #d2b763;
   border-radius: 10px;
-  margin-bottom: 10px;
   margin: 10px;
+}
+
+.food-card-restaurant {
+  list-style: none;
+  position: relative;
+  left: -23px;
+  height: 16vh;
+  width: 95vw;
+  font-size: 12px;
+  background-color: #ffffd5;
+  border: 1px solid #d2b763;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+img.minus-icon {
+  position: relative;
+  top: -60px;
+  left: 300px;
 }
 
 .food-img {
@@ -255,9 +283,25 @@ img.cover-my-restaurant {
   border-top-left-radius: 20px;
 }
 
+img.cover-my-restaurant-owner {
+  width: 94vw;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
 .object-fit-cover {
 border-top-left-radius: 20px;
 border-bottom-left-radius: 20px;
+}
+
+img.object-fit-cover-my-restaurant {
+  height: 25vh;
+    width: 94vw;
+    position: relative;
+    top: -2px;
+    left: -1px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
 }
 
 .cover-restaurant {

@@ -60,14 +60,6 @@ Rails.application.routes.draw do
 
   resources :foods, only: [:edit, :update, :destroy, :show]
 
-  # resources :orders do
-  #   collection do
-  #     get 'history', to: 'orders#history'
-  #   end
-  # end
-
-
-
   get '/search', to: 'search#list', as: :search
   get '/search/map', to: 'search#map', as: :search_map
 
