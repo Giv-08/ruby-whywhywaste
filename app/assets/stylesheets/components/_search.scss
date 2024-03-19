@@ -1,11 +1,11 @@
-$green: #789D67;
-$yellow: #F9CC63;
-$orange: #F3844C;
+$green: #789d67;
+$yellow: #f9cc63;
+$orange: #f3844c;
 $white: #ffffff;
-$black: #0F0F12;
+$black: #0f0f12;
 $light-yellow: #ffffd5;
 
-.top-text{
+.top-text {
   text-align: center;
   color: $white;
   margin-top: 30px;
@@ -40,14 +40,14 @@ div.nav-top {
   flex-direction: column;
   background-color: $yellow;
   height: 80px;
-    a {
-  text-decoration: none;
+  a {
+    text-decoration: none;
   }
 }
 
 :root {
-  --rad: .7rem;
-  --dur: .3s;
+  --rad: 0.7rem;
+  --dur: 0.3s;
   --color-dark: #2f2f2f;
   --color-light: #fff;
   --color-brand: $orange;
@@ -64,7 +64,7 @@ div.nav-top {
   top: 45px;
   right: 106px;
 }
-input.searchTerm{
+input.searchTerm {
   background: $light-yellow;
 }
 .searchTerm {
@@ -74,13 +74,13 @@ input.searchTerm{
   padding: 5px;
   border-radius: 5px 0 0 5px;
   outline: none;
-  color: #9DBFAF;
+  color: #9dbfaf;
   height: 37px;
   border-top-left-radius: 40px;
   border-bottom-left-radius: 40px;
 }
 
-.searchTerm:focus{
+.searchTerm:focus {
   color: rgb(98, 98, 98);
 }
 
@@ -97,7 +97,7 @@ input.searchTerm{
 }
 
 /*Resize the wrap to see the search bar change!*/
-.wrap{
+.wrap {
   width: 30%;
   position: absolute;
   top: 50%;
