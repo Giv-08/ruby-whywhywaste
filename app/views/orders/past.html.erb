@@ -17,8 +17,7 @@
             <%= link_to "Order #{order.id} : #{ordinalize(order.created_at.day)} #{order.created_at.strftime("%B %Y")}", order_path(order) %>
             <hr>
             <p class="card-text">Total Price: <%= number_to_currency(order.total_price) %></p>
-
-            <% if order.restaurant_id.present? && order.restaurant.present? %>
+            <% if order.restaurant %>
               <h5 class="card-title"><%= order.restaurant.name %></h5>
               <div class="btn">
                 <%= link_to 'Place a Review', new_restaurant_review_path(restaurant_id: order.restaurant_id), class: 'button-secondary' %>
