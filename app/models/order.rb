@@ -24,7 +24,6 @@ class Order < ApplicationRecord
         )
       end
     end
-
   rescue
     self.errors.add(:base, "Something went wrong when creating notifications for restaurant")
   end

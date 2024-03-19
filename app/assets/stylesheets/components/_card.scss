@@ -167,6 +167,19 @@ div.card.restaurant-foodlist {
   margin: 10px;
 }
 
+.food-card-restaurant {
+  list-style: none;
+  position: relative;
+  left: -23px;
+  height: 16vh;
+  width: 95vw;
+  font-size: 12px;
+  background-color: #ffffd5;
+  border: 1px solid #d2b763;
+  border-radius: 10px;
+  margin: 10px;
+}
+
 .food-img {
   border-radius: 5px;
   position: relative;
