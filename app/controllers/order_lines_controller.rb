@@ -2,7 +2,6 @@ class OrderLinesController < ApplicationController
   # POST /foods/:food_id/order_lines
   def create
     @food = Food.find(params[:food_id])
-    # @restaurant = Restaurant.find(params[:restaurant_id])
     # ORDER: need to find the existing cart (order) or create it if none
     @order = Order.find_or_create_by(user: current_user, status: :cart)
     @order.restaurant = @food.restaurant

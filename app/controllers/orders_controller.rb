@@ -3,8 +3,10 @@ class OrdersController < ApplicationController
     @order = Order.new
     @order.total_price = params[:total_price]
     @order.user = current_user
+    
     @restaurant = Restaurant.find(params[:restaurant_id])
     @order.restaurant = @restaurant
+
     @order.save
     redirect_to order_path(@order)
   end
@@ -18,7 +20,6 @@ class OrdersController < ApplicationController
     @order.update(status: :paid)
     redirect_to cart_path, notice: 'Order checked out successfully.'
   end
-
 
   def past
     # paid status of orders
