@@ -79,7 +79,6 @@
   <% end %>
 <%# user log-in %>
 <% elsif user_signed_in? %>
-  <h2 class="text-center"></h2>
   <% if @published_foods.empty? %>
     <p class="text-center"><%= @restaurant.name %>'s menu is currently empty.</p>
     <p class="text-center">Please try a different restaurant by returning to the homepage</p>
@@ -87,26 +86,18 @@
     <h3 class="choose-items"> Choose any food item below</h3>
     <% @published_foods.each do |food| %>
       <div class="food-card-user">
-
-        <div class="card-product-infos">
-
         <%# best seller IF ELSE STATEMENT %>
-            <div data-bestseller-target="hideme" id="stuff_to_hide">
-                <h1>best seller</h1>
-      <div class="food-item-wrap">
-          <%# show best-seller %>
+
           <div class="show-bestseller">
             <% if food.bestseller? %>
             <div id="best-seller">
-              <p>best seller</p>
+              <%# <i class="fa-solid fa-medal"></i>
+              best seller %>
+              best seller
+              <i class="fa-solid fa-crown"></i>
             </div>
             <% end %>
           </div>
-            <%# add to cart link %>
-            <%#= link_to food_order_lines_path(food), data: { turbo_method: :post } do %>
-              <%#= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
-            <%# end %>
-        <div class="card-product-infos">
           <% if food.photo.attached? %>
             <%= cl_image_tag food.photo.key, height: 120, width: 100, crop: :fill, class: "food-img" %>
           <% else %>
@@ -117,13 +108,12 @@
               <li id="food-name"><%= food.name %> </li>
               <li id="food-price"><%= number_to_currency(food.price) %> </li>
               <li id="food-description"><%= food.description %> </li>
-              <li id="food-description">qty left: <%= food.quantity %> </li>
+              <li id="food-description">Quantity: <%= food.quantity %> </li>
             </div>
             <div class="d-flex justify-content-end">
               <%= link_to "Show full details", food_path(food), class: "add-cart-btn" %>
               <%= link_to "Add to cart", food_order_lines_path(food), data: { turbo_method: :post }, class: "add-cart-btn" %>
             </div>
-
           </div>
         </div>
         </div>
@@ -131,30 +121,29 @@
     <% end %>
   <% end %>
 <% end %>
-<h3 class="text-center"><%= @restaurant.name %>'s details</h3>
-<div class="container restaurant-info">
-  <ul>
 
-      <li>Restaurant name : <%= @restaurant.name %> </li>
+<h3 class="text-center"><%= @restaurant.name %>'s details</h3>
+<div class="restaurant-info-card">
+  <ul>
+      <li class="d-flex justify-content-start align-items-baseline"><div class="details">Restaurant name:</div> <%= @restaurant.name %> </li>
       <% if @restaurant.pickup_start && @restaurant.pickup_start %>
-        <li>Pickup time:<%= @restaurant.pickup_start.strftime(" %I:%M%p")%> to <%= @restaurant.pickup_end.strftime(" %I:%M%p")  %></li>
+        <li class="d-flex justify-content-start align-items-baseline"><div class="details">Pickup time:</div><%= @restaurant.pickup_start.strftime(" %I:%M%p")%> to <%= @restaurant.pickup_end.strftime(" %I:%M%p")  %></li>
       <% end  %>
-      <li>Cuisine : <%= @restaurant.cuisine %> </li>
-      <li>Phone no : <%= @restaurant.phone_no %> </li>
-      <li>Address : <%= @restaurant.address %> </li>
-      <div class="d-flex">
-        <li class="d-flex text-center">Rating: <% @restaurant.rating.to_i.times do %></p>
+      <li class="d-flex justify-content-start align-items-baseline"><div class="details">Cuisine : </div> <%= @restaurant.cuisine %> </li>
+      <li class="d-flex justify-content-start align-items-baseline"><div class="details">Phone no : </div><%= @restaurant.phone_no %> </li>
+      <li class="d-flex justify-content-start align-items-baseline"><div class="details">Address :</div> <%= @restaurant.address %> </li>
+      <%# <div class="d-flex"> %>
+        <li class="d-flex justify-content-start align-items-baseline"><div class="details">Rating:</div> <% @restaurant.rating.to_i.times do %>
         <i class="fa-regular fa-star fa-xs" style="color: #ffba24;"></i>
         <% end %>
       </li>
     </div>
   </ul>
 </div>
-<hr>
+
 
 <h3 class="text-center">All reviews for <%= @restaurant.name %>:</h3>
-<div class="container">
-  <div class="review-card">
+  <div class="show-review-card">
     <% if @restaurant.reviews.empty? %>
       <p class="text-center">No reviews available</p>
     <% else %>
@@ -166,5 +155,4 @@
       </ul>
     <% end %>
   </div>
-</div>
 <br><br><br><br>
