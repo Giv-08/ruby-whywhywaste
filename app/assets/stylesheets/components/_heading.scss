@@ -1,9 +1,10 @@
 h1.text-center {
-  color: $white;
+  color: #ffffff;
   margin: 20px 10px;
   letter-spacing: 2px;
   position: relative;
   top: -5px;
+  left: 10px;
 }
 
 h2.text-center {
@@ -42,4 +43,15 @@ h3.choose-items {
 
 small {
   font-size: 10px;
+}
+
+h4.btn-publish {
+  font-size: 0.8rem;
+  position: relative;
+  top: 20px;
+  left: 20px;
+  background-color: #F3844C;
+  color: #ffffff;
+  padding: 5px;
+  border-radius: 5px;
 }

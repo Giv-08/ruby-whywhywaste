@@ -87,6 +87,7 @@
     <% @published_foods.each do |food| %>
       <div class="food-card-user">
         <%# best seller IF ELSE STATEMENT %>
+
           <div class="show-bestseller">
             <% if food.bestseller? %>
             <div id="best-seller">

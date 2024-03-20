@@ -28,7 +28,7 @@ $light-yellow: #ffffd5;
 }
 
 .flickity-page-dots {
-  display: none;
+  display: block;
 }
 // ----------------------------------------------
 .card.card-product.restaurants-main-card {
@@ -153,14 +153,11 @@ div.card.restaurant-foodlist {
 
 .food-card {
   list-style: none;
-  position: relative;
-  left: 0px;
-  height: 16vh;
-  width: 95vw;
   font-size: 12px;
   background-color: #ffffd5;
   border: 1px solid #d2b763;
   border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .food-card-user {
@@ -179,6 +176,7 @@ div.card.restaurant-foodlist {
 }
 
 .food-card-restaurant {
+  display: flex;
   list-style: none;
   position: relative;
   left: -23px;
@@ -212,6 +210,20 @@ img.minus-icon {
   border-radius: 10px;
 }
 
+
+.food-text-infos {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-left: 10px;
+}
+
+.card-food-index {
+  display: flex;
+  align-items: center;
+  margin: 15px 0px;
+  padding: 5px;
 #best-seller{
   position:absolute;
   top: 1px;
@@ -222,7 +234,6 @@ img.minus-icon {
   color:white;
   font-size: 14px;
   text-shadow: 1px 1px 3px #464646;
-
 }
 
 
@@ -230,10 +241,8 @@ img.minus-icon {
   display: flex;
   align-items: center;
   position: relative;
-  top: -20px;
   justify-content: space-between;
   margin: 10px;
-  height: 16vh;
 }
 
 div.mask {
@@ -243,13 +252,12 @@ div.mask {
   top: -18px;
 }
 
+.dashboard-img {
+  border-radius: 5px;
+}
+
 .text-infos {
-  // flex-grow: 1;
   padding: 0px 15px;
-  margin-bottom: 5px;
-  // height: 14vh;
-  // position: relative;
-  // top: 20px;
 }
 
 .text-infos-restaurants {
@@ -262,8 +270,8 @@ div.mask {
 
 .fa-pen-to-square::before {
   position: relative;
-  bottom: 62px;
-  left: 350px;
+  bottom: 60px;
+  left: 325px;
   font-size: 20px;
 }
 
@@ -288,9 +296,6 @@ img#edit-icon {
   width: 20px
 }
 
-.notification-card {
-  border: 1px solid black;
-}
 // restaurant/show
 .show-review-card {
   border: 1px solid rgb(250, 182, 79);

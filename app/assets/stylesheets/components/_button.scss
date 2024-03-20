@@ -14,9 +14,6 @@ a.btn-positive {
 }
 
 .add-cart-btn {
-  // display: inline-flex;
-  // align-items: center;
-  // justify-content: center;
   text-align: center;
   text-decoration: none;
   color: #fff;
@@ -30,9 +27,6 @@ a.add-cart-btn {
   color: #ffffff;
   margin-left: 10px;
   margin-top: 5px;
-  // position: relative;
-  // left: 80%;
-  // bottom: 20px;
 }
 
 .add-cart-btn {
@@ -48,8 +42,20 @@ a.add-cart-btn {
 
 #btn-put-back {
   position: absolute;
-  top: 20px;
-  left: 300px;
-  font-size: 15px;
-  color: $orange;
+  background-color: #F3844C;
+  top: 0;
+  left: 84%;
+  font-size: 11px;
+  color: #ffffff;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.publish-btn {
+  width: 190px;
+  background-color: #f8e0a9;
+  text-decoration: none;
+  color: black;
+  border: 1px solid #FFC107;
+  border-radius: 5px;
 }

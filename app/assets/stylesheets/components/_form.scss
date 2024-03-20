@@ -12,3 +12,9 @@ form#new_user {
   position: relative;
   left: 140px;
 }
+
+.form-control.is-valid.string.optional.flatpickr-input.flatpickr-mobile {
+  border-radius: 7px;
+  color: orange;
+  background-color: #ffffff8f;
+}
