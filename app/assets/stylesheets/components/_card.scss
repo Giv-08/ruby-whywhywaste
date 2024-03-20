@@ -211,20 +211,20 @@ img.minus-icon {
 }
 
 
-// .food-text-infos {
-//   display: flex;
-//   align-items: flex-end;
-//   flex-wrap: wrap;
-//   justify-content: space-between;
-//   margin-left: 10px;
-// }
+.food-text-infos {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-left: 10px;
+}
 
-// .card-food-index {
-//   display: flex;
-//   align-items: center;
-//   margin: 15px 0px;
-//   padding: 5px;
-// }
+.card-food-index {
+  display: flex;
+  align-items: center;
+  margin: 15px 0px;
+  padding: 5px;
+}
 
 #best-seller{
   position:absolute;
@@ -272,8 +272,8 @@ div.mask {
 
 .fa-pen-to-square::before {
   position: relative;
-  bottom: 60px;
-  left: 325px;
+  bottom: -48px;
+  left: 340px;
   font-size: 20px;
 }
 
