@@ -15,7 +15,7 @@
 <%# Loop through all published %>
   <ul>
     <% @published_foods.each do |food| %>
-     <div class="food-card-restaurant d-flex">
+     <div class="food-card-restaurant">
           <div class="card-product-infos-restaurants">
           <%# check-box %>
           <div>
@@ -42,7 +42,7 @@
               <li id="food-name"><%= food.name %> </li>
               <li id="food-price">  <%= number_to_currency(food.price) %> </li>
               <li id="food-description"><%= food.description %> </li>
-              <li id="food-quantity">qty: <%= food.quantity %> </li>
+              <li id="food-quantity">Qty: <%= food.quantity %> </li>
               <br>
               </div>
             </div>
@@ -58,7 +58,7 @@
   <%= f.input :pickup_end,
             as: :string,
             input_html: { data: { controller: "datepicker", datepicker_time_value: true } } %>
-  <%= f.submit :publish %>
+  <%= f.submit :publish, class: "publish-btn" %>
 <% end %>
 
 <%# publish button %>
