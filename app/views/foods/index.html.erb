@@ -15,10 +15,9 @@
       <% @my_restaurant.foods.each do |food| %>
       <div class="food-card">
           <%# add icon %>
-          <%= link_to published_restaurant_food_path(food.restaurant, food), data: { turbo_method: :patch } do %> <%# for published published_restaurant_path %>
-              <%#= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
-                <h4 class="btn-publish">Add to published menu</h4>
-                <% end %>
+          <%#= link_to published_restaurant_food_path(food.restaurant, food), data: { turbo_method: :patch } do %>
+                <%# <h4 class="btn-publish">Add to published menu</h4> %>
+                <%# end %>
               <div class="card-product-infos">
                   <div class="edit-icon">
                   <%= link_to edit_food_path(food) do %>
@@ -35,8 +34,6 @@
                   <li id="food-price"><%= number_to_currency(food.price) %> </li>
                   <li id="food-description"><%= food.description %> </li>
                   <li id="food-price">Quantity: <%= food.quantity %> </li>
-                  <%# <li>Restaurant : <strong><%= food.restaurant.name%> </strong></li>
-                  <%# edit icon %>
                   <br>
                   <%# Button to view food (food show page) %>
                   <div class="card-footer text-center">

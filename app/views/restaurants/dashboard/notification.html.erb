@@ -15,22 +15,23 @@
   <% total_price = order.order_lines.sum { |order_line| order_line.food.price * order_line.quantity } %>
   <div class="notification-card mt-3 ">
     <div class="notfication-text">
-      <p>Customer: <%= order.user.first_name %> <%= order.user.last_name %></p>
-      <p>Order status: <%= order.status %></p>
-      <p>Collection time: <%= current_restaurant.pickup_start.strftime(" %I:%M%p") %> - <%= current_restaurant.pickup_end.strftime(" %I:%M%p") %></p>
-      <p>Total: $ <%= number_with_precision(total_price, precision: 2) %></p>
+      <div class="notification d-flex"><p class="noti date"><p class="noti-orange">Sent on:   </p><%= order.created_at.strftime("%-d %B %Y") %></p></div>
+      <div class="notification d-flex"><p class="noti customer"><p class="noti-orange">Customer: </p><%= order.user.first_name %>   <%= order.user.last_name %></p></div>
+      <div class="notification d-flex"><p class="noti order"><p class="noti-orange">Order status: </p><%= order.status %></p></div>
+      <div class="notification d-flex"><p class="noti collection"><p class="noti-orange">Collection time: </p><%= current_restaurant.pickup_start.strftime(" %I:%M%p") %> - <%= current_restaurant.pickup_end.strftime(" %I:%M%p") %></p></div>
+      <div class="notification d-flex"><p class="noti total"><p class="noti-orange">Total: $ </p><%= number_with_precision(total_price, precision: 2) %></p></div>
       <%# Display all food items for this restaurant in the order %>
-      <ul>
+      <div class="notification d-flex"><ul class="noti food-items text-center"><p class="noti-orange">Food items: </p>
         <% order.order_lines.each do |order_line| %>
           <% if order_line.food.restaurant == current_restaurant %>
             <%# Display information about food and order_line here %>
-            <li><%= order_line.food.name %> x<%= order_line.quantity %></li>
+            <li>- <%= order_line.food.name %>  x  <%= order_line.quantity %></li>
           <% end %>
-        <% end %>
+        <% end %></div>
       </ul>
     </div>
   </div>
 <% end %>
-
+<br><br><br>
 <%#= link_to 'Picked up!', restaurants_dashboard_path(@restaurant), method: :patch, class: 'btn-positive' %>
 <%#= change status to DONE %>

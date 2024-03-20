@@ -6,11 +6,13 @@ $black: #0F0F12;
 $light-yellow: #ffffd5;
 
 .notification-card {
-  background-color: $light-yellow;
+  background-color: #ffffd5;
   border-radius: 20px;
   display: flex;
   justify-content: center;
-  border: 1px solid black;
+  border: 1px solid rgb(250, 182, 79);
+  margin: 30px;
+  padding: 0;
 }
 
 div.notfication-text {
@@ -18,4 +20,16 @@ div.notfication-text {
   padding: 10px;
   flex-direction: column;
   align-items: center;
+}
+
+div.notification.d-flex {
+  gap: 10px;
+}
+
+.noti {
+  margin: 0px;
+}
+
+.noti-orange {
+  color: $orange;
 }
