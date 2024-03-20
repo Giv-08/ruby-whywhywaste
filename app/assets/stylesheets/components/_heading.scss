@@ -22,16 +22,20 @@ h3.index-head {
 }
 
 h3.text-center {
+  font-weight: normal;
+  font-size: 18px;
   color: $white;
-  margin: 20px 10px;
+  margin: 8px;
   letter-spacing: 2px;
   text-shadow: 2px 2px 2px #326715
 }
 
 h3.choose-items {
+  font-weight: normal;
+  font-size: 18px;
   color: $white;
   text-align: center;
-  margin: 30px 10px;
+  margin: 6px;
   letter-spacing: 2px;
   text-shadow: 2px 2px 2px #326715
 }
