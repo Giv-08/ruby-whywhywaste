@@ -6,7 +6,7 @@
 <%= image_tag "www-logo.png", alt: "Logo", class: "logo-img" %>
 <%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
 </div>
-<h2 class="text-center">Restaurant Sign up</h2>
+<h2 class="text-center">Restaurant Sign up Form</h2>
 
 <div class="d-flex justify-content-center">
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -48,7 +48,6 @@
 
     <%= f.input :photo, as: :file %>
 
-
     <%= f.input :password,
                 placeholder: "Create new password",
                 required: true,
@@ -59,9 +58,12 @@
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
 
-    <div class="form-actions">
-      <%= f.button :submit, "Sign up", class: "btn btn-primary" %>
-      <%= link_to "Back to Restaurants", restaurants_path, class: "btn btn-primary" %>
+    <div class="form-actions mb-2">
+      <%= f.button :submit, "Sign up", class: "btn btn-primary", style: "width: 200px;" %>
+    </div>
+    <div>
+      <%= link_to "Registration page", auth_path, class: "btn btn-primary", style: "width: 200px;" %>
     </div>
   </div>
 <% end %>
+</div>
