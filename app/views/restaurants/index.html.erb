@@ -1,13 +1,5 @@
 <%# SIGNED IN AS RESTAURANT %>
-<div class="nav-top">
-<%# go-back-icon %>
-<div class="back"><%= link_to 'javascript:history.back()' do %>
-<i class="fa-solid fa-angle-left"></i>
-<% end %></div>
-<%= image_tag "www-logo.png", alt: "Logo", class: "logo-img" %>  <%# need to add logo %>
-</div>
-</div>
-
+<%= render "shared/top_nav" %>
 <div class="container">
   <%= link_to (search_map_path) do %>
     <div class="view-map">View map  <i class="fa-solid fa-map"></i></div>

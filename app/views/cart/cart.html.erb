@@ -4,7 +4,6 @@
 <i class="fa-solid fa-angle-left"></i>
 <% end %></div>
 <%= image_tag "www-logo.png", alt: "Logo", class: "logo-img" %>
-<%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
 </div>
 
 <h1 class="text-center">Your Cart</h1>
@@ -18,10 +17,14 @@
       <% @order.order_lines.each do |ol| %>
         <li><strong>Food Name: </strong><%= ol.food.name %></li>
         <li>
+          <% if ol.food.photo.attached? %>
+            <%= cl_image_tag ol.food.photo.key, height: 120, width: 100, crop: :fill, class: "food-img" %>
+          <% end %>
+        </li>
+        <li>
           <strong>Quantity:</strong>
           <%= link_to "-", order_lines_reduce_path(:id => ol), method: :post %>
           <%= ol.quantity %> <%= link_to "+", order_lines_add_path(:id => ol), method: :post %>
-
           </li>
         <li><strong>Description: </strong><%= ol.food.description %> </li>
         <li><strong>Price: </strong><%= number_to_currency(ol.food.price * ol.quantity) %></li>
