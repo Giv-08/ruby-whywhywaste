@@ -30,6 +30,35 @@ $light-yellow: #ffffd5;
 .flickity-page-dots {
   display: block;
 }
+
+
+.carousel.is-fullscreen .carousel-cell {
+  height: 100%;
+}
+
+.carousel-cell-image {
+  display: block;
+  max-height: 100%;
+}
+
+.carousel.is-fullscreen .carousel-cell-image {
+  max-width: 100%;
+}
+/* cell number */
+// .carousel-cell:before {
+//   display: block;
+//   text-align: center;
+// }
+
+.carousel-cell {
+  width: 100%;
+  height: 200px;
+  margin-right: 10px;
+  /* center images in cells with flexbox */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 // ----------------------------------------------
 .card.card-product.restaurants-main-card {
   background-color: $light-yellow;
@@ -114,38 +143,6 @@ div.card.restaurant-foodlist {
   border-radius: 20px;
 }
 
-.carousel.is-fullscreen .carousel-cell {
-  height: 100%;
-}
-
-.carousel-cell-image {
-  display: block;
-  max-height: 100%;
-}
-
-.carousel.is-fullscreen .carousel-cell-image {
-  max-width: 100%;
-}
-/* cell number */
-.carousel-cell:before {
-  display: block;
-  text-align: center;
-  // content: counter(carousel-cell);
-//   line-height: 200px;
-//   font-size: 80px;
-//   color: white;
-}
-
-.carousel-cell {
-  width: 100%;
-  height: 200px;
-  margin-right: 10px;
-  /* center images in cells with flexbox */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 // food index
 #stuff_to_hide {
   display: none;
@@ -211,20 +208,20 @@ img.minus-icon {
 }
 
 
-// .food-text-infos {
-//   display: flex;
-//   align-items: flex-end;
-//   flex-wrap: wrap;
-//   justify-content: space-between;
-//   margin-left: 10px;
-// }
+.food-text-infos {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-left: 10px;
+}
 
-// .card-food-index {
-//   display: flex;
-//   align-items: center;
-//   margin: 15px 0px;
-//   padding: 5px;
-// }
+.card-food-index {
+  display: flex;
+  align-items: center;
+  margin: 15px 0px;
+  padding: 5px;
+}
 
 #best-seller{
   position:absolute;
@@ -237,7 +234,6 @@ img.minus-icon {
   font-size: 14px;
   text-shadow: 1px 1px 3px #464646;
 }
-
 
 .card-product-infos-restaurants {
   display: flex;
@@ -272,15 +268,19 @@ div.mask {
 
 .fa-pen-to-square::before {
   position: relative;
-  bottom: 60px;
-  left: 325px;
+  bottom: -50px;
+  left: 340px;
   font-size: 20px;
 }
 
+i.fa-regular.fa-eye {
+  font-size: 15px;
+}
+
 div.card-footer.text-center {
-  position: relative;
-  bottom: 35px;
-  left: 100px;
+  // position: relative;
+  // bottom: 35px;
+  // left: 100px;
 }
 
 li#food-name {
