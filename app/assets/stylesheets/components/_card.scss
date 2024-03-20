@@ -217,10 +217,8 @@ img.minus-icon {
   display: flex;
   align-items: center;
   position: relative;
-  top: -20px;
   justify-content: space-between;
   margin: 10px;
-  height: 16vh;
 }
 
 div.mask {
@@ -230,13 +228,12 @@ div.mask {
   top: -18px;
 }
 
+.dashboard-img {
+  border-radius: 5px;
+}
+
 .text-infos {
-  // flex-grow: 1;
   padding: 0px 15px;
-  margin-bottom: 5px;
-  // height: 14vh;
-  // position: relative;
-  // top: 20px;
 }
 
 .text-infos-restaurants {

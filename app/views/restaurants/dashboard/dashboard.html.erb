@@ -23,7 +23,6 @@
               <form action="<%= food_path(food) %>" data-controller="bestseller">
                 <input name="food[bestseller]" <%= checked="checked" if food.bestseller? %> data-action="input->bestseller#toggle" data-bestseller-target="input" type="checkbox" >
                 <div data-bestseller-target="hideme" id="stuff_to_hide">
-                <p>hello</p>
                 </div>
               </form>
           </div>
@@ -35,7 +34,7 @@
           <% end %>
 
             <% if food.photo.attached? %>
-              <%= cl_image_tag food.photo.key, height: 80, width: 80, crop: :fill %>
+              <%= cl_image_tag food.photo.key, height: 80, width: 80, crop: :fill, class: "dashboard-img"%>
             <% else %>
               <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
             <% end %>
