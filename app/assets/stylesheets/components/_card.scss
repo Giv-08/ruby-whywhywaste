@@ -146,7 +146,7 @@ div.card.restaurant-foodlist {
   justify-content: center;
 }
 
-//  food index
+// food index
 #stuff_to_hide {
   display: none;
 }
@@ -164,17 +164,15 @@ div.card.restaurant-foodlist {
 }
 
 .food-card-user {
+  display: flex;
   list-style: none;
-  position: relative;
-  left: 0px;
-  height: 16vh;
-  width: 95vw;
   font-size: 12px;
   background-color: #ffffd5;
   border: 1px solid #d2b763;
   border-radius: 10px;
   margin: 10px;
 }
+
 .food-card-restaurant {
   list-style: none;
   position: relative;
@@ -233,11 +231,12 @@ div.mask {
 }
 
 .text-infos {
-  flex-grow: 1;
+  // flex-grow: 1;
   padding: 0px 15px;
-  height: 14vh;
-  position: relative;
-  top: 20px;
+  margin-bottom: 5px;
+  // height: 14vh;
+  // position: relative;
+  // top: 20px;
 }
 
 .text-infos-restaurants {
@@ -418,4 +417,11 @@ div.card-infos-user {
   height: 170px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+}
+
+// food show
+div#best-seller p {
+  padding: 0px 10px;
+  display: flex;
+  justify-content: flex-end;
 }
