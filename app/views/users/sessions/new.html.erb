@@ -1,4 +1,4 @@
-<h2 class="text-center">Log in</h2>
+<h2 class="text-center">Customer login</h2>
 
 <div class="ms-3 d-flex justify-content-center">
 <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -7,18 +7,20 @@
                 placeholder: "Email address",
                 required: false,
                 autofocus: true,
-                input_html: { autocomplete: "email" } %>
+                input_html: { autocomplete: "email", style: "max-width: 350px;" } %>
     <%= f.input :password,
                 placeholder: "Password",
                 required: false,
-                input_html: { autocomplete: "current-password" } %>
+                input_html: { autocomplete: "current-password", style: "max-width: 350px;" } %>
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Log in", class:"btn btn-primary"%><br>
+  <div class="form-actions mb-2">
+    <%= f.button :submit, "Log in", class:"btn btn-primary", style: "width: 200px;" %>
   </div>
-    <%= link_to "back to root", auth_path, class:"btn btn-primary" %><br>
+  <div>
+    <%= link_to "Registration page", auth_path, class:"btn btn-primary", style: "width: 200px;" %>
+  </div>
 <% end %>
 <br>
 </div>

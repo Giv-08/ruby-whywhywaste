@@ -1,11 +1,27 @@
-<%= link_to '🡰', 'javascript:history.back()' %>
-<h1 class="text-center"> Write a review for <%= @restaurant.name %> </h1>
-  <div class="form m-5 ml-5">
-    <%= simple_form_for [@restaurant, @review] do |f| %>
-      <%= f.error :base %>
-      <%= f.input :content %>
-      <%= f.submit class:"btn btn-success"%>
-    <% end %>
-  </div>
+<%#= link_to '🡰', 'javascript:history.back()' %>
 
+<div class="container">
+  <div class="page-heading pt-5">
+    <h1 class="text-center"><%= @restaurant.name %></h1>
+  </div>
+    <h3 class="text-center">Write a Review</h3>
+    <br>
+    <div class="review-info">
+      <p>Your feedback holds significant value for both future customers and the restaurant proprietor.</p>
+      <p>Consider mentioning:</p>
+        <ul>
+          <li>Dishes you ordered</li>
+          <li>Your expenditure</li>
+          <li>Recommendations on particular menu items</li>
+          <li>The ease of locating the restaurant</li>
+        </ul>
+      </div>
+      <div class="form form-review m-5 ml-5">
+        <%= simple_form_for [@restaurant, @review] do |f| %>
+          <%= f.error :base %>
+          <%= f.input :content, input_html: { rows: 6 }, placeholder: "Write your review here", label: false %>
+          <%= f.submit class:"btn btn-primary"%>
+        <% end %>
+      </div>
+</div>
 <%# add rating %>

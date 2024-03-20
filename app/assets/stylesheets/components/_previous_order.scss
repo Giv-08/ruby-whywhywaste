@@ -1,0 +1,27 @@
+.previous-order-card {
+  border-radius: 10px;
+  background-color: #ffffd5;
+  .card-header {
+    a {
+      color: #f3844c;
+      font-size: 15px;
+    }
+  }
+}
+
+.previous-card-body {
+  font-size: 15px;
+  position: relative;
+  .btn {
+    position: absolute;
+    bottom: 7px;
+    right: 7px;
+    white-space: nowrap;
+    .review-button {
+      background-color: #f3844c;
+      border-color: transparent;
+      font-size: 0.8rem;
+      border-radius: 5px;
+    }
+  }
+}
