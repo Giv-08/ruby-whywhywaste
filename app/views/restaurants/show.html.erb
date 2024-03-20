@@ -65,19 +65,12 @@
             <% end %>
             <div class="text-infos">
               <li id="food-name"><%= food.name %> </li>
-
               <li id="food-price">Price:<%= number_to_currency(food.price) %> </li>
               <li id="food-description">Quantity: <%= food.quantity %> </li>
               <li id="food-description">Description: <%= food.description%> </li>
-
-
-
-
-
-                <%= link_to "Add to cart", food_order_lines_path(food), data: { turbo_method: :post }, class: "add-cart-btn" %>
+                <%#= link_to "Add to cart", food_order_lines_path(food), data: { turbo_method: :post }, class: "add-cart-btn" %>
                 <%= link_to "Show full details", food_path(food) %>
             </div>
-            <%= link_to "Add to cart", food_order_lines_path(food), data: { turbo_method: :post }, class: "add-cart-btn" %>
           </div>
         </div>
       <% end %>

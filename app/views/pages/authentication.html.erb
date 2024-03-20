@@ -8,14 +8,20 @@
 </div>
 
 <div class="container p-3">
-  <h1>Authentication page</h1>
+  <h1 class="text-center">Welcome to Why Why Waste</h1>
+  <h5 class="text-center">Please choose one of the options below</h5>
+  <br>
+  <h5>Customer Options</h5>
   <%= link_to "sign in as user",  new_user_session_path, class:"btn btn-primary"%><br>
   <%= link_to "sign up as user",  new_user_registration_path, class:"btn btn-primary"%><br>
   <hr>
+  <h5>Restaurant Owner Options</h5>
   <%= link_to "sign in as restaurant", new_restaurant_session_path, class:"btn btn-primary" %><br>
   <%= link_to "sign up as restaurant", new_restaurant_registration_path, class:"btn btn-primary" %><br>
   <hr>
 
+  <h5>Thank you for using WWW</h5>
+  <h5>We hope to see you soon</h5>
   <%= link_to "Log out", destroy_restaurant_session_path, data: {turbo_method: :delete}, class: "btn btn-primary" %>
 
 </div>
