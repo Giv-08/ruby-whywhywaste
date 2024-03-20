@@ -214,6 +214,7 @@ img.minus-icon {
   flex-wrap: wrap;
   justify-content: space-between;
   margin-left: 10px;
+  padding-right: 5px;
 }
 
 .card-food-index {
@@ -275,6 +276,9 @@ div.mask {
 
 i.fa-regular.fa-eye {
   font-size: 15px;
+  position: relative;
+  right: 130px;
+  top: 6px;
 }
 
 div.card-footer.text-center {
