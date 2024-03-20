@@ -74,3 +74,18 @@ a.add-cart-btn {
   padding: 5px 10px;
   color: black;
 }
+
+.continue-btn-positive {
+  background-color: #f8e0a9;
+  text-decoration: none;
+  color: black;
+  border: 1px solid #ffc107;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+div.continue {
+  display: flex;
+  justify-content: center;
+  margin: 5rem;
+}

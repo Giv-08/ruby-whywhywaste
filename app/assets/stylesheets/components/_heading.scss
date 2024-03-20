@@ -55,3 +55,20 @@ h4.btn-publish {
   padding: 5px;
   border-radius: 5px;
 }
+
+h1#your-cart {
+  text-align: center;
+  color: $white;
+  margin: 20px 10px;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 2px #326715
+}
+
+.empty-cart {
+  color: $orange;
+  font-size: 20px;
+}
+
+.empty-text {
+  text-align: center;
+}

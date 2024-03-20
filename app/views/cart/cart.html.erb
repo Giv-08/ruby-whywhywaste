@@ -7,11 +7,14 @@
 <%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
 </div>
 
-<h1 class="text-center">Your Cart</h1>
-
-<% if @order.order_lines.empty? %>
-  <p>Your cart is currently empty...</p>
-<% else %>
+<h1 id="your-cart">Your Cart</h1>
+  <% if @order.order_lines.empty? %>
+    <p class="empty-cart text-center">Your cart is currently empty...</p>
+    <p class="empty-text">You must add some products to your cart before checking out</p>
+    <div class="cart">
+    <%= image_tag "https://cdn-icons-png.flaticon.com/512/2038/2038854.png", alt: "empty-cart", class: "empty-cart-icon" %>
+    </div>
+  <% else %>
   <div class="container">
     <ul>
       <% total_price = 0 %>
@@ -28,15 +31,14 @@
         <% total_price +=  ol.food.price * ol.quantity %>
         <%= link_to "Delete",
                 order_lines_path(ol),
-                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+                data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete?"}, class: "continue-btn-positive"
               %>
       <% end %>
       <br>
-
-      <%= link_to "Proceed to checkout",  order_path(@order) %>
-
+      <%= link_to "Proceed to checkout",  order_path(@order), class: "continue-btn-positive" %>
     </ul>
   </div>
 <% end %>
-
-<%= link_to "Continue shopping", restaurants_path %>
+<div class="continue">
+<%= link_to "Continue shopping", restaurants_path, class: "continue-btn-positive" %>
+</div>
