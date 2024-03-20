@@ -36,7 +36,10 @@
                 <% end %>
                   <%# Button to view food (food show page) %>
                   <div class="card-footer text-center">
-                    <%= link_to 'View', food_path(food), class: 'button-positive' %>
+                  <%# view icon %>
+                    <%= link_to food_path(food) do %>
+                    <i class="fa-regular fa-eye" style="color: #F3844C;"></i>
+                  <% end %>
                   </div>
                 </div>
               </div>
