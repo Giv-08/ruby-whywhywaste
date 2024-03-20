@@ -12,15 +12,16 @@
 <div class="container">
   <% if @orders.any? %>
       <% @orders.each do |order| %>
-        <div class="card mb-3">
+        <div class="card mb-3 previous-order-card">
           <div class="card-header">
             <%= link_to "Order #{order.id} : #{ordinalize(order.created_at.day)} #{order.created_at.strftime("%B %Y")}", order_path(order) %>
-            <hr>
-            <p class="card-text">Total Price: <%= number_to_currency(order.total_price) %></p>
+          </div>
+          <div class="card-body previous-card-body">
             <% if order.restaurant %>
               <h5 class="card-title"><%= order.restaurant.name %></h5>
+              <p class="card-text">Total Price: <%= number_to_currency(order.total_price) %></p>
               <div class="btn">
-                <%= link_to 'Place a Review', new_restaurant_review_path(restaurant_id: order.restaurant_id), class: 'button-secondary' %>
+                <%= link_to 'Place a Review', new_restaurant_review_path(restaurant_id: order.restaurant_id), class: 'btn btn-secondary review-button' %>
               </div>
             <% else %>
               <p class="card-text">Restaurant information unavailable</p>

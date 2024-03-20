@@ -1,8 +1,8 @@
-$green: #789D67;
-$yellow: #F9CC63;
-$orange: #F3844C;
+$green: #789d67;
+$yellow: #f9cc63;
+$orange: #f3844c;
 $white: #ffffff;
-$black: #0F0F12;
+$black: #0f0f12;
 $light-yellow: #ffffd5;
 
 // restaurant index
@@ -17,7 +17,9 @@ $light-yellow: #ffffd5;
 }
 
 //  flickity
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 .carousel {
   background: transparent;
@@ -30,7 +32,6 @@ $light-yellow: #ffffd5;
 .flickity-page-dots {
   display: block;
 }
-
 
 .carousel.is-fullscreen .carousel-cell {
   height: 100%;
@@ -143,6 +144,38 @@ div.card.restaurant-foodlist {
   border-radius: 20px;
 }
 
+.carousel.is-fullscreen .carousel-cell {
+  height: 100%;
+}
+
+.carousel-cell-image {
+  display: block;
+  max-height: 100%;
+}
+
+.carousel.is-fullscreen .carousel-cell-image {
+  max-width: 100%;
+}
+/* cell number */
+.carousel-cell:before {
+  display: block;
+  text-align: center;
+  // content: counter(carousel-cell);
+  //   line-height: 200px;
+  //   font-size: 80px;
+  //   color: white;
+}
+
+.carousel-cell {
+  width: 100%;
+  height: 200px;
+  margin-right: 10px;
+  /* center images in cells with flexbox */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 // food index
 #stuff_to_hide {
   display: none;
@@ -185,10 +218,10 @@ div.card.restaurant-foodlist {
   border-radius: 10px;
   margin: 10px;
 }
-.details{
+.details {
   color: $orange;
   font-size: 18px;
-  padding-right: 12px ;
+  padding-right: 12px;
 }
 
 img.minus-icon {
@@ -223,14 +256,14 @@ img.minus-icon {
   padding: 5px;
 }
 
-#best-seller{
-  position:absolute;
+#best-seller {
+  position: absolute;
   top: 1px;
   left: 2px;
   background-color: #ffc65a;
   padding: 4px;
   border-radius: 8px;
-  color:white;
+  color: white;
   font-size: 14px;
   text-shadow: 1px 1px 3px #464646;
 }
@@ -298,7 +331,7 @@ li#food-description {
 img#edit-icon {
   position: absolute;
   right: 10px;
-  width: 20px
+  width: 20px;
 }
 
 // restaurant/show
@@ -371,8 +404,8 @@ img.cover-my-restaurant-owner {
 }
 
 .object-fit-cover {
-border-top-left-radius: 20px;
-border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
 }
 
 img.object-fit-cover-my-restaurant {
@@ -397,7 +430,7 @@ div.restaurant-card-info {
   padding: 0px 20px;
   display: flex;
   justify-content: flex-start;
-  color:$orange;
+  color: $orange;
   font-size: 20px;
   align-items: center;
 }
