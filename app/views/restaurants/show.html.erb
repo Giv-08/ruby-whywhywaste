@@ -89,15 +89,19 @@
       <h3 class="choose-items"> Choose any food item below</h3>
     <% @published_foods.each do |food| %>
       <div class="food-card-user">
-
-
-      <%# show best-seller %>
-
-
-        <%# add to cart link %>
-        <%#= link_to food_order_lines_path(food), data: { turbo_method: :post } do %>
-          <%#= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
-        <%# end %>
+      <div class="food-item-wrap">
+          <%# show best-seller %>
+          <div class="show-bestseller">
+            <% if food.bestseller? %>
+            <div id="best-seller">
+              <p>best seller</p>
+            </div>
+            <% end %>
+          </div>
+            <%# add to cart link %>
+            <%#= link_to food_order_lines_path(food), data: { turbo_method: :post } do %>
+              <%#= image_tag "https://www.svgrepo.com/show/170952/add-button.svg", width: 20%>
+            <%# end %>
         <div class="card-product-infos">
           <% if food.photo.attached? %>
             <%= cl_image_tag food.photo.key, height: 120, width: 100, crop: :fill, class: "food-img" %>
@@ -105,19 +109,14 @@
             <img style="width: 150px" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
           <% end %>
           <div class="text-infos">
-          <% if food.bestseller? %>
-          <div>
-            <p>best seller</p>
-          </div>
-          <% end %>
             <li id="food-name"><%= food.name %> </li>
             <li id="food-price"><%= number_to_currency(food.price) %> </li>
             <li id="food-description"><%= food.description %> </li>
             <li id="food-description">qty left: <%= food.quantity %> </li>
-
               <%= link_to "Add to cart", food_order_lines_path(food), data: { turbo_method: :post }, class: "add-cart-btn" %>
             <%#= link_to "Add to Cart", food_order_lines_path(food_id: food.id, restaurant_id: food.restaurant_id), data: { turbo_method: :post }, class: "add-cart-btn" %>
           </div>
+        </div>
         </div>
       </div>
     <% end %>
