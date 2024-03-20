@@ -1,12 +1,47 @@
+<%# <p>Pages#home</p> %>
+<%# <p>Find me in app/views/pages/home.html.erb</p> %>
+
+<%# NAV-TOP %>
 <div class="nav-top">
-<%# go-back-icon %>
-<div class="back"><%= link_to 'javascript:history.back()' do %>
-<i class="fa-solid fa-angle-left"></i>
-<% end %></div>
-<%= image_tag "logo1.png", alt: "Logo", class: "logo-img" %>
-<%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
+  <%# go-back-icon %>
+  <div class="back">
+    <%= link_to 'javascript:history.back()' do %>
+     <i class="fa-solid fa-angle-left"></i>
+    <% end %>
+  </div>
+  <%= image_tag "logo1.png", alt: "Logo", class: "logo-img" %>
 </div>
 
+<%# BODY %>
+<h1 class="text-center title-aboutus pt-2"> About Us</h1>
 
-<p>Pages#home</p>
-<%# <p>Find me in app/views/pages/home.html.erb</p> %>
+<div class="container about-us-box pb-5">
+  <h3>Why Why Waste</h3>
+  <br>
+  <p>Why Why Waste" is an innovative application dedicated to tackling the critical issue of food wastage in the restaurant and hospitality industry. Our platform provides a unique solution that benefits both businesses and consumers alike.</p>
+
+  <p>At "Why Why Waste," we understand the significant challenge restaurants, cafes, and bakeries face in managing surplus food at the end of each day. With our app, these establishments can now easily connect with nearby customers to offer their remaining high-quality food at discounted prices.</p>
+
+  <p>By facilitating this direct interaction, we enable restaurants to significantly reduce their food wastage while simultaneously providing budget-conscious individuals, such as students and busy professionals, with access to delicious meals at affordable rates.</p>
+
+  <p>Our mission is not only to minimize food wastage but also to foster a sense of community by connecting businesses with consumers who share a common goal of sustainability and reducing environmental impact. Together, we can make a meaningful difference in combating food waste while ensuring that good food doesn't go to waste. Join us in our journey toward a more sustainable and efficient future with "Why Why Waste.</p>
+
+  <br>
+
+  <h3 class="pt-3">Join the Foodie Network</h3>
+  <p>To join us, simply click the login button located at the bottom of the page. We look forward to welcoming you to our community!</p>
+</div>
+
+<div class="container sponsor-box pt-5">
+  <div class="sponsors">
+    <h3 class="text-center">Proud Sponsors</h3>
+    <div class="row">
+      <div class="col-6 pb-4 pt-5 mx-auto text-center">
+        <%= image_tag "LeWagonLogo.png", alt: "Logo", class: "leWagonlogo-img", width: "170" %>
+      </div>
+      <div class="col-6 pb-4 mx-auto text-center">
+        <%= image_tag "logo_dog.png", alt: "Logo", class: "logodog-img", width: "150" %>
+      </div>
+    </div>
+  </div>
+</div>
