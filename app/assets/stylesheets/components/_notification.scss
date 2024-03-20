@@ -8,9 +8,9 @@ $light-yellow: #ffffd5;
 .notification-card {
   background-color: $light-yellow;
   border-radius: 20px;
-  width: 95vw;
-  position: relative;
-  left: 10px;
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
 }
 
 div.notfication-text {
