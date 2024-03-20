@@ -60,11 +60,11 @@ class RestaurantsController < ApplicationController
   #   @restaurant.save
   # end
 
-  # def update
-  #   @restaurant = Restaurant.find(params[:id])
-  #   @restaurant.update(restaurant_params)
-  #   # redirect_to dashboard_path
-  # end
+  def update
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant.update(restaurant_params)
+    redirect_to restaurants_path
+  end
 
   # def destroy
   #   @restaurant = Restaurant.find(params[:id])
