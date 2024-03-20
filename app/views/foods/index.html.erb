@@ -31,7 +31,7 @@
                   <li id="food-price"><%= number_to_currency(food.price) %> </li>
                   <li id="food-description"><%= food.description %> </li>
                   <li id="food-price">Quantity: <%= food.quantity %> </li>
-          <%= link_to published_restaurant_food_path(food.restaurant, food), data: { turbo_method: :patch } do %>
+                <%= link_to published_restaurant_food_path(food.restaurant, food), data: { turbo_method: :patch } do %>
                 <h4 class="btn-publish">Publish this</h4>
                 <% end %>
                   <%# Button to view food (food show page) %>
