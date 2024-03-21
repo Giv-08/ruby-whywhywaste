@@ -9,64 +9,103 @@
 <h1 class="text-center">Restaurant dashboard</h1>
 </div>
 <ul class="nav-menu">
-  <li><h2 class="text-center">Published menu items</h2></li>
+  <li><h2 class="text-center">Published Menu</h2></li>
+
+  <div class="checkbox-container">
+    <i class="fa-regular fa-square checkbox-info"></i>
+    <p class="box-check">Please tick the box for <i>BEST SELLER</i> items</p>
+  </div>
 <%# Loop through all published %>
   <ul>
     <% @published_foods.each do |food| %>
+
     <div class="food-card-restaurant">
           <div class="card-product-infos-restaurants">
+
+
           <%# check-box %>
-          <div>
-            <small>best seller</small>
-              <form action="<%= food_path(food) %>" data-controller="bestseller">
-                <input name="food[bestseller]" <%= checked="checked" if food.bestseller? %> data-action="input->bestseller#toggle" data-bestseller-target="input" type="checkbox" >
-                <div data-bestseller-target="hideme" id="stuff_to_hide">
-                </div>
-              </form>
+          <div class="check-box-fav-food">
+            <form action="<%= food_path(food) %>" data-controller="bestseller">
+              <input name="food[bestseller]" <%= checked="checked" if food.bestseller? %> data-action="input->bestseller#toggle" data-bestseller-target="input" type="checkbox" >
+              <div data-bestseller-target="hideme" id="stuff_to_hide">
+              </div>
+            </form>
           </div>
-          <%= link_to unpublished_restaurant_food_path(food.restaurant, food), data: { turbo_method: :patch } do %>
-          <h4 id="btn-put-back">Put it back</h4>
+
+
+          <%= link_to unpublished_restaurant_food_path(food.restaurant, food), data: { turbo_method: :patch } do %> <%# for published published_restaurant_path %>
+          <%# minus icon %>
+          <%#= image_tag "https://cdn-icons-png.flaticon.com/512/262/262039.png", width: 20, class: "minus-icon" %>
+          <h4 id="btn-put-back">Unpublish</h4>
+
           <% end %>
 
+
             <% if food.photo.attached? %>
-              <%= cl_image_tag food.photo.key, height: 80, width: 80, crop: :fill, class: "dashboard-img"%>
+              <%= cl_image_tag food.photo.key, height: 80, width: 80, crop: :fill, class: "dashboard-img ml-1"%>
             <% else %>
               <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
             <% end %>
             <div class="text-infos">
               <li id="food-name"><%= food.name %> </li>
               <li id="food-price">  <%= number_to_currency(food.price) %> </li>
-              <li id="food-description"><%= food.description %> </li>
+              <div class="food-description">
+                <li id="food-description"><%= food.description %> </li>
+              </div>
               <li id="food-quantity">Qty: <%= food.quantity %> </li>
               <br>
-              </div>
             </div>
           </div>
         </div>
+      </div>
     <% end %>
   </ul>
 <br>
-<%= simple_form_for(@restaurant) do |f| %>
-  <%= f.input :pickup_start,
-            as: :string,
-            input_html: { data: { controller: "datepicker", datepicker_time_value: true } } %>
-  <%= f.input :pickup_end,
-            as: :string,
-            input_html: { data: { controller: "datepicker", datepicker_time_value: true } } %>
-  <%= f.submit :publish, class: "publish-btn" %>
-<% end %>
+
+
+<%# PICKUP TIME SETTING %>
+<div class="container pickup-info">
+  <div class="pickup-select-info">
+    <h5>Pickup Time Selection</h5>
+    <%# <p class="time-instruction">Please select the start and end times for food pickup at your restaurant. This information will inform customers about pickup times.</p> %>
+    <p class="time-instruction">Click the 'Publish' button below to display the pickup times on your restaurant page.</p>
+  </div>
+  <div>
+    <%= simple_form_for(@restaurant) do |f| %>
+      <%= f.input :pickup_start,
+                as: :string,
+                input_html: { data: { controller: "datepicker", datepicker_time_value: true } } %>
+      <%= f.input :pickup_end,
+                as: :string,
+                input_html: { data: { controller: "datepicker", datepicker_time_value: true } } %>
+      <%= f.submit :Publish, class: "publish-btn" %>
+    <% end %>
+  </div>
+
+</div>
 
 <%# publish button %>
-<div class="btn">
-<%= link_to 'Go to Home', restaurants_path, class: 'btn-positive mt-3',  data: {turbo_method: :post, turbo_confirm: "Are you sure you want to leave this page without publishing?" } %>
-</div>
-
-
+  <%# <div class="btn"> %>
+    <%#= link_to 'Go to Home', restaurants_path, class: 'btn-positive mt-2',  data: {turbo_method: :post, turbo_confirm: "Are you sure you want to leave this page without publishing?" } %>
+  <%# </div> %>
 </ul>
-<div class="d-flex justify-content-center flex-column">
-<%= link_to "Manage your menu", restaurant_foods_path(@restaurant), class: "btn btn-primary" %>
-<%= link_to "Help Centre", "#", class: "btn btn-primary" %>
-<%= link_to "Notification", restaurant_notification_path(@restaurant), class: "btn btn-primary" %>
+
+
+
+<%# DASHBOARD LINKS %>
+<div class="container dashboard-rest-links">
+  <div class="d-flex justify-content-center flex-column">
+    <div class="mb-1">
+      <%= link_to "Manage your menu", restaurant_foods_path(@restaurant), class: "btn btn-primary" %>
+    </div>
+    <div class="mb-1">
+      <%= link_to "Help Centre", "#", class: "btn btn-primary" %>
+    </div>
+    <div class="mb-1">
+      <%= link_to "Notification", restaurant_notification_path(@restaurant), class: "btn btn-primary" %>
+    </div>
+    <div class="mb-1">
+      <%= link_to "Log out", destroy_restaurant_session_path, data: {turbo_method: :delete}, class: "btn btn-primary" %>
+    </div>
+  </div>
 </div>
-<%= link_to "Log out", destroy_restaurant_session_path, data: {turbo_method: :delete}, class: "btn btn-primary" %>
-<br><br><br>

@@ -3,7 +3,7 @@ h1.text-center {
   margin: 20px 10px;
   letter-spacing: 2px;
   position: relative;
-  bottom: 15px;
+  bottom: 0px;
   left: 10px;
 }
 
@@ -19,7 +19,7 @@ h3.index-head {
   text-align: center;
   margin: 16px 10px;
   letter-spacing: 2px;
-  text-shadow: 2px 2px 2px #326715
+  text-shadow: 2px 2px 2px hwb(99 0% 29%)
 }
 h4.index-list{
   color: $white;
@@ -62,4 +62,40 @@ h4.btn-publish {
   color: #ffffff;
   padding: 5px;
   border-radius: 5px;
+}
+
+h1#your-cart {
+  text-align: center;
+  color: $white;
+  margin: 20px 10px;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 2px #326715;
+}
+
+.empty-cart {
+  color: $orange;
+  font-size: 20px;
+}
+
+.empty-text {
+  text-align: center;
+}
+
+h3.details {
+  margin: 30px;
+}
+
+h3.reviews {
+  margin: 30px;
+}
+
+h6.total {
+  font-size: 24px;
+  color: #FF9800;
+  text-shadow: 2px 2px 2px #15440891;
+}
+
+#total {
+  display: flex;
+  justify-content: space-evenly;
 }

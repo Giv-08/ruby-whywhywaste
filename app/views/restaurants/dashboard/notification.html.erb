@@ -15,7 +15,7 @@
   <% total_price = order.order_lines.sum { |order_line| order_line.food.price * order_line.quantity } %>
   <div class="notification-card mt-3 ">
     <div class="notfication-text">
-      <div class="notification d-flex"><p class="noti date"><p class="noti-orange">Sent on:   </p><%= order.created_at.strftime("%-d %B %Y") %></p></div>
+      <div class="notification d-flex"><p class="noti date"><p class="noti-orange">Placed on:   </p><%= order.created_at.strftime("%-d %B %Y") %></p></div>
       <div class="notification d-flex"><p class="noti customer"><p class="noti-orange">Customer: </p><%= order.user.first_name %>   <%= order.user.last_name %></p></div>
       <div class="notification d-flex"><p class="noti order"><p class="noti-orange">Order status: </p><%= order.status %></p></div>
       <div class="notification d-flex"><p class="noti collection"><p class="noti-orange">Collection time: </p><%= current_restaurant.pickup_start.strftime(" %I:%M%p") %> - <%= current_restaurant.pickup_end.strftime(" %I:%M%p") %></p></div>
