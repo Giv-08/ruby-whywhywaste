@@ -1,15 +1,4 @@
-<div class="nav-top">
-  <%# go-back-icon %>
-  <div class="back"><%= link_to 'javascript:history.back()' do %>
-    <i class="fa-solid fa-angle-left"></i>
-    <% end %>
-  </div>
-  <%# <h1 class="top-text">WHY WHY WASTE</h1> %>
-  <%= image_tag "www-logo.png", alt: "Logo", class: "logo-img" %>  <%# need to add logo %>
-  <%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
-</div>
-
-
+<%= render "shared/top_nav" %>
 <%# RESTAURANT OWNER SIGNED IN %>
 <% if restaurant_signed_in? %>
   <% if current_restaurant == @restaurant %>
@@ -90,8 +79,6 @@
           <div class="show-bestseller">
             <% if food.bestseller? %>
             <div id="best-seller">
-              <%# <i class="fa-solid fa-medal"></i>
-              best seller %>
               best seller
               <i class="fa-solid fa-crown"></i>
             </div>

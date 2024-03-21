@@ -1,0 +1,10 @@
+<div class="nav-top">
+  <% unless current_page?(restaurants_path) %>
+  <div class="back">
+    <%= link_to 'javascript:history.back()' do %>
+      <i class="fa-solid fa-angle-left"></i>
+    <% end %>
+  </div>
+  <% end %>
+  <%= image_tag "www-logo.png", alt: "Logo", class: "logo-img" %>
+</div>
