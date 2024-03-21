@@ -524,5 +524,10 @@ li.cart-text {
 }
 
 #food-quantity {
+  font-size: 17px;
   color: $orange;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 1px orange;
+  display: flex;
+  justify-content: flex-end;
 }
