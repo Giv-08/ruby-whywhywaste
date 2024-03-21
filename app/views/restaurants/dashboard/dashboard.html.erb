@@ -67,7 +67,7 @@
     <%# <p class="time-instruction">Please select the start and end times for food pickup at your restaurant. This information will inform customers about pickup times.</p> %>
     <p class="time-instruction">Click the 'Publish' button below to display the pickup times on your restaurant page.</p>
   </div>
-  <div>
+  <div class="publish-time-form">
     <%= simple_form_for(@restaurant) do |f| %>
       <%= f.input :pickup_start,
                 as: :string,
@@ -75,7 +75,7 @@
       <%= f.input :pickup_end,
                 as: :string,
                 input_html: { data: { controller: "datepicker", datepicker_time_value: true } } %>
-      <%= f.submit :Publish, class: "publish-btn" %>
+      <%= f.submit :Publish, class: "publish-btn publish-time-btn" %>
     <% end %>
   </div>
 </div>
@@ -85,23 +85,3 @@
     <%#= link_to 'Go to Home', restaurants_path, class: 'btn-positive mt-2',  data: {turbo_method: :post, turbo_confirm: "Are you sure you want to leave this page without publishing?" } %>
   <%# </div> %>
 </ul>
-
-<br>
-
-<%# DASHBOARD LINKS %>
-<div class="container dashboard-rest-links">
-  <div class="d-flex justify-content-center flex-column">
-    <div class="mb-1">
-      <%= link_to "Manage your menu", restaurant_foods_path(@restaurant), class: "btn btn-primary" %>
-    </div>
-    <div class="mb-1">
-      <%= link_to "Help Centre", "#", class: "btn btn-primary" %>
-    </div>
-    <div class="mb-1">
-      <%= link_to "Notification", restaurant_notification_path(@restaurant), class: "btn btn-primary" %>
-    </div>
-    <div class="mb-1">
-      <%= link_to "Log out", destroy_restaurant_session_path, data: {turbo_method: :delete}, class: "btn btn-primary" %>
-    </div>
-  </div>
-</div>
