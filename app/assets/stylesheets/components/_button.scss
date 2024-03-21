@@ -130,3 +130,17 @@ div.proceed {
   align-items: flex-end;
   justify-content: space-evenly;
 }
+
+.publish {
+  display: flex;
+  justify-content: center;
+}
+
+.publish-btn-positive {
+  background-color: #f8e0a9;
+  text-decoration: none;
+  color: black;
+  border: 1px solid #ffc107;
+  border-radius: 5px;
+  padding: 10px;
+}
