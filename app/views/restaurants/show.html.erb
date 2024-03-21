@@ -1,4 +1,5 @@
 <%= render "shared/top_nav" %>
+
 <%# RESTAURANT OWNER SIGNED IN %>
 <% if restaurant_signed_in? %>
   <% if current_restaurant == @restaurant %>
@@ -108,7 +109,7 @@
   <% end %>
 <% end %>
 
-<h3 class="text-center"><%= @restaurant.name %>'s details</h3>
+<h3 class="details text-center"><%= @restaurant.name %>'s details</h3>
 <div class="restaurant-info-card">
   <ul>
       <li class="d-flex justify-content-start align-items-baseline"><div class="details">Restaurant name:</div> <%= @restaurant.name %> </li>
@@ -128,17 +129,19 @@
 </div>
 
 
-<h3 class="text-center">All reviews for <%= @restaurant.name %>:</h3>
+<h3 class="reviews text-center">All reviews for <%= @restaurant.name %>:</h3>
   <div class="show-review-card">
     <% if @restaurant.reviews.empty? %>
       <p class="text-center">No reviews available</p>
     <% else %>
       <ul>
+      <div class="content">
         <% @restaurant.reviews.each do |review| %>
-          <li>"<%= review.content %>"</li>
+          <li id="review-content">" <%= review.content %> "</li>
           <li>From: <%= review.user.first_name%> <%= review.user.last_name%></li>
           <hr>
         <% end %>
+        </div>
       </ul>
     <% end %>
   </div>

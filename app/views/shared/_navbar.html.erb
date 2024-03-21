@@ -6,43 +6,76 @@
       <ul class="navbar-nav me-auto mx-3">
         <% if user_signed_in? %>
         <ul class="nav nav-underline">
-          <li class="nav-item">
+          <li class="nav-item position-relative">
             <%= link_to restaurants_path, class: "nav-link px-3" do %>
               <i class="fa-solid fa-house"></i>
             <% end %>
+            <% if current_page?(restaurants_path) %>
+              <div class="position-absolute bottom-0 w-100" style="background: #ff5e0eb5; height: 2px;"></div>
+            <% end  %>
           </li>
-          <li class="nav-item">
+          <li class="nav-item position-relative">
             <%= link_to user_notification_path(current_user), class: "nav-link px-3" do %>
               <i class="fa-solid fa-bell"></i>
             <% end %>
+            <% if current_page?(user_notification_path(current_user)) %>
+              <div class="position-absolute bottom-0 w-100" style="background: #ff5e0eb5; height: 2px;"></div>
+            <% end  %>
           </li>
-          <li class="nav-item">
+          <li class="nav-item position-relative">
             <%= link_to cart_path, class: "nav-link px-3" do %>
               <i class="fa-solid fa-cart-shopping"></i>
             <% end %>
+            <% if current_page?(cart_path) %>
+              <div class="position-absolute bottom-0 w-100" style="background: #ff5e0eb5; height: 2px;"></div>
+            <% end  %>
           </li>
-          <li class="nav-item">
+          <li class="nav-item position-relative">
             <%= link_to users_dashboard_path, class: "nav-link px-3" do %>
               <i class="fa-solid fa-user"></i>
             <% end %>
+            <% if current_page?(users_dashboard_path) %>
+              <div class="position-absolute bottom-0 w-100" style="background: #ff5e0eb5; height: 2px;"></div>
+            <% end  %>
           </li>
         </ul>
         <% elsif restaurant_signed_in?%>
           <ul class="nav nav-underline">
-            <li class="nav-item">
+            <li class="nav-item position-relative">
               <%= link_to restaurants_path, class: "nav-link px-3" do %>
                 <i class="fa-solid fa-house"></i>
               <% end %>
+              <% if current_page?(restaurants_path) %>
+                <div class="position-absolute bottom-0 w-100" style="background: #ff5e0eb5; height: 2px;"></div>
+              <% end  %>
             </li>
-            <li class="nav-item">
+            <li class="nav-item position-relative">
               <%= link_to restaurant_notification_path(current_restaurant), class: "nav-link px-3" do %>
                 <i class="fa-solid fa-bell"></i>
               <% end %>
+              <% if current_page?(restaurant_notification_path(current_restaurant)) %>
+                <div class="position-absolute bottom-0 w-100" style="background: #ff5e0eb5; height: 2px;"></div>
+              <% end  %>
             </li>
+<<<<<<< HEAD
             <li class="nav-item">
+=======
+            <li class="nav-item position-relative">
+              <%= link_to new_restaurant_food_path(current_restaurant), class: "nav-link px-3" do %> <%# change path > new_restaurant_food_path %>
+                <i class="fa-solid fa-plus"></i>
+              <% end %>
+              <% if current_page?(new_restaurant_food_path(current_restaurant)) %>
+                <div class="position-absolute bottom-0 w-100" style="background: #ff5e0eb5; height: 2px;"></div>
+              <% end  %>
+            </li>
+            <li class="nav-item position-relative">
+>>>>>>> master
               <%= link_to restaurants_dashboard_path, class: "nav-link px-3" do %>
                 <i class="fa-solid fa-user"></i>
               <% end %>
+              <% if current_page?(restaurants_dashboard_path) %>
+                <div class="position-absolute bottom-0 w-100" style="background: #ff5e0eb5; height: 2px;"></div>
+              <% end  %>
             </li>
 
             <li class="nav-item">
