@@ -138,6 +138,7 @@
         <% @restaurant.reviews.each do |review| %>
           <li id="review-content">" <%= review.content %> "</li>
           <li>From: <%= review.user.first_name%> <%= review.user.last_name%></li>
+          <hr>
         <% end %>
         </div>
       </ul>
