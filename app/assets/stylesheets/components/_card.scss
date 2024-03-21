@@ -341,6 +341,9 @@ img#edit-icon {
   margin: 10px;
   border-radius: 8px;
   background-color: #ffffd5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 ul {
@@ -386,6 +389,17 @@ p.text {
 p.text-description {
   margin: 5px 10px;
   font-size: 14px;
+}
+
+#review-content {
+  font-size: 20px;
+  color: #4aab02;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 // my restaurant

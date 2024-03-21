@@ -99,17 +99,15 @@ div.continue {
   margin: 0;
 }
 
-// .delete-btn {
-//   position: absolute;
-//   background-color: #F3844C;
-//   top: 0;
-//   left: 10px;
-//   font-size: 10px;
-//   color: $yellow;
-//   padding: 5px;
-//   border-radius: 50%;
-//   letter-spacing: 1px;
-// }
+.delete-btn {
+  position: absolute;
+  top: -8px;
+  left: 6px;
+  font-size: 15px;
+  padding: 5px;
+  border-radius: 50%;
+  letter-spacing: 1px;
+}
 
 a.plus {
   color: $green;

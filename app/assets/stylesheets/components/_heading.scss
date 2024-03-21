@@ -3,7 +3,7 @@ h1.text-center {
   margin: 20px 10px;
   letter-spacing: 2px;
   position: relative;
-  bottom: 15px;
+  bottom: 0px;
   left: 10px;
 }
 
@@ -71,4 +71,12 @@ h1#your-cart {
 
 .empty-text {
   text-align: center;
+}
+
+h3.details {
+  margin: 30px;
+}
+
+h3.reviews {
+  margin: 30px;
 }
