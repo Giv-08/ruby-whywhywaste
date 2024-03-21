@@ -1,20 +1,12 @@
-<div class="nav-top">
-<%# go-back-icon %>
-<div class="back"><%= link_to 'javascript:history.back()' do %>
-<i class="fa-solid fa-angle-left"></i>
-<% end %></div>
-<%= image_tag "www-logo.png", alt: "Logo", class: "logo-img" %>
-<%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
-</div>
-
-<div class="container">
-  <p><strong>checkout</strong></p>
-
-  <p> Total price:  <%= @order.calculate_total_price %></p>
-
-  <p>Payment Options:</p>
-  <button>Cash</button>
-  <% if @order.status == "cart" %>
-    <%= button_to "Checkout Order", checkout_order_path(@order), method: :patch, data: { confirm: "Are you sure you want to checkout this order?" }, class: "btn btn-primary" %>
-  <% end %>
+<%= render "shared/top_nav" %>
+<div class="container mt-3">
+  <h3 class="text-center">Checkout</h3>
+  <div class="restaurant-info-card">
+    <div class=" text-center my-3">Your subtotal is: <%= number_to_currency(@order.calculate_total_price) %></div>
+    <div class="d-flex justify-content-evenly align-items-end">
+        <% if @order.status == "cart" %>
+          <%= button_to "Pay cash in person", checkout_order_path(@order), method: :patch, data: { confirm: "Are you sure you want to checkout this order?" }, class: "btn btn-primary" %>
+        <% end %>
+    </div>
+  </div>
 </div>

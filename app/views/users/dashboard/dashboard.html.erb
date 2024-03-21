@@ -1,10 +1,6 @@
-<div class="nav-top">
-<%# go-back-icon %>
-<div class="back">
-  <%= link_to 'javascript:history.back()' do %>
-    <i class="fa-solid fa-angle-left"></i>
-  <% end %>
-</div>
+
+<%= render "shared/top_nav" %>
+
 <%= image_tag "www-logo.png", alt: "Logo", class: "logo-img" %>
 <%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
 </div>
@@ -60,4 +56,5 @@
       </div>
     </ul>
   </div>
+
 </div>

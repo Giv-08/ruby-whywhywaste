@@ -1,6 +1,22 @@
 .alert {
   position: fixed;
-  bottom: 16px;
-  right: 16px;
+  bottom: 80px;
+  right: 93px;
   z-index: 1000;
+  color: white;
+}
+.notice-btn {
+  border: solid #98af98;
+  background-color: #226522;
+  border-radius: 16px;
+
+}
+.alert-btn{
+  background-color: #e94c3e;
+  border-radius: 30px;
+  border: solid #984c4c;
+}
+
+.delete-item{
+  background-color: blue;
 }
