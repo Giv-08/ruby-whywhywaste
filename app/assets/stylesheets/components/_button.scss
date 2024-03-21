@@ -49,6 +49,7 @@ a.add-cart-btn {
   color: #ffffff;
   padding: 5px;
   border-radius: 5px;
+  letter-spacing: 1px;
 }
 
 .publish-btn {
@@ -100,10 +101,7 @@ div.continue {
 }
 
 .delete-btn {
-  position: absolute;
-  top: -8px;
-  left: 6px;
-  font-size: 15px;
+  font-size: 18px;
   padding: 5px;
   border-radius: 50%;
   letter-spacing: 1px;
@@ -143,4 +141,9 @@ div.proceed {
   border: 1px solid #ffc107;
   border-radius: 5px;
   padding: 10px;
+}
+
+div.delete {
+  display: flex;
+  justify-content: space-between;
 }

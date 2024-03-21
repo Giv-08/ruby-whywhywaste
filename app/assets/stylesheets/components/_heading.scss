@@ -19,7 +19,7 @@ h3.index-head {
   text-align: center;
   margin: 30px 10px;
   letter-spacing: 2px;
-  text-shadow: 2px 2px 2px #326715
+  text-shadow: 2px 2px 2px hwb(99 0% 29%)
 }
 
 h3.text-center {
@@ -61,7 +61,7 @@ h1#your-cart {
   color: $white;
   margin: 20px 10px;
   letter-spacing: 2px;
-  text-shadow: 2px 2px 2px #326715
+  text-shadow: 2px 2px 2px #326715;
 }
 
 .empty-cart {
@@ -79,4 +79,15 @@ h3.details {
 
 h3.reviews {
   margin: 30px;
+}
+
+h6.total {
+  font-size: 24px;
+  color: #FF9800;
+  text-shadow: 2px 2px 2px #15440891;
+}
+
+#total {
+  display: flex;
+  justify-content: space-evenly;
 }

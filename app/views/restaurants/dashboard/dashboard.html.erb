@@ -30,7 +30,7 @@
           <%= link_to unpublished_restaurant_food_path(food.restaurant, food), data: { turbo_method: :patch } do %> <%# for published published_restaurant_path %>
           <%# minus icon %>
           <%#= image_tag "https://cdn-icons-png.flaticon.com/512/262/262039.png", width: 20, class: "minus-icon" %>
-          <h4 id="btn-put-back">Put it back</h4>
+          <h4 id="btn-put-back">Unpublish</h4>
           <% end %>
 
             <% if food.photo.attached? %>
