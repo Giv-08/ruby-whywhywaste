@@ -1,12 +1,4 @@
-<div class="nav-top">
-<%# go-back-icon %>
-<div class="back"><%= link_to 'javascript:history.back()' do %>
-<i class="fa-solid fa-angle-left"></i>
-<% end %></div>
-<%= image_tag "www-logo.png", alt: "Logo", class: "logo-img" %>
-<%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
-</div>
-
+<%= render "shared/top_nav" %>
 <h1 class="text-center">Your Cart</h1>
 
 <% if @order.order_lines.empty? %>
@@ -16,6 +8,11 @@
     <ul>
       <% total_price = 0 %>
       <% @order.order_lines.each do |ol| %>
+        <li>
+          <% if ol.food.photo.attached? %>
+            <%= cl_image_tag(ol.food.photo.key, width:200, height:200, class: "object-fit-cover", crop: :fill, gravity: :center) %>
+          <% end %>
+        </li>
         <li><strong>Food Name: </strong><%= ol.food.name %></li>
         <li>
           <strong>Quantity:</strong>
@@ -28,14 +25,13 @@
         <% total_price +=  ol.food.price * ol.quantity %>
         <%= link_to "Delete",
                 order_lines_path(ol),
-                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+                data: {turbo_method: :delete, turbo_confirm: "Do you want to remove this item from cart?"}
               %>
       <% end %>
       <br>
-
       <%= link_to "Proceed to checkout",  order_path(@order) %>
-
     </ul>
+
   </div>
 <% end %>
 

@@ -1,19 +1,11 @@
-<div class="nav-top">
-<%# go-back-icon %>
-<div class="back"><%= link_to 'javascript:history.back()' do %>
-<i class="fa-solid fa-angle-left"></i>
-<% end %></div>
-<%= image_tag "www-logo.png", alt: "Logo", class: "logo-img" %>
-<%#= button_tag "Search", type: :button, onclick: "window.location.href = '#'", class: "button-negative" %>
-</div>
+<%= render "shared/top_nav" %>
+<h2 class= "text-center mt-3">User dashboard</h2>
 
-<h1 class= "text-center mt-5">User dashboard</h1>
-
-<div class="container">
+<div class="container text-center">
   <ul>
     <li><%= link_to "Start shopping", restaurants_path %></li>
     <%#= link_to "Order History", previous_order_path(@order) %>
-    <li><%= link_to "Previous orders", past_orders_path %></li>
+    <li><%= link_to "Previous orders",past_orders_path  %></li>
     <li><%= link_to "Help Center", "#" %></li>
     <li><%= link_to "Log out", destroy_restaurant_session_path, data: {turbo_method: :delete} %></li>
   </ul>
