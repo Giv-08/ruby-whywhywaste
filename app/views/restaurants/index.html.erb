@@ -86,7 +86,7 @@
 <%# SIGNED IN AS USER %>
 
 <%# RESTAURANTS CARDS - random display %>
-<p>Hey <%=current_user.first_name.capitalize %>! Welcome aboard <i class="fa-solid fa-utensils"></i></p>
+<div id="welcome-aboard"><p style="color: #f3844c">Hey <%=current_user.first_name.capitalize %>!</p><p id="hello"> Welcome aboard <i class="fa-solid fa-utensils"></i></p></div>
 <h3 class="index-head">My Favourite Restaurants</h3>
 <!-- Flickity HTML init -->
 <div class="carousel"
@@ -133,7 +133,7 @@
           <p class="user-restaurant-name"><strong><%= restaurant.name %></strong></p>
           <p class="user-restaurant-cuisine"><%= restaurant.cuisine %></p>
           <% if restaurant.pickup_start && restaurant.pickup_end %>
-           <div class="pick-up"> <p class="user-restaurant-pickup"><p style="color: black;">Pickup time: </p><p style="color: #f3844c;"><%= restaurant.pickup_start.strftime(" %I:%M%p")%> to <%= restaurant.pickup_end.strftime(" %I:%M%p")  %></p></div>
+           <div class="pick-up"> <p class="user-restaurant-pickup"><p id="pickup-time" style="color: black;">Pickup time: </p><p style="color: #f3844c;"><%= restaurant.pickup_start.strftime(" %I:%M%p")%></p> <p id="to">to</p> <p style="color: #f3844c;"><%= restaurant.pickup_end.strftime(" %I:%M%p")  %></p></div>
           <% end  %>
           </div>
           <%# cuisine, rating, distance bottom of card image %>

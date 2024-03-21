@@ -1,3 +1,20 @@
+div#welcome-aboard {
+  display: flex;
+  margin-top: 15px;
+  font-size: 1.8rem;
+  gap: 10px;
+  text-shadow: 1px 1px 1px #15440891;
+  justify-content: center;
+}
+
+#hello {
+  color: $white;
+  text-align: center;
+  text-shadow: 1px 1px 1px #15440891;
+  margin-top: 10px;
+  font-size: 1.2rem;
+}
+
 h1.text-center {
   color: #ffffff;
   margin: 20px 10px;

@@ -17,7 +17,7 @@
     <div class="notfication-text">
       <div class="notification d-flex"><p class="noti date"><p class="noti-orange">Placed on:   </p><%= order.created_at.strftime("%-d %B %Y") %></p></div>
       <div class="notification d-flex"><p class="noti customer"><p class="noti-orange">Customer: </p><%= order.user.first_name %>   <%= order.user.last_name %></p></div>
-      <div class="notification d-flex"><p class="noti order"><p class="noti-orange">Order status: </p><%= order.status %></p></div>
+      <div class="notification d-flex"><p class="noti order"><p class="noti-orange">Order status: </p><%= order.status.capitalize %></p></div>
       <div class="notification d-flex"><p class="noti collection"><p class="noti-orange">Collection time: </p><%= current_restaurant.pickup_start.strftime(" %I:%M%p") %> - <%= current_restaurant.pickup_end.strftime(" %I:%M%p") %></p></div>
       <div class="notification d-flex"><p class="noti total"><p class="noti-orange">Total: $ </p><%= number_with_precision(total_price, precision: 2) %></p></div>
       <%# Display all food items for this restaurant in the order %>
