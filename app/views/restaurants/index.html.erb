@@ -73,10 +73,7 @@
           <% end %>
           </div>
           </div>
-
           </div>
-
-
         </div>
       <% end %>
     <% end %>
@@ -88,8 +85,8 @@
 
 <%# SIGNED IN AS USER %>
 
-
 <%# RESTAURANTS CARDS - random display %>
+<p>Hey <%=current_user.first_name.capitalize %>! Welcome aboard <i class="fa-solid fa-utensils"></i></p>
 <h3 class="index-head">My Favourite Restaurants</h3>
 <!-- Flickity HTML init -->
 <div class="carousel"
@@ -117,7 +114,7 @@
 </div>
 
   <%# LIST OF ALL RESTAURANTS %>
-  <h3 class="index-head">List of available Restaurants</h3>
+  <h4 class="index-list">List of available Restaurants</h4>
   <div class="container mx-auto card-container-restaurants">
     <% @other_restaurants.each do |restaurant| %>
       <%# EACH CARD OF RESTUARANT %>

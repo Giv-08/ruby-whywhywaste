@@ -1,10 +1,5 @@
-<div class="nav-top">
-<%# go-back-icon %>
-<div class="back"><%= link_to 'javascript:history.back()' do %>
-<i class="fa-solid fa-angle-left"></i>
-<% end %></div>
-<%= image_tag "www-logo.png", alt: "Logo", class: "logo-img" %>
-</div>
+
+<%= render "shared/top_nav" %>
 
 <h1 id="your-cart">Your Cart</h1>
 <% if @order.order_lines.empty? %>
@@ -14,6 +9,7 @@
     <%= image_tag "https://cdn-icons-png.flaticon.com/512/2038/2038854.png", alt: "empty-cart", class: "empty-cart-icon" %>
   </div>
 <% else %>
+
   <% total_price = 0 %>
   <% @order_sorted.each do |ol| %>
   <div class="cart-item-container">
