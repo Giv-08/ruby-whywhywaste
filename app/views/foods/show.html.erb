@@ -26,9 +26,9 @@
   </ul>
 
   </div>
-  <div class="btn-link" >
+  <div class="add-cart-btn" >
   <% if user_signed_in? %>
-    <%= link_to "add to cart", food_order_lines_path(@food), data: { turbo_method: :post } %>
+    <%= link_to "Add to cart", food_order_lines_path(@food), data: { turbo_method: :post } %>
   <% end %>
 </div>
 </div>

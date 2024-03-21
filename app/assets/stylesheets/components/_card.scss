@@ -218,6 +218,11 @@ div.card.restaurant-foodlist {
   border-radius: 10px;
   margin: 10px;
 }
+
+.pick-up {
+  display: flex;
+}
+
 .details {
   color: $orange;
   font-size: 18px;
@@ -538,6 +543,11 @@ li.cart-text {
   color: black;
   gap: 7px;
   font-size: 18px;
+}
+
+#food-allergen {
+  display: flex;
+  gap: 7px;
 }
 
 .hello.text-center.mt-5 {

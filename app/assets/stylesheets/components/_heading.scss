@@ -41,12 +41,13 @@ h3.text-center {
 
 h3.choose-items {
   font-weight: normal;
-  font-size: 18px;
-  color: $white;
+  font-size: 22px;
+  color: #ffffff;
   text-align: center;
   margin: 6px;
   letter-spacing: 2px;
-  text-shadow: 2px 2px 2px #326715
+  text-shadow: 2px 2px 2px #326715;
+  margin: 25px;
 }
 
 small {
@@ -90,14 +91,15 @@ h3.reviews {
 }
 
 h6.total {
-  font-size: 24px;
-  color: #FF9800;
-  text-shadow: 2px 2px 2px #15440891;
+  font-size: 22px;
+  color: $orange;
+  text-shadow: 1px 1px 1px #15440891;
 }
 
 #total {
   display: flex;
   justify-content: space-evenly;
+  color: $black;
 }
 
 .user-dash {
@@ -105,4 +107,9 @@ h6.total {
   margin: 20px 10px;
   letter-spacing: 2px;
   text-shadow: 2px 2px 2px #326715
+}
+
+.user-restaurant-pickup {
+  letter-spacing: 1px;
+  gap: 5px;
 }

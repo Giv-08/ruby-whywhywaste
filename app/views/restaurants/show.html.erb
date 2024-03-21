@@ -98,7 +98,7 @@
               <div><li id="food-quantity2" style="color: black;"><p style="color: #FF9800;"><%= food.quantity %></p> left</li></div>
             </div>
             <div class="d-flex justify-content-end">
-              <%= link_to "Show full details", food_path(food), class: "add-cart-btn" %>
+              <%= link_to "Details", food_path(food), class: "add-cart-btn" %>
               <%= link_to "Add to cart", food_order_lines_path(food), data: { turbo_method: :post }, class: "add-cart-btn" %>
             </div>
           </div>
@@ -145,4 +145,4 @@
       </ul>
     <% end %>
   </div>
-<br><br><br><br>
+<br>
