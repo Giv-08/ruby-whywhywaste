@@ -1,8 +1,8 @@
-$green: #789D67;
-$yellow: #F9CC63;
-$orange: #F3844C;
+$green: #789d67;
+$yellow: #f9cc63;
+$orange: #f3844c;
 $white: #ffffff;
-$black: #0F0F12;
+$black: #0f0f12;
 $light-yellow: #ffffd5;
 
 .navbar-lewagon {
@@ -17,16 +17,26 @@ $light-yellow: #ffffd5;
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
-#navbar-bottom{
+#navbar-bottom {
   position: fixed;
   bottom: 6px;
   width: 95%;
   height: 67px;
-  z-index: 1;
+  z-index: 10000;
   border-radius: 12px;
   right: 10px;
-  box-shadow:2px 2px 2px #212529;
-
+  box-shadow: 2px 2px 2px #212529;
+  .dropup .dropdown-toggle::after {
+    display: none;
+  }
+  .navbar-nav .dropdown-menu {
+    position: absolute;
+    right: 0;
+    left: auto;
+    border-radius: 5px;
+    background-color: #ffffd5;
+    border-color: #ff5d0e;
+  }
 }
 #navbar-bottom i {
   font-size: 32px;
@@ -34,7 +44,7 @@ $light-yellow: #ffffd5;
 }
 
 .bg-dark-subtle2 {
-  background-color: #FFC107;
+  background-color: #ffc107;
 }
 
 .navbar > .container {

@@ -57,6 +57,9 @@
                 <div class="position-absolute bottom-0 w-100" style="background: #ff5e0eb5; height: 2px;"></div>
               <% end  %>
             </li>
+<<<<<<< HEAD
+            <li class="nav-item">
+=======
             <li class="nav-item position-relative">
               <%= link_to new_restaurant_food_path(current_restaurant), class: "nav-link px-3" do %> <%# change path > new_restaurant_food_path %>
                 <i class="fa-solid fa-plus"></i>
@@ -66,6 +69,7 @@
               <% end  %>
             </li>
             <li class="nav-item position-relative">
+>>>>>>> master
               <%= link_to restaurants_dashboard_path, class: "nav-link px-3" do %>
                 <i class="fa-solid fa-user"></i>
               <% end %>
@@ -73,7 +77,23 @@
                 <div class="position-absolute bottom-0 w-100" style="background: #ff5e0eb5; height: 2px;"></div>
               <% end  %>
             </li>
+
+            <li class="nav-item">
+              <div class="dropup-center dropup">
+                <button type="button" class="nav-link px-3 dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fa-solid fa-bars"></i>
+                </button>
+                <ul class="dropdown-menu">
+                  <%= link_to "Add New Food Item", new_restaurant_food_path(current_restaurant), class: "dropdown-item" %>
+                  <%= link_to "Manage Your Menu", restaurant_foods_path(current_restaurant), class: "dropdown-item" %>
+                  <%= link_to "Help Centre", "#", class: "dropdown-item" %>
+                  <%= link_to "Notification", restaurant_notification_path(current_restaurant), class: "dropdown-item" %>
+                  <%= link_to "Log Out", destroy_restaurant_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+                </ul>
+              </div>
+            </li>
           </ul>
+
         <% else %>
             <li class="nav-item">
               <%= link_to "Login", auth_path, class: "nav-link" %>

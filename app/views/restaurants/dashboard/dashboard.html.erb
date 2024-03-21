@@ -70,7 +70,7 @@
     <%# <p class="time-instruction">Please select the start and end times for food pickup at your restaurant. This information will inform customers about pickup times.</p> %>
     <p class="time-instruction">Click the 'Publish' button below to display the pickup times on your restaurant page.</p>
   </div>
-  <div>
+  <div class="publish-time-form">
     <%= simple_form_for(@restaurant) do |f| %>
       <%= f.input :pickup_start,
                 as: :string,
@@ -78,7 +78,7 @@
       <%= f.input :pickup_end,
                 as: :string,
                 input_html: { data: { controller: "datepicker", datepicker_time_value: true } } %>
-      <%= f.submit :Publish, class: "publish-btn" %>
+      <%= f.submit :Publish, class: "publish-btn publish-time-btn" %>
     <% end %>
   </div>
 
@@ -89,6 +89,8 @@
     <%#= link_to 'Go to Home', restaurants_path, class: 'btn-positive mt-2',  data: {turbo_method: :post, turbo_confirm: "Are you sure you want to leave this page without publishing?" } %>
   <%# </div> %>
 </ul>
+<<<<<<< HEAD
+=======
 
 
 
@@ -109,3 +111,4 @@
     </div>
   </div>
 </div>
+>>>>>>> master
