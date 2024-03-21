@@ -1,0 +1,46 @@
+.food-card-restaurant {
+  .card-product-infos-restaurants {
+    white-space: nowrap;
+  }
+}
+
+.put-back-btn {
+  position: relative;
+  .remove-btn {
+    position: absolute;
+    white-space: nowrap;
+    top: 40px;
+    left: 270px;
+  }
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  .checkbox-info {
+    margin-right: 10px;
+  }
+  .box-check {
+    font-size: 13px;
+    letter-spacing: 0px;
+    margin-bottom: 0rem;
+  }
+}
+
+.text-infos {
+  .food-description {
+    white-space: normal;
+  }
+}
+
+.check-box-fav-food {
+  margin-right: 5px;
+}
+
+.pickup-info {
+  .pickup-select-info {
+    .time-instruction {
+      font-size: 13px;
+    }
+  }
+}
