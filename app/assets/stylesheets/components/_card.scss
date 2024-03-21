@@ -482,3 +482,22 @@ div.card-infos-user {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
+// cart page
+.cart-item-container {
+  list-style: none;
+  font-size: 12px;
+  background-color: #ffffd5;
+  border: 1px solid #d2b763;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 15px;
+}
+
+li.cart-text {
+  gap: 15px;
+}
+
+.cart-text {
+  display: flex;
+  align-items: baseline;
+  }

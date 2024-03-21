@@ -84,8 +84,51 @@ a.add-cart-btn {
   padding: 10px;
 }
 
+.proceed-btn-positive {
+  background-color: #f8e0a9;
+  text-decoration: none;
+  color: black;
+  border: 1px solid #ffc107;
+  border-radius: 5px;
+  padding: 10px;
+}
+
 div.continue {
   display: flex;
   justify-content: center;
-  margin: 5rem;
+  margin: 0;
+}
+
+.delete-btn {
+  position: absolute;
+  background-color: #F3844C;
+  top: 0;
+  left: 95%;
+  font-size: 14px;
+  color: #ffffff;
+  padding: 5px;
+  border-radius: 5px;
+  letter-spacing: 1px;
+}
+
+a.plus {
+  color: $green;
+  margin: 10px;
+}
+
+a.minus {
+  color: $green;
+  margin: 10px;
+}
+
+div.proceed {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.cart-wrap-button {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-evenly;
 }
