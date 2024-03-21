@@ -10,6 +10,12 @@
 <% if restaurant_signed_in? %>
   <%# PUBLISHED FOODS FOR @MY_RESTAURANT %>
   <h3 class="index-head">My Published Menu</h3>
+  <% if @current_restaurant.foods.published.empty? %>
+  <p class="if-menu-empty">No food items that are published at the moment ...</p>
+  <div id="menu-empty">
+  <%= image_tag "https://cdn-icons-png.flaticon.com/512/151/151409.png", alt: "empty-menu", class: "empty-menu-icon" %>
+  </div>
+  <% else %>
   <div class="carousel" data-flickity='{ "wrapAround": true }'>
     <% @current_restaurant.foods.published.each do |food| %>
       <div class="carousel-cell">
@@ -32,6 +38,7 @@
   </div>
   <% end %>
 </div>
+    <% end %>
 <%# ------------------------------------------------------------ %>
   <%# CARDS OF RESTAURANTS %>
   <%# SIGNED-IN RESTAURANT ONLY %>
