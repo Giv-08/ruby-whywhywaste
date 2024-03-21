@@ -21,14 +21,14 @@
       <li>Name: <%= @food.name %></li>
       <li>Price: <%= number_to_currency(@food.price) %></li>
       <li>Description: <%= @food.description %></li>
-      <li>Allergen: <%= @food.allergen%></li>
-      <li>Quantity: <%= @food.quantity %></li>
+      <li id="allergen">Allergen: <p style="color: #f3844c;"><%= @food.allergen%></p></li>
+       <div><li id="qty-left" style="color: black;"><p style="color: #FF9800;"><%= @food.quantity %></p> left</li></div>
   </ul>
 
   </div>
-  <div class="btn-link" >
+  <div class="add-cart-btn" >
   <% if user_signed_in? %>
-    <%= link_to "add to cart", food_order_lines_path(@food), data: { turbo_method: :post } %>
+    <%= link_to "Add to cart", food_order_lines_path(@food), data: { turbo_method: :post }, class: "add-cart-btn-show" %>
   <% end %>
 </div>
 </div>

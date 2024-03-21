@@ -218,6 +218,11 @@ div.card.restaurant-foodlist {
   border-radius: 10px;
   margin: 10px;
 }
+
+.pick-up {
+  display: flex;
+}
+
 .details {
   color: $orange;
   font-size: 18px;
@@ -262,7 +267,7 @@ img.minus-icon {
   left: 2px;
   background-color: #ffc65a;
   padding: 4px;
-  border-radius: 8px;
+  border-radius: 6px;
   color: white;
   font-size: 14px;
   text-shadow: 1px 1px 3px #464646;
@@ -280,7 +285,7 @@ div.mask {
   display: flex;
   flex-direction: column;
   position: relative;
-  top: -18px;
+  top: 0px;
 }
 
 .dashboard-img {
@@ -507,7 +512,13 @@ div.card-infos-user {
   border: 1px solid #d2b763;
   border-radius: 10px;
   margin: 10px;
-  padding: 10px;
+  padding: 5px;
+}
+
+#cart-food-infos {
+  position: relative;
+  top: 10px;
+    right: 5vw;
 }
 
 li.cart-text {
@@ -517,4 +528,57 @@ li.cart-text {
 .cart-text {
   display: flex;
   align-items: baseline;
+}
+
+#food-price {
+  color: $orange;
+  font-size: 18px;
+}
+
+#food-quantity {
+  font-size: 17px;
+  color: $orange;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 1px orange;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#food-quantity2 {
+  display: flex;
+  color: black;
+  gap: 7px;
+  font-size: 18px;
+}
+
+#food-allergen {
+  display: flex;
+  gap: 7px;
+}
+
+.hello.text-center.mt-5 {
+  text-align: center;
+  color: $white;
+  font-size: 18px;
+}
+
+#pickup-time {
+  margin-right: 10px;
+}
+
+#to {
+  margin: 0 5px;
+}
+
+// food/show
+li#allergen {
+  display: flex;
+  gap: 10px;
+}
+
+li#qty-left {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 21px;
 }

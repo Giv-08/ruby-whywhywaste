@@ -1,3 +1,20 @@
+div#welcome-aboard {
+  display: flex;
+  margin-top: 15px;
+  font-size: 1.8rem;
+  gap: 10px;
+  text-shadow: 1px 1px 1px #15440891;
+  justify-content: center;
+}
+
+#hello {
+  color: $white;
+  text-align: center;
+  text-shadow: 1px 1px 1px #15440891;
+  margin-top: 10px;
+  font-size: 1.2rem;
+}
+
 h1.text-center {
   color: #ffffff;
   margin: 20px 10px;
@@ -21,6 +38,15 @@ h3.index-head {
   letter-spacing: 2px;
   text-shadow: 2px 2px 2px hwb(99 0% 29%)
 }
+
+#my-restaurant {
+  color: #ffffff;
+  text-align: center;
+  margin: 45px 5px 30px;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 2px hwb(99 0% 29%);
+}
+
 h4.index-list{
   color: $white;
   text-align: center;
@@ -41,12 +67,13 @@ h3.text-center {
 
 h3.choose-items {
   font-weight: normal;
-  font-size: 18px;
-  color: $white;
+  font-size: 22px;
+  color: #ffffff;
   text-align: center;
   margin: 6px;
   letter-spacing: 2px;
-  text-shadow: 2px 2px 2px #326715
+  text-shadow: 2px 2px 2px #326715;
+  margin: 25px;
 }
 
 small {
@@ -90,12 +117,25 @@ h3.reviews {
 }
 
 h6.total {
-  font-size: 24px;
-  color: #FF9800;
-  text-shadow: 2px 2px 2px #15440891;
+  font-size: 22px;
+  color: $orange;
+  text-shadow: 1px 1px 1px #15440891;
 }
 
 #total {
   display: flex;
   justify-content: space-evenly;
+  color: $black;
+}
+
+.user-dash {
+  color: $white;
+  margin: 20px 10px;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 2px #326715
+}
+
+.user-restaurant-pickup {
+  letter-spacing: 1px;
+  gap: 5px;
 }

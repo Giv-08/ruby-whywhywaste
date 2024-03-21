@@ -60,7 +60,7 @@
               <li id="food-description">Description: <%= food.description%> </li>
                 <%= link_to "Add to cart", food_order_lines_path(food), data: { turbo_method: :post }, class: "add-cart-btn" %>
 
-                <%= link_to "Show full details", food_path(food) %>
+                <%= link_to "Details", food_path(food) %>
             </div>
           </div>
         </div>
@@ -86,7 +86,7 @@
             <% end %>
           </div>
           <% if food.photo.attached? %>
-            <%= cl_image_tag food.photo.key, height: 120, width: 100, crop: :fill, class: "food-img" %>
+            <%= cl_image_tag food.photo.key, height: 140, width: 140, crop: :fill, class: "food-img" %>
           <% else %>
             <img style="width: 150px" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
           <% end %>
@@ -95,10 +95,10 @@
               <li id="food-name"><%= food.name %> </li>
               <li id="food-price"><%= number_to_currency(food.price) %> </li>
               <li id="food-description"><%= food.description %> </li>
-              <li id="food-description">Quantity: <%= food.quantity %> </li>
+              <div><li id="food-quantity2" style="color: black;"><p style="color: #FF9800;"><%= food.quantity %></p> left</li></div>
             </div>
             <div class="d-flex justify-content-end">
-              <%= link_to "Show full details", food_path(food), class: "add-cart-btn" %>
+              <%= link_to "Details", food_path(food), class: "add-cart-btn" %>
               <%= link_to "Add to cart", food_order_lines_path(food), data: { turbo_method: :post }, class: "add-cart-btn" %>
             </div>
           </div>
@@ -145,4 +145,4 @@
       </ul>
     <% end %>
   </div>
-<br><br><br><br>
+<br>
