@@ -500,4 +500,9 @@ li.cart-text {
 .cart-text {
   display: flex;
   align-items: baseline;
-  }
+}
+
+#total {
+  display: flex;
+  justify-content: center;
+}

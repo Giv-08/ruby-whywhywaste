@@ -15,13 +15,13 @@
       </div>
   <% else %>
     <div class="cart-item-container">
-      <ul>
-      <%# add photo %>
         <% total_price = 0 %>
         <% @order.order_lines.each do |ol| %>
+      <ul class="line">
+      <%# add photo %>
         <li>
           <% if ol.food.photo.attached? %>
-            <%= cl_image_tag(ol.food.photo.key, width:40, height:40, class: "cart-food", crop: :fill, gravity: :center) %>
+            <%= cl_image_tag(ol.food.photo.key, width:60, height:60, class: "cart-food", crop: :fill, gravity: :center) %>
           <% end %>
         </li>
           <li class="cart-text"><h6 style="color: #f3844c"><strong>Food Name: </h6></strong><h6 style="color: #789d67"><%= ol.food.name %></h6></li>
@@ -36,15 +36,25 @@
               </li>
           <li class="cart-text"><h6 style="color: #f3844c"><strong>Description: </h6></strong><%= ol.food.description %> </li>
           <li class="cart-text"><h6 style="color: #f3844c"><strong>Price: </h6></strong><%= number_to_currency(ol.food.price * ol.quantity) %></li>
-          <% total_price +=  ol.food.price * ol.quantity %>
+
+
           <%# delete button %>
-          <%= link_to "Delete",
-                  order_lines_path(ol),
-                  data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete?"}, class: "delete-btn"
-                %>
-        <% end %>
+          <%= link_to order_lines_path(ol), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this item?"} do %>
+            <i class="fa-solid fa-trash-can" style="color: #ff0000;"></i>
+          <% end %>
+
+
+          <li id="total"><% number_to_currency(total_price +=  ol.food.price * ol.quantity) %> </li>
       </ul>
+        <% end %>
+        <div id="total">
+          <h6>Total:  <%= number_to_currency(total_price) %></h6>
+        </div>
     </div>
+
+
+
+
   <div class="cart-wrap-button">
     <div class="proceed">
       <%= link_to "Proceed to checkout",  order_path(@order), class: "proceed-btn-positive" %>
