@@ -285,7 +285,7 @@ div.mask {
   display: flex;
   flex-direction: column;
   position: relative;
-  top: -18px;
+  top: 0px;
 }
 
 .dashboard-img {
@@ -512,7 +512,13 @@ div.card-infos-user {
   border: 1px solid #d2b763;
   border-radius: 10px;
   margin: 10px;
-  padding: 10px;
+  padding: 5px;
+}
+
+#cart-food-infos {
+  position: relative;
+  top: 10px;
+    right: 5vw;
 }
 
 li.cart-text {
@@ -562,4 +568,17 @@ li.cart-text {
 
 #to {
   margin: 0 5px;
+}
+
+// food/show
+li#allergen {
+  display: flex;
+  gap: 10px;
+}
+
+li#qty-left {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 21px;
 }
