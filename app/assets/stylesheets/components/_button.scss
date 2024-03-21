@@ -42,13 +42,14 @@ a.add-cart-btn {
 
 #btn-put-back {
   position: absolute;
-  background-color: #f3844c;
+  background-color: #F3844C;
   top: 0;
   left: 84%;
   font-size: 11px;
   color: #ffffff;
   padding: 5px;
   border-radius: 5px;
+  letter-spacing: 1px;
 }
 
 .publish-btn {
@@ -56,14 +57,13 @@ a.add-cart-btn {
   background-color: #f8e0a9;
   text-decoration: none;
   color: black;
-  border: 1px solid #ffc107;
+  border: 1px solid #FFC107;
   border-radius: 5px;
 }
 
 .btn-primary {
   background-color: #f3844c;
   border-color: transparent;
-  border-radius: 5px;
 }
 
 .btn-home {
@@ -74,4 +74,76 @@ a.add-cart-btn {
   border-radius: 8px;
   padding: 5px 10px;
   color: black;
+}
+
+.continue-btn-positive {
+  background-color: #f8e0a9;
+  text-decoration: none;
+  color: black;
+  border: 1px solid #ffc107;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.proceed-btn-positive {
+  background-color: #f8e0a9;
+  text-decoration: none;
+  color: black;
+  border: 1px solid #ffc107;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+div.continue {
+  display: flex;
+  justify-content: center;
+  margin: 0;
+}
+
+.delete-btn {
+  font-size: 18px;
+  padding: 5px;
+  border-radius: 50%;
+  letter-spacing: 1px;
+}
+
+a.plus {
+  color: $green;
+  margin: 10px;
+}
+
+a.minus {
+  color: $green;
+  margin: 10px;
+}
+
+div.proceed {
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.cart-wrap-button {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-evenly;
+}
+
+.publish {
+  display: flex;
+  justify-content: center;
+}
+
+.publish-btn-positive {
+  background-color: #f8e0a9;
+  text-decoration: none;
+  color: black;
+  border: 1px solid #ffc107;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+div.delete {
+  display: flex;
+  justify-content: space-between;
 }

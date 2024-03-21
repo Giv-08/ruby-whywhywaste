@@ -4,7 +4,7 @@ class FoodsController < ApplicationController
     if current_restaurant.present?
       @unpublished_foods = Food.where(published: false)
       @my_restaurant = current_restaurant
-      @foods = @my_restaurant.foods
+      @foods = @unpublished_foods
     elsif user_signed_in?
       @restaurant = Restaurant.find(params[:restaurant_id])
       @foods = @restaurant.foods.where(published: true)
@@ -45,7 +45,7 @@ class FoodsController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
     @food = Food.find(params[:id])
     @food.update(published: true)
-    redirect_to restaurants_dashboard_path
+    redirect_to foods_path
   end
 
   def unpublished

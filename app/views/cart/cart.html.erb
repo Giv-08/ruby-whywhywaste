@@ -6,40 +6,55 @@
 <%= image_tag "www-logo.png", alt: "Logo", class: "logo-img" %>
 </div>
 
-<h1 class="text-center">Your Cart</h1>
-
+<h1 id="your-cart">Your Cart</h1>
 <% if @order.order_lines.empty? %>
-  <p>Your cart is currently empty...</p>
+  <p class="empty-cart text-center">Your cart is currently empty...</p>
+  <p class="empty-text">You must add some products to your cart before checking out</p>
+  <div class="cart">
+    <%= image_tag "https://cdn-icons-png.flaticon.com/512/2038/2038854.png", alt: "empty-cart", class: "empty-cart-icon" %>
+  </div>
 <% else %>
-  <div class="container">
-    <ul>
-      <% total_price = 0 %>
-      <% @order.order_lines.each do |ol| %>
-        <li><strong>Food Name: </strong><%= ol.food.name %></li>
-        <li>
-          <% if ol.food.photo.attached? %>
-            <%= cl_image_tag ol.food.photo.key, height: 120, width: 100, crop: :fill, class: "food-img" %>
-          <% end %>
-        </li>
-        <li>
-          <strong>Quantity:</strong>
-          <%= link_to "-", order_lines_reduce_path(:id => ol), method: :post %>
-          <%= ol.quantity %> <%= link_to "+", order_lines_add_path(:id => ol), method: :post %>
-          </li>
-        <li><strong>Description: </strong><%= ol.food.description %> </li>
-        <li><strong>Price: </strong><%= number_to_currency(ol.food.price * ol.quantity) %></li>
-        <% total_price +=  ol.food.price * ol.quantity %>
-        <%= link_to "Delete",
-                order_lines_path(ol),
-                data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-              %>
+  <% total_price = 0 %>
+  <% @order_sorted.each do |ol| %>
+  <div class="cart-item-container">
+  <ul>
+    <li>
+      <% if ol.food.photo.attached? %>
+        <%= cl_image_tag(ol.food.photo.key, width:70, height:70, class: "cart-food", crop: :fill, gravity: :center) %>
       <% end %>
-      <br>
-
-      <%= link_to "Proceed to checkout",  order_path(@order) %>
-
-    </ul>
+    </li>
+    <li class="cart-text"><h6 style="color: #f3844c"><strong>Food Name: </h6></strong><h6 style="color: #789d67"><%= ol.food.name %></h6></li>
+    <li class="cart-text"><h6 style="color: #f3844c">
+      <strong>Quantity: </h6></strong>
+      <%= link_to order_lines_reduce_path(:id => ol), class: "minus", method: :post do %>
+        <i class="fa-solid fa-minus"></i>
+      <% end %>
+      <%= ol.quantity %> <%= link_to order_lines_add_path(:id => ol), class: "plus", method: :post do %>
+        <i class="fa-solid fa-plus"></i>
+      <% end %>
+    </li>
+    <li class="cart-text"><h6 style="color: #f3844c"><strong>Description: </h6></strong><%= ol.food.description %> </li>
+      <div class="delete">
+    <li class="cart-text"><h6 style="color: #f3844c"><strong>Price: </h6></strong><%= number_to_currency(ol.food.price * ol.quantity) %></li>
+        <%= link_to order_lines_path(ol), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this item?"}, class: "delete-btn" do %>
+          <i class="fa-solid fa-trash-can" style="color: #ff0000;"></i>
+        <% end %>
+      </div>
+    <% number_to_currency(total_price +=  ol.food.price * ol.quantity) %>
+  </ul>
   </div>
 <% end %>
 
-<%= link_to "Continue shopping", restaurants_path %>
+<div id="total">
+  <h6 class="total">Total price:  </h6><h6 class="total" style="color: #96f960"><%= number_to_currency(total_price) %></h6>
+</div>
+
+<div class="cart-wrap-button">
+  <div class="proceed">
+    <%= link_to "Proceed to checkout",  order_path(@order), class: "proceed-btn-positive" %>
+    <% end %>
+  </div>
+  <div class="continue">
+    <%= link_to "Continue shopping", restaurants_path, class: "continue-btn-positive" %>
+  </div>
+</div>

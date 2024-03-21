@@ -246,6 +246,7 @@ img.minus-icon {
   flex-wrap: wrap;
   justify-content: space-between;
   margin-left: 10px;
+  padding-right: 5px;
 }
 
 .card-food-index {
@@ -305,15 +306,21 @@ div.mask {
   font-size: 20px;
 }
 
-i.fa-regular.fa-eye {
+i.fa-solid.fa-eye {
   font-size: 15px;
+  position: relative;
+  right: 130px;
+  top: 6px;
 }
 
-div.card-footer.text-center {
-  // position: relative;
-  // bottom: 35px;
-  // left: 100px;
+i.fa-solid.fa-trash-can {
+
 }
+// div.card-footer.text-center {
+//   position: relative;
+//   bottom: 35px;
+//   left: 100px;
+// }
 
 li#food-name {
   font-weight: 900;
@@ -337,6 +344,9 @@ img#edit-icon {
   margin: 10px;
   border-radius: 8px;
   background-color: #ffffd5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 ul {
@@ -382,6 +392,17 @@ p.text {
 p.text-description {
   margin: 5px 10px;
   font-size: 14px;
+}
+
+#review-content {
+  font-size: 20px;
+  color: #4aab02;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 // my restaurant
@@ -477,4 +498,23 @@ div.card-infos-user {
   height: 170px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+}
+// cart page
+.cart-item-container {
+  list-style: none;
+  font-size: 12px;
+  background-color: #ffffd5;
+  border: 1px solid #d2b763;
+  border-radius: 10px;
+  margin: 10px;
+  padding: 10px;
+}
+
+li.cart-text {
+  gap: 15px;
+}
+
+.cart-text {
+  display: flex;
+  align-items: baseline;
 }
