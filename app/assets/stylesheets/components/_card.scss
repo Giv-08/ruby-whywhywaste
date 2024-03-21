@@ -262,7 +262,7 @@ img.minus-icon {
   left: 2px;
   background-color: #ffc65a;
   padding: 4px;
-  border-radius: 8px;
+  border-radius: 6px;
   color: white;
   font-size: 14px;
   text-shadow: 1px 1px 3px #464646;
@@ -521,6 +521,7 @@ li.cart-text {
 
 #food-price {
   color: $orange;
+  font-size: 18px;
 }
 
 #food-quantity {
@@ -530,4 +531,17 @@ li.cart-text {
   text-shadow: 1px 1px 1px orange;
   display: flex;
   justify-content: flex-end;
+}
+
+#food-quantity2 {
+  display: flex;
+  color: black;
+  gap: 7px;
+  font-size: 18px;
+}
+
+.hello.text-center.mt-5 {
+  text-align: center;
+  color: $white;
+  font-size: 18px;
 }
