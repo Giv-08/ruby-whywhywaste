@@ -27,40 +27,40 @@ restaurant = Restaurant.new(
 )
 restaurant.save
 
-restaurant2 = Restaurant.new(
-  name: "Magic momo",
-  cuisine: "Nepalese",
-  address: "West Footscray",
-  phone_no: "444466666",
-  email: "magic@gmail.com",
-  rating: "5",
-  pickup_start: "2024-03-12 08:25:00",
-  pickup_end: "2024-03-12 09:25:00",
-  password: "magic@gmail.com"
-)
-restaurant2.save
+# restaurant2 = Restaurant.new(
+#   name: "Magic momo",
+#   cuisine: "Nepalese",
+#   address: "West Footscray",
+#   phone_no: "444466666",
+#   email: "magic@gmail.com",
+#   rating: "5",
+#   pickup_start: "2024-03-12 08:25:00",
+#   pickup_end: "2024-03-12 09:25:00",
+#   password: "magic@gmail.com"
+# )
+# restaurant2.save
 
-restaurant3 = Restaurant.new(
-  name: "Bon Bon bakery",
-  cuisine: "Pasteries",
-  address: "Richmond, melbourne",
-  phone_no: "444466666",
-  email: "bonbon@gmail.com",
-  rating: "5",
-  pickup_start: "2024-03-12 08:25:00",
-  pickup_end: "2024-03-12 09:25:00",
-  password: "bonbon@gmail.com"
-)
-restaurant3.save
+# restaurant3 = Restaurant.new(
+#   name: "Bon Bon bakery",
+#   cuisine: "Pasteries",
+#   address: "Richmond, melbourne",
+#   phone_no: "444466666",
+#   email: "bonbon@gmail.com",
+#   rating: "5",
+#   pickup_start: "2024-03-12 08:25:00",
+#   pickup_end: "2024-03-12 09:25:00",
+#   password: "bonbon@gmail.com"
+# )
+# restaurant3.save
 
-Food.create!(
-  name: 'Burger',
-  price: 20.33,
-  description: "Burger with beef patty",
-  quantity: 20,
-  restaurant: restaurant,
-  published: true
-)
+# Food.create!(
+#   name: 'Burger',
+#   price: 20.33,
+#   description: "Burger with beef patty",
+#   quantity: 20,
+#   restaurant: restaurant,
+#   published: true
+# )
 
 Food.create!(
   name: 'Pasta',
