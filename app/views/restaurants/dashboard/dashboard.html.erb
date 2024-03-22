@@ -44,7 +44,7 @@
             <% if food.photo.attached? %>
               <%= cl_image_tag food.photo.key, height: 80, width: 80, crop: :fill, class: "dashboard-img ml-1"%>
             <% else %>
-              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" style="width: 80; height: 80px;" />
             <% end %>
             <div class="text-infos">
               <li id="food-name"><%= food.name %> </li>
