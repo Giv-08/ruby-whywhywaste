@@ -7,7 +7,7 @@
       <% @orders.each do |order| %>
         <div class="card mb-3 previous-order-card">
           <div class="card-header">
-            <%= link_to "Order #{order.id} : #{ordinalize(order.created_at.day)} #{order.created_at.strftime("%B %Y")}", order_path(order) %>
+            <%= link_to "Order #{order.id} : #{ordinalize(Date.today.day)} #{Date.today.strftime("%B %Y")}", order_path(order) %>
           </div>
           <div class="card-body previous-card-body">
             <% if order.restaurant %>
