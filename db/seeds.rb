@@ -67,7 +67,7 @@ Food.create!(
   price: 25.00,
   description: "Spaghetti Bolognese",
   quantity: 10,
-  restaurant: restaurant2
+  restaurant: restaurant
 )
 
 user1 = User.new(
