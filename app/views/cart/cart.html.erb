@@ -42,7 +42,7 @@
 <% end %>
 
 <div id="total">
-  <h6 class="total">Total price:  </h6><h6 class="total" style="color: #96f960"><%= number_to_currency(total_price) %></h6>
+  <h6 class="total">Total price:  </h6><h6 class="total" style="color: #f3844c"><%= number_to_currency(total_price) %></h6>
 </div>
 
 <div class="cart-wrap-button">
@@ -51,7 +51,11 @@
     <% end %>
   </div>
   <div class="continue">
-    <%= link_to "Continue shopping", restaurant_path(@order.restaurant), class: "continue-btn-positive" %>
+    <% if @order.restaurant %>
+      <%= link_to "Continue shopping", restaurant_path(@order.restaurant), class:"continue-btn-positive" %>
+    <% else %>
+      <%= link_to "Continue shopping", restaurants_path, class: "continue-btn-positive" %>
+    <% end %>
   </div>
 </div>
 <br><br>
