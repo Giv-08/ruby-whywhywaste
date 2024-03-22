@@ -51,16 +51,12 @@
     <% end %>
   </div>
   <div class="continue">
-    <% if @order.restaurant %>
-      <%= link_to "Continue shopping", restaurant_path(@order.restaurant), class: "continue-btn-positive" %>
-    <% else %>
-      <%= link_to "Continue shopping", restaurants_path, class: "continue-btn-positive" %>
-    <% end %>
-    <% if @order.restaurant %>
-      <%= link_to "Continue shopping", restaurant_path(@order.restaurant), class:"continue-btn-positive" %>
-    <% else %>
-      <%= link_to "Continue shopping", restaurants_path, class: "continue-btn-positive" %>
-    <% end %>
+
+  <% if @order.restaurant %>
+    <%= link_to "Continue shopping", restaurant_path(@order.restaurant), class: "continue-btn-positive" %>
+  <% else %>
+  <%= link_to "Continue shopping", restaurants_path, class: "continue-btn-positive" %>
+  <% end %>
   </div>
 </div>
 <br><br>
