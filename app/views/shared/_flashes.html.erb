@@ -1,18 +1,12 @@
 <% if notice %>
-
-
   <div data-controller="alert" data-alert-target="flash" class="alert alert-info alert-dismissible fade show m-1 notice-btn" role="alert">
-
-
     <%= notice %>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
     </button>
   </div>
 <% end %>
 <% if alert %>
-
   <div data-controller="alert" data-alert-target="flash" class="alert alert-warning alert-dismissible fade show m-1 alert-btn" role="alert">
-
     <%= alert %>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
     </button>

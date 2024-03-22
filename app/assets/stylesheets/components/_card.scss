@@ -21,6 +21,12 @@ $light-yellow: #ffffd5;
   box-sizing: border-box;
 }
 
+.if-menu-empty {
+  text-align: center;
+  font-size: 1rem;
+  color: black;
+  margin-top: 40px;
+}
 .carousel {
   background: transparent;
 }
@@ -581,4 +587,9 @@ li#qty-left {
   justify-content: center;
   gap: 10px;
   font-size: 21px;
+}
+
+div#menu-empty {
+  display: flex;
+  justify-content: center;
 }
