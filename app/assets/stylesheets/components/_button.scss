@@ -57,12 +57,22 @@ a.add-cart-btn {
 }
 
 .publish-btn {
-  width: 190px;
-  background-color: #f8e0a9;
-  text-decoration: none;
-  color: black;
-  border: 1px solid #FFC107;
+  // width: 190px;
+  // background-color: #f8e0a9;
+  // text-decoration: none;
+  // color: black;
+  // border: 1px solid #FFC107;
+  // border-radius: 5px;
+  // position: absolute;
+  border: none;
+  background-color: #F3844C;
+  top: 0;
+  left: 84%;
+  font-size: 11px;
+  color: #ffffff;
+  padding: 5px;
   border-radius: 5px;
+  letter-spacing: 1px;
 }
 
 .btn-primary {
