@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
 
   def past
     # paid status of orders
-    @orders = current_user.orders.where(status: "paid").order(updated_at: :desc )
+    @orders = current_user.orders.where(status: "paid").order(updated_at: :desc)
   end
 
 end
